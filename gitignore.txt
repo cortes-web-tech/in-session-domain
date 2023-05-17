@@ -1,0 +1,4 @@
+I added a .gitignore to hide some files.
+Most notably:
+	db_conn.php
+	- Used to configure db onnection between Linux/Apache2/MySQL/PHP
