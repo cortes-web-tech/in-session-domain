@@ -22,8 +22,9 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
       			<input type="file" id="file" name="file">
 		    </form>
 
-
+		    <a href="todo.php">Todo list</br></a>
 			<a href="logout.php">Log out</a>
+			<a href="downloadFile.php">Download File</a>
 		</body>
 	</html>
 

@@ -39,6 +39,12 @@ if($_FILES["file"]["error"] !== UPLOAD_ERR_OK){
     exit("Can't move uploaded file.. Try again.");
  }
 /*
+ $downloadFile = readfile($filename, $dest);
+if(!$downloadFile){
+   exit("Can't download file.. try again.");
+}
+
+
  $code = $data["error"];
  if ($code !== UPLOAD_ERR_OK){
   exit("Upload error");
@@ -50,5 +56,5 @@ echo "File uploaded!",
 	"Size: ", $data["size"],
 	"Type: ", $data["type"];
 */
-echo "Successful upload";
+echo "Successful upload</br>";
 ?>
