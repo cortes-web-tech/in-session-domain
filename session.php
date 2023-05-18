@@ -12,11 +12,12 @@ $sql = "SELECT * FROM sessionData;";
  <!DOCTYPE html>
  <html>
  	<head>
- 		<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
  		<title>Session Data</title>
  	</head>
-
  	<body>
+      <a href="homepage.php">Home</br></a>
+		<div class="session_data_table">
  		<table>
  			<tr>
  				<td>Session Title</td>
@@ -24,22 +25,19 @@ $sql = "SELECT * FROM sessionData;";
  				<td>Start Time</td>
  			</tr>
  			<tr>
- 				<?php 
+ 				<?php
    while($row = mysqli_fetch_assoc($results)){
     ?>
-      <td><?php echo $row['title'];?></td>
+      <td id="session_row"><?php echo $row['title'];?></td>
       <td><?php echo $row['room'];?></td>
       <td><?php echo $row['startTime'];?></td>
       </tr>
     <?php
-         	// echo $row['title'] . "  " . $row['room'] . " " . $row['startTime'] . "</br></br>";
    }
 }
  				?>
- 			
+
  		</table>
-
+</div>
  	</body>
-
  </html>
- 
