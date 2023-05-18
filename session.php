@@ -7,7 +7,7 @@ $sql = "SELECT * FROM sessionData;";
 
  if($resultCheck > 0){
 
- echo "Session Data</br></br>";
+ echo "Retrieverd Data from database.</br></br>";
  ?>
  <!DOCTYPE html>
  <html>
@@ -25,19 +25,18 @@ $sql = "SELECT * FROM sessionData;";
  			</tr>
  			<tr>
  				<?php 
- 				$n = 0;
    while($row = mysqli_fetch_assoc($results)){
-   		echo $n . "</br>";
- 
-   		
-   		//echo $sd[$n][0] . " Being presented in: " . $sd[$n][1] . "</br>Starting at: " . $sd[$n][2] . "</br></br>";
-   		$n++;
-
-       	echo $row['title'] . "  " . $row['room'] . " " . $row['startTime'] . "</br></br>";
+    ?>
+      <td><?php echo $row['title'];?></td>
+      <td><?php echo $row['room'];?></td>
+      <td><?php echo $row['startTime'];?></td>
+      </tr>
+    <?php
+         	// echo $row['title'] . "  " . $row['room'] . " " . $row['startTime'] . "</br></br>";
    }
 }
  				?>
- 			</tr>
+ 			
  		</table>
 
  	</body>
