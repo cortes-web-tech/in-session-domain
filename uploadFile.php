@@ -3,11 +3,18 @@
     exit("POST method required to access this page.");
  }
 
-// $finfo = new finfo(FILEINFO_MIME_TYPE);
-// $mime_type = $finfo->file($_FILES["file"]["tmp_name"]);
+/*
+ File type extensions
+ $finfo = new finfo(FILEINFO_MIME_TYPE);
+ $mime_type = $finfo->file($_FILES["file"]["tmp_name"]);
+ echo $mime_type . "</br>";
 
+ // print_r($_FILES);
+ // applcation/zip
+ // application/x-iwork-keynote-sffkey
+ // application/pdf
+*/
 
-// print_r($_FILES);
 if($_FILES["file"]["error"] !== UPLOAD_ERR_OK){
     echo "</br>Error:</br>";
  switch($_FILES["file"]["error"]){
@@ -33,28 +40,19 @@ if($_FILES["file"]["error"] !== UPLOAD_ERR_OK){
 }
 
  $filename = $_FILES["file"]["name"];
-
+ // $filesize = $_FILES["file"]["size"];
+ // $filetype = $_FILES["file"]["type"];
  $dest = __DIR__ . "/uploads/" . $filename;
  if(!move_uploaded_file($_FILES["file"]["tmp_name"], $dest)){
     exit("Can't move uploaded file.. Try again.");
  }
 /*
- $downloadFile = readfile($filename, $dest);
-if(!$downloadFile){
-   exit("Can't download file.. try again.");
-}
-
-
  $code = $data["error"];
  if ($code !== UPLOAD_ERR_OK){
   exit("Upload error");
  }
  $src = $datap["tmp_name"];
 
-
-echo "File uploaded!",
-	"Size: ", $data["size"],
-	"Type: ", $data["type"];
 */
-echo "Successful upload</br>";
+echo "</br>" . $filename . " was successfully upload.</br>";
 ?>
