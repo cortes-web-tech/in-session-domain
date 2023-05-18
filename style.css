@@ -21,3 +21,31 @@ height: 33px;
 text-align:center;
 
 }
+
+.session_data_table {
+width: 100%;
+align: center;
+margin: auto;
+color: #e6faff;
+background-color: #005266;
+border-radius: 20px;
+text-align: center;
+border: 2px solid white;
+}
+
+.session_data_table > table {
+margin: auto;
+padding:20px;
+margin-top: 20px;
+margin-bottom: 20px;
+align: center;
+width: 98%;
+border: 2px solid white;
+color: white;
+border-radius: 10px;
+text-align: center;
+}
+
+.session_data_table > tr {
+background-color: green;
+}
