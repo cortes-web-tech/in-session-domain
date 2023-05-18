@@ -1,4 +1,8 @@
 <?php
+
+session_start();
+include "db_conn.php";
+
  if($_SERVER["REQUEST_METHOD"] !== "POST"){
     exit("POST method required to access this page.");
  }
@@ -47,12 +51,14 @@ if($_FILES["file"]["error"] !== UPLOAD_ERR_OK){
     exit("Can't move uploaded file.. Try again.");
  }
 /*
- $code = $data["error"];
- if ($code !== UPLOAD_ERR_OK){
-  exit("Upload error");
- }
- $src = $datap["tmp_name"];
-
+Need to create database to store files in. Only being stored on server right now.
+$uploadQry = "INSERT into test_file_db('filename') VALUES ('$filename')";
+$result = mysqli_query($conn, $uploadQry);
+$result = 1;
 */
-echo "</br>" . $filename . " was successfully upload.</br>";
+
+// Alerts successful file upload. Redirects to home page.
+ if($_FILES["file"]["error"] === UPLOAD_ERR_OK){
+   echo '<script type="text/JavaScript">alert("File uploaded successfully!");window.location.href="homepage.php";</script>';
+}
 ?>
