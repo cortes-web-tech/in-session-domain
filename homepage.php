@@ -10,12 +10,13 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 			<link rel="stylesheet" type="text/css" href="style.css">
 		</head>
 		<body>
-
-			<h1>Welcome to inSession</h1><p>An open source Presentation Managament solution.</p>
-			<h1>Hello, <?php echo $_SESSION['user_name']; ?></h1> 
+			<h1>Welcome to inSession</h1>
+			<h1>Logged in as, <?php echo $_SESSION['user_name']; ?></h1> 
+			<p>An open source Presentation Managament solution.</p>
+			<?php include("session.php"); ?>
 
 			 <form action="uploadFile.php" method="post" enctype="multipart/form-data">
-
+			 	</br>
       			<label for="file">File upload</label>
       			</br></br>
       			<button>Upload</button>
@@ -24,7 +25,6 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 
 		    <a href="todo.php">Todo list</br></a>
 			<a href="logout.php">Log out</br></a>
-			<a href="session.php">View session data</br></a>
 			<a href="downloadFile.php">Download File</br></a>
 			<div>
 		</body>
@@ -33,7 +33,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 	<?php
 }
 else {
-	header("Location: index.php");
+	
 	exit();
 }
 ?>
