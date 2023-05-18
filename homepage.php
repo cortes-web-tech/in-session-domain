@@ -23,8 +23,10 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 		    </form>
 
 		    <a href="todo.php">Todo list</br></a>
-			<a href="logout.php">Log out</a>
-			<a href="downloadFile.php">Download File</a>
+			<a href="logout.php">Log out</br></a>
+			<a href="session.php">View session data</br></a>
+			<a href="downloadFile.php">Download File</br></a>
+			<div>
 		</body>
 	</html>
 
