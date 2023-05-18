@@ -22,7 +22,7 @@ text-align:center;
 
 }
 
-.session_data_table {
+.session_data_wrapper {
 width: 100%;
 align: center;
 margin: auto;
@@ -33,7 +33,7 @@ text-align: center;
 border: 2px solid white;
 }
 
-.session_data_table > table {
+.session_data_table {
 margin: auto;
 padding:20px;
 margin-top: 20px;
@@ -43,9 +43,18 @@ width: 98%;
 border: 2px solid white;
 color: white;
 border-radius: 10px;
+background-color: #e79fe6;
 text-align: center;
 }
 
-.session_data_table > tr {
-background-color: green;
+.session_data_table tr {
+background-color: #005266;
+color: #33ddff;
+border-radius: 10px;
 }
+
+.session_data_table td {
+border-radius: 6px;
+}
+
+

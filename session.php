@@ -17,20 +17,22 @@ $sql = "SELECT * FROM sessionData;";
  	</head>
  	<body>
       <a href="homepage.php">Home</br></a>
-		<div class="session_data_table">
- 		<table>
+		<div class="session_data_wrapper">
+ 		<table class="session_data_table">
  			<tr>
  				<td>Session Title</td>
  				<td>Session Room</td>
  				<td>Start Time</td>
+				<td>Moderators(s)</td>
  			</tr>
  			<tr>
  				<?php
    while($row = mysqli_fetch_assoc($results)){
     ?>
-      <td id="session_row"><?php echo $row['title'];?></td>
+      <td><?php echo $row['title'];?></td>
       <td><?php echo $row['room'];?></td>
       <td><?php echo $row['startTime'];?></td>
+	<td><?php echo $row['modName'];?></td>
       </tr>
     <?php
    }
