@@ -12,7 +12,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 		<body>
 			<h1>Welcome to inSession</h1>
 			<h1>Logged in as, <?php echo $_SESSION['user_name']; ?></h1> 
-			<p>An open source Presentation Managament solution.</p>
+			<h1>An open source Presentation Managament solution.</h1>
 			<?php include("session.php"); ?>
 
 			 <form action="uploadFile.php" method="post" enctype="multipart/form-data">

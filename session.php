@@ -6,7 +6,7 @@ $sql = "SELECT * FROM sessionData;";
 
 
  if($resultCheck > 0){
-  echo "Data successfully retrieved from database.</br></br>";
+  // echo "Data successfully retrieved from database.</br></br>";
  ?>
  <!DOCTYPE html>
  <html>
@@ -15,13 +15,14 @@ $sql = "SELECT * FROM sessionData;";
  		<title>Session Data</title>
  	</head>
  	<body>
+    <h2> Data from database</h2>
 		<div class="session_data_wrapper">
  		<table class="session_data_table">
  			<tr>
- 				<td>Session Title</td>
- 				<td>Session Room</td>
- 				<td>Start Time</td>
-				<td>Moderators(s)</td>
+ 				<td><h4>Session Title</h4></td>
+ 				<td><h4>Session Room</h4> </td>
+ 				<td><h4>Start Time</h4></td>
+				<td><h4>Moderators(s)</h4></td>
  			</tr>
  			<tr>
  				<?php
