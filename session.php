@@ -30,7 +30,10 @@ $sql = "SELECT * FROM sessionData;";
     ?>
       <td><?php echo $row['title'];?></td>
       <td><?php echo $row['room'];?></td>
-      <td><?php echo $row['startTime'];?></td>
+      <td><?php $date = $row['startTime'];
+		$tmpDate = strtotime($date);
+		$date = date("l, m/d h:i a", $tmpDate);
+		echo $date;?></td>
 	<td><?php echo $row['modName'];?></td>
       </tr>
     <?php
