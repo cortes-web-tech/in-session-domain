@@ -1,59 +1,42 @@
 <?php
+	session_start();
+	include "db_conn.php";
 
-session_start();
-include "db_conn.php";
-
-
-
-if(isset($_POST['uname']) && isset($_POST['password'])) {
-	function validate($data){
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
+	if(isset($_POST['uname']) && isset($_POST['password'])) {
+		function validate($data){
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
+		}	
 	}
-	
-}
 
-$uname = validate($_POST['uname']);
-$pass = validate($_POST['password']);
+	$uname = validate($_POST['uname']);
+	$pass = validate($_POST['password']);
 
-if(empty($uname)){
-	header("Location: index.php?error=User Name is required");
-	exit();
-} else if(empty($pass)){
-	header("Location: index.php?error=Password is required");
-	exit();
-}
-
-$sql = "SELECT * FROM test_users WHERE user_name='$uname' AND password='$pass';";
-$result = mysqli_query($conn, $sql);
-
-
-if(mysqli_num_rows($result) === 1){
-	$row = mysqli_fetch_assoc($result);
-	if($row['user_name'] === $uname && $row['password'] === $pass){
-		echo "Logged in!";
-		$_SESSION['user_name'] = $row['user_name'];
-		$_SESSION['name'] = $row['name'];
-		$_SESSION['id'] = $row['id'];
-		$_SESSION['user_tier'] = $row['user_tier'];
-		header("Location: homepage.php");
+	if(empty($uname)){
+		header("Location: index.php?error=User Name is required");
 		exit();
-	}
-}
-/*
-	else{
-		echo "huh?";
-		header("Location: index.php?error='Incorrect User name or password'");
+	} else if(empty($pass)){
+		header("Location: index.php?error=Password is required");
 		exit();
 	}
 
-	else{
-		header("Location: index.php");
-		exit();
+	$sql = "SELECT * FROM test_users WHERE user_name='$uname' AND password='$pass';";
+	$result = mysqli_query($conn, $sql);
+	if(mysqli_num_rows($result) === 1){
+		$row = mysqli_fetch_assoc($result);
+		if($row['user_name'] === $uname && $row['password'] === $pass){
+			echo "Logged in!";
+			$_SESSION['user_name'] = $row['user_name'];
+			$_SESSION['name'] = $row['name'];
+			$_SESSION['id'] = $row['id'];
+			$_SESSION['user_tier'] = $row['user_tier'];
+			header("Location: homepage.php");
+			exit();
+		}
+	}else{
+			header("Location: index.php?error=Incorrect User name or password");
+			exit();
 	}
-}
-*/
-
 ?>
