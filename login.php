@@ -37,7 +37,7 @@ if(mysqli_num_rows($result) === 1){
 		$_SESSION['user_name'] = $row['user_name'];
 		$_SESSION['name'] = $row['name'];
 		$_SESSION['id'] = $row['id'];
-		echo "</br>Still good here 1";
+		$_SESSION['user_tier'] = $row['user_tier'];
 		header("Location: homepage.php");
 		exit();
 	}
