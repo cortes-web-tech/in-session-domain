@@ -6,16 +6,16 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 		function get_user_tier($usertier){
 			switch ($usertier) {
 				case "0":
-					$usertier = "Presenter";
+					$usertier = "homepage_" . "presenter" . ".php";
 					break;
 				case "1":
-					$usertier = "Moderator";
+					$usertier = "homepage_" . "moderator" . ".php";
 					break;
 				case "2":
 					$usertier = "Client";
 					break;
 				case "3":
-					$usertier = "Admin";
+					$usertier = "homepage_" . "admin" . ".php";
 					break;
 				case "4":
 					$usertier = "Superadmin";
@@ -38,8 +38,6 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 				Welcome to inSession.</br>
 				An open source Presentation Managament solution.
 			</div>
-
-			<div>User tier: <?php echo get_user_tier($_SESSION['user_tier']); ?></div>
 			<nav class="navbar">
 				<ul class="leftnav">
 					<li><a href="">Home</a></li>
@@ -51,13 +49,16 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 					<li><a href="logout.php">Logout</a></li>
 				</ul>
 			</nav>
-			<?php include("session.php");?>
-				<form action="uploadFile.php" method="post" enctype="multipart/form-data">
-			 		</br>
-	      			<label for="file">File upload</label>
-	      			</br></br>
-	      			<button>Upload</button>
-	      			<input type="file" id="file" name="file">
+			<?php 
+				include(get_user_tier($_SESSION['user_tier']));
+			?>
+				
+			<form action="uploadFile.php" method="post" enctype="multipart/form-data">
+			 	</br>
+	      		<label for="file">File upload</label>
+	   			</br></br>
+				<button>Upload</button>
+	 			<input type="file" id="file" name="file">
 		    </form>
 
 		    <a href="todo.php">Todo list</br></a>
