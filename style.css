@@ -71,14 +71,26 @@ a:hover{
 }
 
 .navbar {
-	height: 12%;
+	margin-top:10px;
+	margin-bottom: 10px;
+	height: 30px;
 	flex: 1;
+	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
 
-nav {
-	text-align: right;
+.navbar .leftnav {
+	display: flex;
+
 }
+
+.navbar .searchbar {
+	width: 40%;
+	height: 50%;
+	size: 30px;
+}
+
 nav ul{
 	display: inline-block;
 }
@@ -89,5 +101,5 @@ nav li {
 	list-style: none;	
 	text-decoration: none;
 	color: #33ddff;
-	margin: 0 3em;
+	margin: 0 1em;
 }

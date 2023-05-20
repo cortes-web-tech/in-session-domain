@@ -26,7 +26,6 @@ $sql = "SELECT * FROM sessionData;";
  		<title>Session Data</title>
  	</head>
  	<body>
-    <h2> Data from database</h2>
 		<div class="session_data_wrapper">
  		<table class="session_data_table">
  			<tr>
