@@ -1,68 +1,73 @@
 
 body{
-background-color: #1b7add;
+	background-color: #1b7add;
 }
 
 #welcome{
-background-color: #3898ec;
-height: 30px;
-text-align: center;
-margin: 0px;
-color: #33ddff;
-font-size: 30px;
-height: 3em;
-padding-top: 10px;
-padding-bottom: 10px;
-width: 100%;
-border-radius: 80px;
+	background-color: #3898ec;
+	height: 30px;
+	text-align: center;
+	margin: 0px;
+	color: #33ddff;
+	font-size: 30px;
+	height: 3em;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	border-radius: 80px;
 }
 
 
 h4{
-text-align: center;
-padding: 5px;
-font-size: 24px;
+	text-align: center;
+	padding: 5px;
+	font-size: 24px;
 }
 
 .session_data_wrapper {
 	align-content: center;
-width: 100%;
-margin: auto;
-color: #e6faff;
-background-color: #3898ec;
-border-radius: 20px;
-text-align: center;
-border: 2px solid white;
+	width: 100%;
+	margin: auto;
+	color: #e6faff;
+	background-color: #3898ec;
+	border-radius: 20px;
+	text-align: center;
+	border: 2px solid white;
 }
 
 .session_data_table {
-align-content: center;
-margin: auto;
-padding:20px;
-margin-top: 20px;
-margin-bottom: 20px;
-width: 98%;
-border: 2px solid white;
-color: white;
-border-radius: 10px;
-background-color: #ffffff;;
-text-align: center;
+	align-content: center;
+	margin: auto;
+	padding:20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 98%;
+	border: 2px solid white;
+	color: white;
+	border-radius: 10px;
+	background-color: #ffffff;;
+	text-align: center;
 }
 
 .session_data_table tr {
-background-color: #1b7add;
-color: #33ddff;
-border-radius: 10px;
+	background-color: #1b7add;
+	color: #33ddff;
+	border-radius: 10px;
 }
 
 .session_data_table td {
-border-radius: 6px;
-padding: 8px;
+	border-radius: 6px;
+	padding: 8px;
 }
 
 a {
 /*color: #005266;*/
+	color: #33ddff;
+	text-underline-offset: 3px;
+}
 
+a:hover{
+	color: #ff98ec;
 }
 
 .navbar {
@@ -76,23 +81,13 @@ nav {
 }
 nav ul{
 	display: inline-block;
-	justify-content: space-between;
-
 }
 
-
 nav li {
-
+	justify-content: space-between;
 	display: inline-block;
 	list-style: none;	
 	text-decoration: none;
 	color: #33ddff;
-}
-
-nav li a {
-	color: #33ddff;
-}
-
-nav li a:hover{
-	color: #ff98ec;
+	margin: 0 3em;
 }
