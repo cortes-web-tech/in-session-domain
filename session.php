@@ -41,7 +41,7 @@ $sql = "SELECT * FROM sessionData;";
  				<?php
    while($row = mysqli_fetch_assoc($results)){
     ?>
-      <td><?php echo $row['title'];?></td>
+      <td><a href=""><?php echo $row['title'];?></a></td>
       <td><?php echo $row['room'];?></td>
       <td><?php echo getDay($row['startTime']);?></td>
       <td><?php echo getTime($row['startTime']);?></td>
