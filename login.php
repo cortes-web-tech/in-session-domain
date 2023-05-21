@@ -1,6 +1,14 @@
 <?php
 	session_start();
 	include "db_conn.php";
+	include "functions.php";
+
+	if($_SERVER["REQUEST_METHOD"] !== "POST"){
+		echo "Error. POST method required to access this page.</br>";
+    	exit("Please return to the homepage.");
+    	header("location: index.php");
+	}
+
 
 	if(isset($_POST['uname']) && isset($_POST['password'])) {
 		function validate($data){
@@ -13,6 +21,7 @@
 
 	$uname = validate($_POST['uname']);
 	$pass = validate($_POST['password']);
+	// encrypt_pw($pass)
 
 	if(empty($uname)){
 		header("Location: index.php?error=User Name is required");

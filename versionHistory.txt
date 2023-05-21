@@ -1,0 +1,7 @@
+# v0.001
+# Made website available to public via 24mp.world
+
+# v0.002
+# Started implementing security features
+
+
