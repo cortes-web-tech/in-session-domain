@@ -106,3 +106,13 @@ nav li {
 	color: #33ddff;
 	margin: 0 1em;
 }
+
+
+button {
+	color: #1b7add;
+/*	padding: 30px;*/
+}
+
+.button {
+	color: #1b7add;
+}
