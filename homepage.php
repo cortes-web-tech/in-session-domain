@@ -58,7 +58,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 	      		<label for="file">File upload</label>
 	   			</br></br>
 				<button>Upload</button>
-	 			<input type="file" id="file" name="file">
+	 			<input type="file" id="file" name="file" id="button">
 		    </form>
 
 		    <a href="todo.php">Todo list</br></a>
@@ -66,11 +66,10 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 			<div>
 		</body>
 	</html>
-
 	<?php
 }
 else {
-	
+	header("location: index.php");	
 	exit();
 }
 ?>

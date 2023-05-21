@@ -5,6 +5,11 @@
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
+	<div id="welcome">
+		Welcome to inSession.</br>
+		An open source Presentation Managament solution.
+	</div>
+
 	<form action="login.php" method="post">
 		<h2>Login</h2>
 		<?php if(isset($_GET['error'])){ ?>
@@ -16,7 +21,7 @@
 		<label>Password</label>
 		<input type="password" name="password" placeholder="Password"><br>
 
-		<button type="Log in"></button>
+		<button type="Log in" id="login_button">Log In</button>
 	</form>
 
 </html>
