@@ -14,8 +14,7 @@ if($_FILES["file"]["error"] !== UPLOAD_ERR_OK){
          exit("</br>File partially uploaded. Not complete.");
          break;
       case UPLOAD_ERR_NO_FILE:
-         // echo '<script type="text/JavaScript">alert("Please choose a file");window.location.href="homepage.php";</script>'
-         header("Location: homepage.php?error=No file was chosen. Plesae try again.");
+         header("Location: homepage.php?error=No file was chosen.");
          exit();
          break;
       case UPLOAD_ERR_EXTENSION:
@@ -30,22 +29,23 @@ if($_FILES["file"]["error"] !== UPLOAD_ERR_OK){
       default:
          exit("Unknown upload error");
          break;
-   }
+      }
 }
 
- $filename = $_FILES["file"]["name"];
+$filename = $_FILES["file"]["name"];
  // $filesize = $_FILES["file"]["size"];
  // $filetype = $_FILES["file"]["type"];
- $dest = __DIR__ . "/uploads/" . $filename;
- if(!move_uploaded_file($_FILES["file"]["tmp_name"], $dest)){
-    exit("Can't move uploaded file.. Try again.");
- }
+$dest = __DIR__ . "/uploads/" . $filename;
+if(!move_uploaded_file($_FILES["file"]["tmp_name"], $dest)){
+   exit("Can't move uploaded file.. Try again.");
+}
 
 
 // Alerts successful file upload. Redirects to home page.
- if($_FILES["file"]["error"] === UPLOAD_ERR_OK){
+if($_FILES["file"]["error"] === UPLOAD_ERR_OK){
    echo '<script type="text/JavaScript">alert("File uploaded successfully!");window.location.href="homepage.php";</script>';
-}
+   exit();
+   }
 
 
 /*

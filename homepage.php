@@ -57,6 +57,9 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 			 	</br>
 	      		<label for="file">File upload</label>
 	   			</br></br>
+	   			<?php if(isset($_GET['error'])){ ?>
+					<p class="error"> <?php echo $_GET['error']; ?></p>
+				<?php } ?>	
 				<button>Upload</button>
 	 			<input type="file" id="file" name="file" id="button">
 		    </form>
