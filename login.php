@@ -38,7 +38,7 @@
 			echo "Logged in!";
 			$_SESSION['user_name'] = $row['user_name'];
 			$_SESSION['name'] = $row['name'];
-			$_SESSION['id'] = $row['id'];
+			$_SESSION['user_id'] = $row['user_id'];
 			$_SESSION['user_tier'] = $row['user_tier'];
 			header("Location: homepage.php");
 			exit();

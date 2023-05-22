@@ -2,7 +2,7 @@
 session_start();
 
 	
-if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 		function get_user_tier($usertier){
 			switch ($usertier) {
 				case "0":
