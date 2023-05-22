@@ -1,6 +1,8 @@
 <?php
 include "db_conn.php";
-$sql = "SELECT * FROM sessionData;";
+$tmpName = $_SESSION['user_name'];
+$sql = "SELECT * FROM subsessionData WHERE user_name='$tmpName';";
+$sql2 = "SELECT * FROM sessionData WHERE user_name='$tmpName;";
  $results = mysqli_query($conn, $sql);
  $resultCheck = mysqli_num_rows($results);
 
@@ -31,8 +33,8 @@ $sql = "SELECT * FROM sessionData;";
 		<div class="session_data_wrapper">
  		<table class="session_data_table">
  			<tr>
- 				<td><h4>Session Title</h4></td>
- 				<td><h4>Session Room</h4> </td>
+ 				<td><h4>Subsession Title</h4></td>
+ 				<td><h4>Presenter</h4> </td>
         <td><h4>Day</h4></td>
  				<td><h4>Start Time</h4></td>
         <td><h4>End Time</h4></td>
@@ -42,8 +44,8 @@ $sql = "SELECT * FROM sessionData;";
  				<?php
    while($row = mysqli_fetch_assoc($results)){
     ?>
-      <td><a href=""><?php echo $row['title'];?></a></td>
-      <td><?php echo $row['room'];?></td>
+      <td><a href=""><?php echo $row['subsession_title'];?></a></td>
+      <td><?php echo $row['user_name'];?></td>
       <td><?php echo getDay($row['startTime']);?></td>
       <td><?php echo getTime($row['startTime']);?></td>
       <td><?php echo getTime($row['endTime']);?></td>

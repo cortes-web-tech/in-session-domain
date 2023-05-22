@@ -39,7 +39,7 @@ if(empty($uname)){
 		exit();
 	}
 
-$sql = "SELECT * FROM test_users WHERE user_name='$uname' AND password='$pass';";
+$sql = "SELECT * FROM user_login_table WHERE user_name='$uname' AND password='$pass';";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) === 1){
                 $row = mysqli_fetch_assoc($result);
