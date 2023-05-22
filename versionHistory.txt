@@ -4,4 +4,8 @@
 # v0.002
 # Started implementing security features
 
+# v0.003
+# Disabled site from internet access due to vulnerabilities 
 
+# 0.004
+# Migrated server from local VM to AWS
