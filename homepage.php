@@ -44,7 +44,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 				</ul>
 				<input type="text" placeholder="Search" class="searchbar">
 				<ul class="rightnav">
-					<li>Logged in as, <?php echo $_SESSION['user_name']; ?></li>
+					<li>Logged in as, <?php echo $_SESSION['name']; ?></li>
 					<li><a href="logout.php">Logout</a></li>
 				</ul>
 			</nav>
