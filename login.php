@@ -4,9 +4,8 @@
 	include "functions.php";
 
 	if($_SERVER["REQUEST_METHOD"] !== "POST"){
-		echo "Error. POST method required to access this page.</br>";
-    	exit("Please return to the homepage.");
     	header("location: index.php");
+    	exit();
 	}
 
 

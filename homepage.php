@@ -63,8 +63,6 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 				<button>Upload</button>
 	 			<input type="file" id="file" name="file" id="button">
 		    </form>
-
-		    <a href="todo.php">Todo list</br></a>
 			<a href="downloadFile.php">Download File</br></a>
 			<div>
 		</body>
