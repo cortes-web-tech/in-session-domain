@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-	
-if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 		function get_user_tier($usertier){
 			switch ($usertier) {
 				case "0":
@@ -44,7 +43,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 					<li><a href="">Settings</a></li>
 				</ul>
 				<input type="text" placeholder="Search" class="searchbar">
-				<ul class="rightnav">			
+				<ul class="rightnav">
 					<li>Logged in as, <?php echo $_SESSION['user_name']; ?></li>
 					<li><a href="logout.php">Logout</a></li>
 				</ul>
@@ -52,7 +51,6 @@ if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
 			<?php 
 				include(get_user_tier($_SESSION['user_tier']));
 			?>
-				
 			<form action="uploadFile.php" method="post" enctype="multipart/form-data">
 			 	</br>
 	      		<label for="file">File upload</label>
