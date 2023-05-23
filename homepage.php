@@ -74,7 +74,6 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 				<button>Upload</button>
 	 			<input type="file" id="file" name="file" id="button">
 		    </form>
-			<a href="downloadFile.php?file=uwu.jpg">Download File</br></a>
 			<div>
 		</body>
 	</html>

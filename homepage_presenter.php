@@ -42,8 +42,18 @@ function getTime($dateT){
         <?php
           while($row = mysqli_fetch_assoc($results)){
             ?>
+            
             <?php // get file name 
+              $sub_id = $row['subsession_id'];
+              $sql2 = "SELECT * FROM files WHERE subsession_id=$sub_id;";
+
+              $file_query = mysqli_query($conn, $sql2);
+              if($file_query){
+                $tmpFile = mysqli_fetch_assoc($file_query);
+                $filename = $tmpFile['filename'];
+              }
             ?>
+
               <td><a href="downloadFile.php?file=<?php echo $filename?>"><?php echo $row['subsession_title'];?></a></td>
               <td><?php echo $row['presenter'];?></td>
               <td><?php echo getDay($row['startTime']);?></td>
