@@ -40,9 +40,18 @@ if(!move_uploaded_file($_FILES["file"]["tmp_name"], $dest)){
    exit("Can't move uploaded file.. Try again.");
 }
 
+ $sql = "INSERT INTO `files`(`filepath`, `filename`) VALUES ('./uploads/$filename','$filename');";
+ if(!mysqli_query($conn, $sql)){
+	echo "Error inserting file into database.";	
+}
 
 // Alerts successful file upload. Redirects to home page.
 if($_FILES["file"]["error"] === UPLOAD_ERR_OK){
+
+//   $sql = "INSERT INTO `files`(`filepath`, `filename`) VALUES ('uploads/$filename','$filename');";
+//   if(!mysqli_query($conn, $sql){
+//	echo "error";
+//}
    echo '<script type="text/JavaScript">alert("File uploaded successfully!");window.location.href="homepage.php";</script>';
    exit();
    }
