@@ -41,7 +41,14 @@ function getTime($dateT){
 			<tr>
 			 <?php while ($row = mysqli_fetch_assoc($results)){
 			?>
-				<td><a href=""><?php echo $row['subsession_title'];?></td>
+				<td>
+					<?php
+			
+//			$query = "SELECT * FROM files WHERE filename=$filename";
+//			$run = mysqli_query($conn, $query);
+				?>
+					<a href="download.php"><?php echo $row['subsession_title'];?>
+				</td>
 				<td><?php echo $row['presenter'];?></td>
 				<td><?php echo getDay($row['startTime']);?></td>
 				<td><?php echo getTime($row['startTime']);?></td>
