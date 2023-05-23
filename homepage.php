@@ -1,5 +1,13 @@
 <?php
+date_default_timezone_set('America/New_York');
 session_start();
+include "functions.php";
+
+function getCurrentTime($dateT){
+    $dateT = date("  h:i a", $dateT);
+    return $dateT;
+  }
+
 
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 		function get_user_tier($usertier){
@@ -44,7 +52,12 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 				</ul>
 				<input type="text" placeholder="Search" class="searchbar">
 				<ul class="rightnav">
-					<li>Logged in as, <?php echo $_SESSION['name']; ?></li>
+					<li>Hi <?php
+						echo $_SESSION['name'];
+						echo ". 🕤 ";
+						$t= time();
+						echo getCurrentTime($t);
+					?></li>
 					<li><a href="logout.php">Logout</a></li>
 				</ul>
 			</nav>
@@ -57,7 +70,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 	   			</br></br>
 	   			<?php if(isset($_GET['error'])){ ?>
 					<p class="error"> <?php echo $_GET['error']; ?></p>
-				<?php } ?>	
+				<?php } ?>
 				<button>Upload</button>
 	 			<input type="file" id="file" name="file" id="button">
 		    </form>
@@ -68,7 +81,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 	<?php
 }
 else {
-	header("location: index.php");	
+	header("location: index.php");
 	exit();
 }
 ?>

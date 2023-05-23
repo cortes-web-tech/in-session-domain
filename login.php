@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 include "db_conn.php";
@@ -45,7 +46,7 @@ if(mysqli_num_rows($result) === 1){
                 $row = mysqli_fetch_assoc($result);
                 if($row['user_name'] === $uname && $row['password'] === $pass){
                         $_SESSION['user_name'] = $row['user_name'];
-                        $_SESSION['name'] = $row['name'];
+                        $_SESSION['name'] = $row['_firstName'];
                         $_SESSION['user_id'] = $row['user_id'];
                         $_SESSION['user_tier'] = $row['user_tier'];
                         header("Location: homepage.php");

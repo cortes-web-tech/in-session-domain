@@ -1,8 +1,7 @@
 <?php
 include "db_conn.php";
-$tmpName = $_SESSION['name'];
-$sql =  "SELECT * FROM subsessionData WHERE presenter='$tmpName';";
-
+$tmpName = $_SESSION['user_name'];
+$sql =  "SELECT * FROM subsessionData WHERE _user_name='$tmpName';";
 $results = mysqli_query($conn, $sql);
 $checkResults = mysqli_num_rows($results);
 

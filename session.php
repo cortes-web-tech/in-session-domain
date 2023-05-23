@@ -1,10 +1,11 @@
 <?php
 include "db_conn.php";
+include "functions.php";
 $sql = "SELECT * FROM sessionData;";
  $results = mysqli_query($conn, $sql);
  $resultCheck = mysqli_num_rows($results);
 
-  function getTime($dateT){
+function getTime($dateT){
     $tmpTime = strtotime($dateT);
     $dateT = date("h:i a", $tmpTime);
     return $dateT;
