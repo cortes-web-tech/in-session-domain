@@ -34,7 +34,8 @@ if($_FILES["file"]["error"] !== UPLOAD_ERR_OK){
 
 $filename = $_FILES["file"]["name"];
  // $filesize = $_FILES["file"]["size"];
- // $filetype = $_FILES["file"]["type"];
+// $filetype = $_FILES["file"]["type"];
+//echo $filetype;
 $dest = __DIR__ . "/uploads/" . $filename;
 if(!move_uploaded_file($_FILES["file"]["tmp_name"], $dest)){
    exit("Can't move uploaded file.. Try again.");
@@ -45,6 +46,8 @@ if(!move_uploaded_file($_FILES["file"]["tmp_name"], $dest)){
 	echo "Error inserting file into database.";	
 }
 
+     $filetype = $_FILES["file"]["type"];
+   echo $filetype;
 // Alerts successful file upload. Redirects to home page.
 if($_FILES["file"]["error"] === UPLOAD_ERR_OK){
 
@@ -52,6 +55,7 @@ if($_FILES["file"]["error"] === UPLOAD_ERR_OK){
 //   if(!mysqli_query($conn, $sql){
 //	echo "error";
 //}
+
    echo '<script type="text/JavaScript">alert("File uploaded successfully!");window.location.href="homepage.php";</script>';
    exit();
    }

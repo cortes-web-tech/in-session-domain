@@ -1,16 +1,11 @@
 <?php
-//	session_start();
+	session_start();
 	include "db_conn";
-//	echo "Landed in download page. </br>";
-
 	if(!empty($_GET['file']))
 	{
 		$filename = basename($_GET['file']);
 		$filepath = 'uploads/' . $filename;
-		echo "File path: " . $filepath;
 		if(!empty($filename) && file_exists($filepath)){
-			echo "</br>File: " . $filename;
-			echo "</br> Filepath: " . $filepath;
 				// Define headers
 				header("Cache-Control: public");
 				header("Content-Description: File Transfer");
@@ -19,17 +14,20 @@
 				header("Content-Transfer-Encoding: Binary");
 				header('Expires: 0');
 				header('Pragma: public');
-//				header('Content-Length:' . filesize('uploads/' . $filename);
-				@readfile('uploads/' . basename($_GET['file']));
+				//header("Content-Length:" . filesize('uploads/' . $filename);
+				readfile('uploads/' . $filename);
 				exit;
 			}
 			else{
+				//header("Location: homepage.php?error=NoFile");
 				echo "</br>This file does not exist.";
 				exit();
 			}
+		}else{
+			//header("Location: homepage.php?error=File_not_found");
+			exit();		
 		}
 
-//	header("Location: index.php");
-//		exit();
+	
 ?>
 
