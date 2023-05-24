@@ -1,22 +1,9 @@
 <?php
 include "db_conn.php";
-$tmpName = $_SESSION['user_id'];
-$sql =  "SELECT * FROM subsessionData WHERE _user_id='$tmpName';";
+$uid = $_SESSION['user_id'];
+$sql =  "SELECT * FROM subsessionData WHERE _user_id='$uid';";
 $results = mysqli_query($conn, $sql);
 $checkResults = mysqli_num_rows($results);
-$filename = "test.txt";
-
-function getTime($dateT){
-    $tmpTime = strtotime($dateT);
-    $dateT = date("h:i a", $tmpTime);
-    return $dateT;
-  }
-
-  function getDay($dateC){
-    $tmpDate = strtotime($dateC);
-    $dateC = date("l, m/d", $tmpDate);
-    return $dateC;
-  }
 ?>
 
 <!DOCTYPE html>
@@ -56,9 +43,9 @@ function getTime($dateT){
 
               <td><a href="downloadFile.php?file=<?php echo $filename?>"><?php echo $row['subsession_title'];?></a></td>
               <td><?php echo $row['presenter'];?></td>
-              <td><?php echo getDay($row['startTime']);?></td>
-              <td><?php echo getTime($row['startTime']);?></td>
-              <td><?php echo getTime($row['endTime']);?></td>
+              <td><?php echo _getDay($row['startTime']);?></td>
+              <td><?php echo _getTime($row['startTime']);?></td>
+              <td><?php echo _getTime($row['endTime']);?></td>
               <td><?php echo $row['modName'];?></td>
             </tr>
             <?php

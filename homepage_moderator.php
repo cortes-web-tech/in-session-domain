@@ -1,24 +1,47 @@
 <?php
 include "db_conn.php";
-$sql = "SELECT * FROM sessionData;";
- $results = mysqli_query($conn, $sql);
- $resultCheck = mysqli_num_rows($results);
-
-  function getTime($dateT){
-    $tmpTime = strtotime($dateT);
-    $dateT = date("h:i a", $tmpTime);
-    return $dateT;
-  }
-
-  function getDay($dateC){
-    $tmpDate = strtotime($dateC);
-    $dateC = date("l, m/d", $tmpDate);
-    return $dateC;
-  }
-
- if($resultCheck > 0){
+$tmpId = $_SESSION['user_name'];
+$sql = "SELECT * FROM user_info WHERE userName='$tmpId';";
+$results = mysqli_query($conn, $sql);
+$resultCheck = mysqli_num_rows($results);
+$correspondingSessions;
+$_modName;
+  if($resultCheck > 0){
   // echo "Data successfully retrieved from database.</br></br>";
+?>
+<?php
+  while($row = mysqli_fetch_assoc($results)){
+?>
+<?php
+    // get user info id
+  $_SESSION['user_info_id'] = $row['user_info_id'];
+  $uuid = $_SESSION['user_info_id'];
+  $getSessionIDQuery = "SELECT * FROM user2session_id WHERE user_info_id='$uuid';";
+  $getSessionID = mysqli_query($conn, $getSessionIDQuery);
+  $sessionsIDCheck = mysqli_num_rows($getSessionID);
+}?>
+
+
+<?php
+// get session IDs
+ while($row = mysqli_fetch_assoc($getSessionID)){
+    ?>
+      <?php
+        $correspondingSessions = $row['_session_id'];
+        $_modName = $row['fullName'];
+      ?>
+
+    <?php
+  }?>
+
+
+<?php 
+// Get Session Data
+  $getSessionsQuery = "SELECT * FROM sessionData WHERE modName='$_modName';";
+  $getSessions = mysqli_query($conn, $getSessionsQuery);
+  $sessionsQueryCheck = mysqli_num_rows($getSessions);
  ?>
+
  <!DOCTYPE html>
  <html>
  	<head>
@@ -27,27 +50,27 @@ $sql = "SELECT * FROM sessionData;";
  	</head>
  	<body>
 
-    <h1>Displaying data for moderators only.</h1>
+    <h1>Sessions that you're moderating : </h1>
 		<div class="session_data_wrapper">
  		<table class="session_data_table">
  			<tr>
- 				<td><h4>Session Title</h4></td>
- 				<td><h4>Session Room</h4> </td>
-        <td><h4>Day</h4></td>
- 				<td><h4>Start Time</h4></td>
-        <td><h4>End Time</h4></td>
-				<td><h4>Moderators(s)</h4></td>
+ 				<td><h4>Title</h4></td>
+ 				<td><h4>Room</h4> </td>
+ 				<td><h4>Day</h4></td>
+        <td><h4>Start Time</h4></td>
+				<td><h4>End Time</h4></td>
  			</tr>
  			<tr>
  				<?php
-   while($row = mysqli_fetch_assoc($results)){
+        // Fetch Session Data
+   while($row = mysqli_fetch_assoc($getSessions)){
     ?>
-      <td><a href=""><?php echo $row['title'];?></a></td>
+      <td><?php echo $row['title'];?></td>
       <td><?php echo $row['room'];?></td>
-      <td><?php echo getDay($row['startTime']);?></td>
-      <td><?php echo getTime($row['startTime']);?></td>
-      <td><?php echo getTime($row['endTime']);?></td>
-      <td><?php echo $row['modName'];?></td>
+      <td><?php echo _getDay($row['startTime']);?></td>
+      <td><?php echo _getTime($row['startTime']);?></td>
+      <td><?php echo _getTime($row['endTime']);?></td>
+      
       </tr>
     <?php
    }
