@@ -29,5 +29,14 @@ function _getDay($dateC){
     return $dateC;
   }
 
-  
+function _getSubsession($subsession){
+	//$return;
+	$return = "<a href='homepage.php?error=Link Not Configured'> " . $subsession . "</a>";
+	echo $return;
+}
 
+function _downloadFile($filename){
+	//$return;
+	$return = "<a href='downloadFile.php?file=$filename'> " . $filename . "</a>";
+	echo $return;
+}
