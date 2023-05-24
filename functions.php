@@ -35,6 +35,12 @@ function _getSubsession($subsession){
 	echo $return;
 }
 
+function _getSession($session){
+	//$return;
+	$return = "<a href='session.php?error=Session_Link_Not_Configured'> " . $session . "</a>";
+	echo $return;
+}
+
 function _downloadFile($filename){
 	//$return;
 	$return = "<a href='downloadFile.php?file=$filename'> " . $filename . "</a>";
