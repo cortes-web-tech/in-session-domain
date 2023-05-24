@@ -1,20 +1,8 @@
 <?php
 include "db_conn.php";
 $sql = "SELECT * FROM sessionData;";
- $results = mysqli_query($conn, $sql);
- $resultCheck = mysqli_num_rows($results);
-
-  function getTime($dateT){
-    $tmpTime = strtotime($dateT);
-    $dateT = date("h:i a", $tmpTime);
-    return $dateT;
-  }
-
-  function getDay($dateC){
-    $tmpDate = strtotime($dateC);
-    $dateC = date("l, m/d", $tmpDate);
-    return $dateC;
-  }
+$results = mysqli_query($conn, $sql);
+$resultCheck = mysqli_num_rows($results);
 
  if($resultCheck > 0){
   // echo "Data successfully retrieved from database.</br></br>";
@@ -27,7 +15,7 @@ $sql = "SELECT * FROM sessionData;";
  	</head>
  	<body>
 
-    <h1>Displaying data for admins.</h1>
+    <h1>Admin page: </h1>
 		<div class="session_data_wrapper">
  		<table class="session_data_table">
  			<tr>
@@ -37,6 +25,7 @@ $sql = "SELECT * FROM sessionData;";
  				<td><h4>Start Time</h4></td>
         <td><h4>End Time</h4></td>
 				<td><h4>Moderators(s)</h4></td>
+        <td><h4>Speakers</h4></td>
  			</tr>
  			<tr>
  				<?php
@@ -44,10 +33,30 @@ $sql = "SELECT * FROM sessionData;";
     ?>
       <td><a href=""><?php echo $row['title'];?></a></td>
       <td><?php echo $row['room'];?></td>
-      <td><?php echo getDay($row['startTime']);?></td>
-      <td><?php echo getTime($row['startTime']);?></td>
-      <td><?php echo getTime($row['endTime']);?></td>
-      <td><?php echo $row['modName'];?></td>
+      <td><?php echo _getDay($row['startTime']);?></td>
+      <td><?php echo _getTime($row['startTime']);?></td>
+      <td><?php echo _getTime($row['endTime']);?></td>
+      <td><a href=""><?php echo $row['modName'];?></a></td>
+      <td>
+        <?php
+          // Get Sub Session id
+          $sub_id = $row['session_id'];
+  
+          // Get speakers
+          $getPresenterQuery = "SELECT * FROM subsessionData WHERE _session_id='$sub_id';";
+          $getPresenter = mysqli_query($conn, $getPresenterQuery);
+          $getPresenterCheck = mysqli_num_rows($getPresenter);
+        ?>
+
+        <?php
+          while($row = mysqli_fetch_assoc($getPresenter)){
+            ?>
+            <a href=""><?php echo $row['presenter']."</br>";?></a>
+        
+        <?php
+          }
+        ?>
+      </td>
       </tr>
     <?php
    }
