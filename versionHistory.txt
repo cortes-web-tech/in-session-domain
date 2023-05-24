@@ -9,3 +9,6 @@
 
 # 0.004
 # Migrated server from local VM to AWS
+
+# 0.005
+# File upload/download works, UX/UI WIP, RDBMS structure in place
