@@ -1,7 +1,8 @@
 <?php
+include "db_conn";
 
-	$password;
 
+/*
 function encrypt_pw($pwd){
 	//$result;
 	  echo '<script type="text/JavaScript">alert("Hash verified");window.location.href="homepage.php";</script>';
@@ -13,7 +14,20 @@ function encrypt_pw($pwd){
      //  return $result;
    }
 
-	
-}
+	}
+*/
+$tmpTime;
+function _getTime($getTime) {
+	$tmpTime = strtotime($getTime);
+    $return = date("h:i a", $tmpTime);
+    return $return;
+	}
+
+function _getDay($dateC){
+    $tmpDate = strtotime($dateC);
+    $dateC = date("l, m/d", $tmpDate);
+    return $dateC;
+  }
+
   
 
