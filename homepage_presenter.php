@@ -41,7 +41,10 @@ $checkResults = mysqli_num_rows($results);
               }
             ?>
 
-              <td><a href="downloadFile.php?file=<?php echo $filename?>"><?php echo $row['subsession_title'];?></a></td>
+              <td>
+                <?php _getsubSession($row['subsession_title'])?>
+                - <?php _downloadFile($filename); ?>
+              </td>
               <td><?php echo $row['presenter'];?></td>
               <td><?php echo _getDay($row['startTime']);?></td>
               <td><?php echo _getTime($row['startTime']);?></td>
