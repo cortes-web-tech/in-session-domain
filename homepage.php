@@ -61,16 +61,20 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 					<li><a href="logout.php">Logout</a></li>
 				</ul>
 			</nav>
+			
+				
 			<?php 
+				if(isset($_GET['error'])){ ?>
+					<p class="error"> <?php echo "Error: ".$_GET['error']; ?></p>
+				<?php } 
+
 				include(get_user_tier($_SESSION['user_tier']));
 			?>
 			<form action="uploadFile.php" method="post" enctype="multipart/form-data">
 			 	</br>
 	      		<label for="file">File upload</label>
 	   			</br></br>
-	   			<?php if(isset($_GET['error'])){ ?>
-					<p class="error"> <?php echo $_GET['error']; ?></p>
-				<?php } ?>
+	   			
 				<button>Upload</button>
 	 			<input type="file" id="file" name="file" id="button">
 		    </form>
