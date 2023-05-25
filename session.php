@@ -23,11 +23,12 @@ $resultCheck = mysqli_num_rows($results);
       <?php 
         if(isset($_GET['error'])){ ?>
           <p class="error"> <?php echo "Error: ".$_GET['error']; ?></p>
-        <?php } ?>
+        <?php } 
+        ?>
     </div>
 		<div class="session_data_wrapper">
       <h1>Session</h1>
-      <h1><?php echo "tbd";?></h1>
+      <h1><?php _getSessionTitle("Motoko moderating");?></h1>
  		<table class="session_data_table">
  			<tr>
  				<td><h4>Subsession Title</h4></td> 				
@@ -41,7 +42,12 @@ $resultCheck = mysqli_num_rows($results);
  				<?php
    while($row = mysqli_fetch_assoc($results)){
     ?>
-      <td><a href=""><?php echo $row['subsession_title'];?></a></td>     
+      <td>
+        <?php _getsubSession($row['subsession_title'], $row['subsession_id']);?>
+               
+
+        
+      </td>     
       <td><?php echo _getDay($row['startTime']);?></td>
       <td><?php echo _getTime($row['startTime']);?></td>
       <td><?php echo _getTime($row['endTime']);?></td>

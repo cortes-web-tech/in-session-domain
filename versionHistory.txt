@@ -12,3 +12,9 @@
 
 # 0.005
 # File upload/download works, UX/UI WIP, RDBMS structure in place
+
+# 0.006
+# UX/UI Links in place. Functionaly needs to be implemented.
+
+# 0.007 
+branch for big commits pog

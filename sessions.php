@@ -5,18 +5,6 @@ $sql = "SELECT * FROM sessionData;";
  $results = mysqli_query($conn, $sql);
  $resultCheck = mysqli_num_rows($results);
 
-function getTime($dateT){
-    $tmpTime = strtotime($dateT);
-    $dateT = date("h:i a", $tmpTime);
-    return $dateT;
-  }
-
-  function getDay($dateC){
-    $tmpDate = strtotime($dateC);
-    $dateC = date("l, m/d", $tmpDate);
-    return $dateC;
-  }
-
  if($resultCheck > 0){
   // echo "Data successfully retrieved from database.</br></br>";
  ?>
@@ -49,9 +37,9 @@ function getTime($dateT){
     ?>
       <td><a href=""><?php echo $row['title'];?></a></td>
       <td><?php echo $row['room'];?></td>
-      <td><?php echo getDay($row['startTime']);?></td>
-      <td><?php echo getTime($row['startTime']);?></td>
-      <td><?php echo getTime($row['endTime']);?></td>
+      <td><?php echo _getDay($row['startTime']);?></td>
+      <td><?php echo _getTime($row['startTime']);?></td>
+      <td><?php echo _getTime($row['endTime']);?></td>
       <td><?php echo $row['modName'];?></td>
       </tr>
     <?php

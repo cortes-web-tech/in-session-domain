@@ -29,17 +29,32 @@ function _getDay($dateC){
     return $dateC;
   }
 
-function _getSubsession($subsession){
+
+function _getSubsession($subsession, $session_id){
+	// $return;
+	// echo $session_id;
+	$return = "<a href='subsession.php?error=Link Not Configured'> " . $subsession . "</a>";
+	echo $return;
+}
+
+function _getSubsessions($subsession, $session_id){
 	//$return;
-	$return = "<a href='homepage.php?error=Link Not Configured'> " . $subsession . "</a>";
+	$return = "<a href='subsession.php?error=Link Not Configured'> " . $subsession . "</a>";
 	echo $return;
 }
 
 function _getSession($session){
 	//$return;
+	//echo $session_id;
 	$return = "<a href='session.php?error=Session_Link_Not_Configured'> " . $session . "</a>";
 	echo $return;
 }
+
+function _getSessionTitle($session){
+	//$return;
+	echo $session;
+}
+
 
 function _downloadFile($filename){
 	//$return;
