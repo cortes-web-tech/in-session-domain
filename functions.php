@@ -1,5 +1,5 @@
 <?php
-include "db_conn";
+//include "db_conn";
 
 
 /*
@@ -45,8 +45,18 @@ function _getSubsessions($subsession, $session_id){
 
 function _getSession($session){
 	//$return;
+	//echo $session;
+	$sql = "SELECT * FROM sessionData WHERE title=$session;";
+	// $run = mysqli_query($conn, $sql);
+
+	$return = "<a href='session.php?session=$session'> " . $session . "</a>";
+	echo $return;
+}
+
+function _getSessions($session){
+	//$return;
 	//echo $session_id;
-	$return = "<a href='session.php?error=Session_Link_Not_Configured'> " . $session . "</a>";
+	$return = "<a href='sessions.php'> " . $sessions . "</a>";
 	echo $return;
 }
 
@@ -61,3 +71,11 @@ function _downloadFile($filename){
 	$return = "<a href='downloadFile.php?file=$filename'> " . $filename . "</a>";
 	echo $return;
 }
+
+function getSessionTitle($sessionID, $conn){
+	$getSessionTitleQuery = "SELECT * FROM sessionData WHERE session_id=$sessionID;";
+	$getSessionTitle = mysqli_query($conn, $getSessionTitleQuery); 
+	$result = mysqli_fetch_assoc($getSessionTitle);
+	echo $result['title'];
+}
+

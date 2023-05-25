@@ -50,8 +50,9 @@ $_modName;
  	</head>
  	<body>
 
-    <h1>Sessions that you're moderating : </h1>
+    
 		<div class="session_data_wrapper">
+      <h1>Sessions that you're moderating : </h1>
  		<table class="session_data_table">
  			<tr>
  				<td><h4>Title</h4></td>
@@ -66,7 +67,22 @@ $_modName;
         // Fetch Session Data
    while($row = mysqli_fetch_assoc($getSessions)){
     ?>
-      <td><?php _getSession($row['title']);?></td>
+      <td>
+        <?php 
+         $sessionID = $row['session_id'];
+  
+        ?>
+        <a href="session.php?sessionID=<?php echo $sessionID ;?> "> 
+             <?php
+          echo ($row['title']);
+
+          ?>
+        </a>
+        <?php
+        //  echo ($row['title']) . "  ";
+          //echo ($row['session_id']);
+        ?>
+      </td>
       <td><?php echo $row['room'];?></td>
       <td><?php echo _getDay($row['startTime']);?></td>
       <td><?php echo _getTime($row['startTime']);?></td>

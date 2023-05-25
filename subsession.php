@@ -29,6 +29,7 @@ function getTime($dateT){
  	<body>
     <div>
       <a href="homepage.php">Home</a>
+      <br><br>
     </div>
 		<div class="session_data_wrapper">
  		<table class="session_data_table">

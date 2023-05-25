@@ -18,3 +18,9 @@
 
 # 0.007 
 branch for big commits pog
+
+# 0.008
+# [Moderator] Session link established
+# (Fetches session title and subsession data)
+# Utility functions expanded
+# [Session] title properly being displayed in Session view

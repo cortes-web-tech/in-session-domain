@@ -1,7 +1,15 @@
 <?php
+/*
+if($_SERVER["REQUEST_METHOD"] !== "POST"){
+  header("location: homepage.php?error=Access Denied. Post method required.</br>");
+        exit();
+}
+*/
+session_start();
 include "db_conn.php";
 include "functions.php";
-$sql = "SELECT * FROM subsessionData WHERE _session_id=1;";
+$session_id_check = $_GET['sessionID'];
+$sql = "SELECT * FROM subsessionData WHERE _session_id=$session_id_check;";
 $results = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($results);
 
@@ -18,6 +26,7 @@ $resultCheck = mysqli_num_rows($results);
     <div> 
       <a href="homepage.php">Home</a>
     </br><a href="sessions.php">Sessions</a>
+  </br><br>
     </div>
     <div>
       <?php 
@@ -27,8 +36,13 @@ $resultCheck = mysqli_num_rows($results);
         ?>
     </div>
 		<div class="session_data_wrapper">
-      <h1>Session</h1>
-      <h1><?php _getSessionTitle("Motoko moderating");?></h1>
+      <h4>Session</h4>
+      <h1>
+        <?php 
+        echo getSessionTitle($_GET['sessionID'], $conn);
+          
+        ?>
+      </h1>
  		<table class="session_data_table">
  			<tr>
  				<td><h4>Subsession Title</h4></td> 				
