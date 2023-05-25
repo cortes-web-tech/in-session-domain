@@ -1,26 +1,31 @@
-# v0.001
-# Made website available to public via 24mp.world
+# 0.009
 
-# v0.002
-# Started implementing security features
 
-# v0.003
-# Disabled site from internet access due to vulnerabilities 
-
-# 0.004
-# Migrated server from local VM to AWS
-
-# 0.005
-# File upload/download works, UX/UI WIP, RDBMS structure in place
-
-# 0.006
-# UX/UI Links in place. Functionaly needs to be implemented.
-
-# 0.007 
-branch for big commits pog
 
 # 0.008
 # [Moderator] Session link established
 # (Fetches session title and subsession data)
 # Utility functions expanded
 # [Session] title properly being displayed in Session view
+
+# 0.007 
+branch for big commits pog
+
+# 0.006
+# UX/UI Links in place. Functionaly needs to be implemented.
+
+# 0.005
+# File upload/download works, UX/UI WIP, RDBMS structure in place
+
+# 0.004
+# Migrated server from local VM to AWS
+
+# v0.003
+# Disabled site from internet access due to vulnerabilities 
+
+# v0.002
+# Started implementing security features
+
+
+# v0.001
+# Made website available to public via 24mp.world

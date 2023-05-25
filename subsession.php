@@ -1,21 +1,11 @@
 <?php
 include "db_conn.php";
 include "functions.php";
-$sql = "SELECT * FROM subsessionData;";
+
+$subsession_id_check = $_GET['subsessionID'];
+$sql = "SELECT * FROM subsessionData where subsession_id=$subsession_id_check;";
  $results = mysqli_query($conn, $sql);
  $resultCheck = mysqli_num_rows($results);
-
-function getTime($dateT){
-    $tmpTime = strtotime($dateT);
-    $dateT = date("h:i a", $tmpTime);
-    return $dateT;
-  }
-
-  function getDay($dateC){
-    $tmpDate = strtotime($dateC);
-    $dateC = date("l, m/d", $tmpDate);
-    return $dateC;
-  }
 
  if($resultCheck > 0){
   // echo "Data successfully retrieved from database.</br></br>";
@@ -32,6 +22,13 @@ function getTime($dateT){
       <br><br>
     </div>
 		<div class="session_data_wrapper">
+      <h4>Subsession Title</h4>
+      <h1>
+         <?php 
+          getSubsessionTitle($_GET['subsessionID'], $conn);
+        ?>
+       </h1>
+
  		<table class="session_data_table">
  			<tr>
  				<td><h4>Subsession Title</h4></td>
@@ -48,9 +45,9 @@ function getTime($dateT){
     ?>
       <td><a href=""><?php echo $row['subsession_title'];?></a></td>
      
-      <td><?php echo getDay($row['startTime']);?></td>
-      <td><?php echo getTime($row['startTime']);?></td>
-      <td><?php echo getTime($row['endTime']);?></td>
+      <td><?php echo _getDay($row['startTime']);?></td>
+      <td><?php echo _getTime($row['startTime']);?></td>
+      <td><?php echo _getTime($row['endTime']);?></td>
        <td><?php echo $row['room'];?></td>
       <td><?php echo $row['modName'];?></td>
       </tr>

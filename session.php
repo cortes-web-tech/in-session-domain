@@ -8,6 +8,7 @@ if($_SERVER["REQUEST_METHOD"] !== "POST"){
 session_start();
 include "db_conn.php";
 include "functions.php";
+
 $session_id_check = $_GET['sessionID'];
 $sql = "SELECT * FROM subsessionData WHERE _session_id=$session_id_check;";
 $results = mysqli_query($conn, $sql);
@@ -57,9 +58,16 @@ $resultCheck = mysqli_num_rows($results);
    while($row = mysqli_fetch_assoc($results)){
     ?>
       <td>
-        <?php _getsubSession($row['subsession_title'], $row['subsession_id']);?>
-               
+        <?php
+        // Get Subsession ID
+        $subsessionID = $row['subsession_id'];
+        ?>
 
+        <a href="subsession.php?subsessionID=<?php echo $subsessionID ;?> ">
+          <?php
+          // Creates and outputs link to subession
+          echo ($row['subsession_title']); ?>
+        </a>
         
       </td>     
       <td><?php echo _getDay($row['startTime']);?></td>

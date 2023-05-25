@@ -79,3 +79,10 @@ function getSessionTitle($sessionID, $conn){
 	echo $result['title'];
 }
 
+function getSubsessionTitle($subsessionID, $conn){
+	$getSubsessionTitleQuery = "SELECT * FROM subsessionData WHERE subsession_id=$subsessionID;";
+	$getSubsessionTitle = mysqli_query($conn, $getSubsessionTitleQuery); 
+	$result = mysqli_fetch_assoc($getSubsessionTitle);
+	echo $result['subsession_title'];
+}
+
