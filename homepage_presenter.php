@@ -31,6 +31,7 @@ $checkResults = mysqli_num_rows($results);
             ?>
             
             <?php // get file name 
+            /*
               $sub_id = $row['subsession_id'];
               $sql2 = "SELECT * FROM files WHERE subsession_id=$sub_id;";
 
@@ -38,12 +39,26 @@ $checkResults = mysqli_num_rows($results);
               if($file_query){
                 $tmpFile = mysqli_fetch_assoc($file_query);
                 $filename = $tmpFile['filename'];
-              }
+              } */
             ?>
 
               <td>
-                <?php _getsubSession($row['subsession_title'])?>
-                - <?php _downloadFile($filename); ?>
+                <?php echo $row['subsession_title'] ;?></br>
+               <?php 
+                  $sub_id = $row['subsession_id'];
+                  $getFilesQuery = "SELECT * FROM files WHERE subsession_id=$sub_id;";
+                  //echo $getFilesQuery;
+                  $getFiles = mysqli_query($conn, $getFilesQuery);
+                  while($files = mysqli_fetch_assoc($getFiles)){
+                    $filename = $files['filename'];
+                    echo "<a href='downloadFile.php?file=$filename'>" . $filename . "</a></br>";
+                    ?>
+
+                    <?php 
+
+                  }
+                    //_downloadFile($filename);
+               ?>
               </td>
               <td><?php echo $row['presenter'];?></td>
               <td><?php echo _getDay($row['startTime']);?></td>

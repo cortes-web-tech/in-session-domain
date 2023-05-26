@@ -1,6 +1,6 @@
 # 0.009
-
-
+# [Presenter] bug fix
+# Finds all the files associated with the subession, allowing user to download them
 
 # 0.008
 # [Moderator] Session link established
@@ -9,7 +9,7 @@
 # [Session] title properly being displayed in Session view
 
 # 0.007 
-branch for big commits pog
+# branch for big commits pog
 
 # 0.006
 # UX/UI Links in place. Functionaly needs to be implemented.
