@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "db_conn.php";
 include "functions.php";
 
@@ -29,10 +30,8 @@ $sql = "SELECT * FROM subsessionData where subsession_id=$subsession_id_check;";
       
         <ul class="rightnav">
           <li>Hi <?php
-           // echo $_SESSION['name'];
-            echo ". 🕤 ";
-            $t= time();
-         //   echo getCurrentTime($t);
+            echo $_SESSION['name'];
+            echo _getCurrentTime();
           ?></li>
           <li><a href="logout.php">Logout</a></li>
         </ul>

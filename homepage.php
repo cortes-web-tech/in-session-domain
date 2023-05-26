@@ -10,7 +10,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 					$usertier = "homepage_" . "presenter" . ".php";
 					break;
 				case "1":
-					$usertier = "homepage_" . "moderator" . ".php";
+					$usertier = "views/homepage_" . "moderator" . ".php";
 					break;
 				case "2":
 					$usertier = "Client";
