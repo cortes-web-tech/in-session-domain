@@ -32,15 +32,13 @@ $resultCheck = mysqli_num_rows($results);
       <nav class="navbar">
         <ul class="leftnav">
           <li><a href="homepage.php">Home</a></li>
-          <li><a href="">Profile</a></li>
+          <li><?php userProfile($_SESSION['user_id']);?></li>
         </ul>
       
         <ul class="rightnav">
           <li>Hi <?php
-           // echo $_SESSION['name'];
-            echo ". 🕤 ";
-            $t= time();
-         //   echo getCurrentTime($t);
+            echo $_SESSION['name'];          
+            echo _getCurrentTime();
           ?></li>
           <li><a href="logout.php">Logout</a></li>
         </ul>

@@ -3,12 +3,6 @@ date_default_timezone_set('America/New_York');
 session_start();
 include "functions.php";
 
-function getCurrentTime($dateT){
-    $dateT = date("  h:i a", $dateT);
-    return $dateT;
-  }
-
-
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 		function get_user_tier($usertier){
 			switch ($usertier) {
@@ -48,15 +42,15 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 			<nav class="navbar">
 				<ul class="leftnav">
 					<li><a href="">Home</a></li>
-					<li><a href="">Profile</a></li>
+					<li><a href="profile.php?userId=<?php 
+						$userId = $_SESSION['user_id'];
+					echo $userId ;?>">Profile</a></li>
 				</ul>
 			
 				<ul class="rightnav">
 					<li>Hi <?php
 						echo $_SESSION['name'];
-						echo ". 🕤 ";
-						$t= time();
-						echo getCurrentTime($t);
+						echo _getCurrentTime();
 					?></li>
 					<li><a href="logout.php">Logout</a></li>
 				</ul>

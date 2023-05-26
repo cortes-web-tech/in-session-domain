@@ -29,6 +29,13 @@ function _getDay($dateC){
     return $dateC;
   }
 
+function _getCurrentTime(){
+	$t= time();
+    $dateT = date(" 🕤   h:i a", $dateT);
+    return $dateT;
+  }
+
+
 
 function _getSubsession($subsession, $session_id){
 	// $return;
@@ -86,3 +93,12 @@ function getSubsessionTitle($subsessionID, $conn){
 	echo $result['subsession_title'];
 }
 
+function getUserInfo($user_id) {
+	echo $user_id;
+
+}
+
+function userProfile($userId){
+	$return = "<a href='profile.php?userId=$userId'>Profile</a>";
+	echo $return;
+}

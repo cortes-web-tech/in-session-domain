@@ -116,3 +116,29 @@ button {
 .button {
 	color: #1b7add;
 }
+
+.userProfileWrapper {
+	display: flex;
+	background-color: #3898ec;
+	border-radius: 20px;
+	padding: 2px;
+	justify-content: space-around;
+}
+
+.userProfileData {
+	border: 3px solid white;
+	width:40em;
+	display: flex;
+	background-color: #1b7add;
+	border-radius: 20px;
+	padding-left:1rem;
+	padding-right:1rem;
+	margin-top: 2em;
+	margin-bottom: 2em;
+
+}
+ .userProfileData li{
+ 	font-size: 24px;
+	list-style: none;
+	color: #33ddff;
+}

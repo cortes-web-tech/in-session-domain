@@ -1,7 +1,14 @@
+# 0.010
+# [Profile] Page added. Pulls data directly
+# {Profile} Link established. Needs full implementation
+# {Functions} _getCurrentTime() updated, userProfile() to link {Profile}
+# [Style]
+
+
 # 0.009
 # [Presenter] bug fix
 # [Presenters] Finds all the files associated with the subession, allowing user to download them
-# {Header/Navi} Updated
+# [Header/Navi] Updated
 
 # 0.008
 # [Moderator] Session link established
