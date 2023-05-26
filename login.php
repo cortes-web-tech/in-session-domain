@@ -4,7 +4,7 @@ session_start();
 include "db_conn.php";
 
 if($_SERVER["REQUEST_METHOD"] !== "POST"){
-	header("location: index.php");
+	header("location: ../index.php");
         exit();
 }
 
@@ -49,7 +49,7 @@ if(mysqli_num_rows($result) === 1){
                         $_SESSION['name'] = $row['_firstName'];
                         $_SESSION['user_id'] = $row['user_id'];
                         $_SESSION['user_tier'] = $row['user_tier'];
-                        header("Location: homepage.php");
+                        header("Location: views/homepage.php");
                         exit();
                 }
         }else{

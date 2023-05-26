@@ -1,5 +1,8 @@
 <?php
-include "db_conn.php";
+session_start();
+include "../db_conn.php";
+
+
 $tmpId = $_SESSION['user_name'];
 $sql = "SELECT * FROM user_info WHERE userName='$tmpId';";
 $results = mysqli_query($conn, $sql);
