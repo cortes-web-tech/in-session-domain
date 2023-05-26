@@ -17,10 +17,29 @@ $sql = "SELECT * FROM subsessionData where subsession_id=$subsession_id_check;";
  		<title>Subsessions</title>
  	</head>
  	<body>
-    <div>
-      <a href="homepage.php">Home</a>
-      <br><br>
-    </div>
+    <div id="welcome">
+        Welcome to inSession.</br>
+        An open source Presentation Managament solution.
+      </div>
+      <nav class="navbar">
+        <ul class="leftnav">
+          <li><a href="homepage.php">Home</a></li>
+          <li><a href="">Profile</a></li>
+        </ul>
+      
+        <ul class="rightnav">
+          <li>Hi <?php
+           // echo $_SESSION['name'];
+            echo ". 🕤 ";
+            $t= time();
+         //   echo getCurrentTime($t);
+          ?></li>
+          <li><a href="logout.php">Logout</a></li>
+        </ul>
+      </nav>
+
+
+
 		<div class="session_data_wrapper">
       <h4>Subsession Title</h4>
       <h1>

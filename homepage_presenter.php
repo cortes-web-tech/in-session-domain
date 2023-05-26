@@ -13,8 +13,9 @@ $checkResults = mysqli_num_rows($results);
 </head>
 
 <body>
-	<h1>Your presentations : </h1>
+	
     <div class="session_data_wrapper">
+      <h1>Your presentations : </h1>
         <table class="session_data_table">
         <tr>
           <td><h4>Subsession Title</h4></td>

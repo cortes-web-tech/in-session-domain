@@ -37,7 +37,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 	<!DOCTYPE html>
 	<html>
 		<head>
-			<title>inSession</title>
+			<title>Home</title>
 			<link rel="stylesheet" type="text/css" href="style.css">
 		</head>
 		<body>
@@ -48,9 +48,9 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 			<nav class="navbar">
 				<ul class="leftnav">
 					<li><a href="">Home</a></li>
-					<li><a href="">Settings</a></li>
+					<li><a href="">Profile</a></li>
 				</ul>
-				<input type="text" placeholder="Search" class="searchbar">
+			
 				<ul class="rightnav">
 					<li>Hi <?php
 						echo $_SESSION['name'];

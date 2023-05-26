@@ -15,8 +15,10 @@ $resultCheck = mysqli_num_rows($results);
  	</head>
  	<body>
 
-    <h1>Admin page: </h1>
+    
 		<div class="session_data_wrapper">
+      <h1>Admin page: </h1>
+      <input type="text" placeholder="Search" class="searchbar">
  		<table class="session_data_table">
  			<tr>
  				<td><h4>Session Title</h4></td>

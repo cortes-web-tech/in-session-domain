@@ -1,6 +1,7 @@
 # 0.009
 # [Presenter] bug fix
-# Finds all the files associated with the subession, allowing user to download them
+# [Presenters] Finds all the files associated with the subession, allowing user to download them
+# {Header/Navi} Updated
 
 # 0.008
 # [Moderator] Session link established

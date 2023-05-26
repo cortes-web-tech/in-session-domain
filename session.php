@@ -24,9 +24,29 @@ $resultCheck = mysqli_num_rows($results);
  		<title>Session Data</title>
  	</head>
  	<body>
+
+      <div id="welcome">
+        Welcome to inSession.</br>
+        An open source Presentation Managament solution.
+      </div>
+      <nav class="navbar">
+        <ul class="leftnav">
+          <li><a href="homepage.php">Home</a></li>
+          <li><a href="">Profile</a></li>
+        </ul>
+      
+        <ul class="rightnav">
+          <li>Hi <?php
+           // echo $_SESSION['name'];
+            echo ". 🕤 ";
+            $t= time();
+         //   echo getCurrentTime($t);
+          ?></li>
+          <li><a href="logout.php">Logout</a></li>
+        </ul>
+      </nav>
+
     <div> 
-      <a href="homepage.php">Home</a>
-    </br><a href="sessions.php">Sessions</a>
   </br><br>
     </div>
     <div>
