@@ -21,6 +21,7 @@ $resultCheck = mysqli_num_rows($results);
  <html>
  	<head>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
  		<title>Session Data</title>
  	</head>
  	<body>

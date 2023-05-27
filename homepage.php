@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('America/New_York');
 session_start();
-include "functions.php";
+include "utils/functions.php";
 
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 		function get_user_tier($usertier){
@@ -33,6 +33,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 		<head>
 			<title>Home</title>
 			<link rel="stylesheet" type="text/css" href="style.css">
+			<link rel="icon" type="image/x-icon" href="favicon.png">
 		</head>
 		<body>
 			<div id="welcome">

@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-include "utils/db_conn.php";
+include "db_conn.php";
 
 if($_SERVER["REQUEST_METHOD"] !== "POST"){
 	header("location: ../index.php");

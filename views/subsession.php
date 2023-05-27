@@ -15,6 +15,7 @@ $sql = "SELECT * FROM subsessionData where subsession_id=$subsession_id_check;";
  <html>
  	<head>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
  		<title>Subsessions</title>
  	</head>
  	<body>
@@ -25,7 +26,7 @@ $sql = "SELECT * FROM subsessionData where subsession_id=$subsession_id_check;";
       <nav class="navbar">
         <ul class="leftnav">
           <li><a href="homepage.php">Home</a></li>
-          <li><a href="">Profile</a></li>
+          <li><?php userProfile($_SESSION['user_id']);?></a></li>
         </ul>
       
         <ul class="rightnav">

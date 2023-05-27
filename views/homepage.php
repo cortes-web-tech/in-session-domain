@@ -34,6 +34,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 		<head>
 			<title>Home</title>
 			<link rel="stylesheet" type="text/css" href="style.css">
+			<link rel="icon" type="image/x-icon" href="../favicon.png">
 		</head>
 		<body>
 			<div id="welcome">

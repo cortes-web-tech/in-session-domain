@@ -52,7 +52,7 @@ $checkResults = mysqli_num_rows($results);
                   $getFiles = mysqli_query($conn, $getFilesQuery);
                   while($files = mysqli_fetch_assoc($getFiles)){
                     $filename = $files['filename'];
-                    echo "<a href='downloadFile.php?file=$filename'>" . $filename . "</a></br>";
+                    echo "<a href='../downloadFile.php?file=$filename'>" . $filename . "</a></br>";
                     ?>
 
                     <?php 

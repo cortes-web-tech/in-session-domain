@@ -1,3 +1,6 @@
+# 0.011
+# Server file structure changes 
+
 # 0.010
 # [Profile] Page added. Pulls data directly
 # {Profile} Link established. Needs full implementation

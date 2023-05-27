@@ -1,6 +1,6 @@
 <?php
-include "db_conn.php";
-include "functions.php";
+include "../db_conn.php";
+include "../functions.php";
 $sql = "SELECT * FROM subsessionData;";
  $results = mysqli_query($conn, $sql);
  $resultCheck = mysqli_num_rows($results);
@@ -28,7 +28,7 @@ function getTime($dateT){
  	</head>
  	<body>
     <div>
-      <a href="homepage.php">Home</a>
+      <a href="../homepage.php">Home</a>
     </div>
 		<div class="session_data_wrapper">
  		<table class="session_data_table">
