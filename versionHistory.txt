@@ -1,3 +1,9 @@
+# 0.013
+# Installed Node on server. Configuring Routing. API Folder hidden
+
+# 0.012
+# Stable version before introducing React
+
 # 0.011
 # Server file structure changes 
 
