@@ -58,3 +58,20 @@ nav ul li {
 h2 {
   color: #3898ec;
 }
+
+.sessionDataTable{
+background-color: #3898ec;
+padding: 1em;
+border-radius:2em;
+border: 2px solid white;
+}
+
+.sessionDataTable tr {
+  margin: 20px;
+}
+.sessionDataTable td{
+  border-radius: 0.5em;
+  padding: 10px;
+  
+  background-color: #1b7add;
+}

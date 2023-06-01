@@ -5,85 +5,50 @@ import { useNavigate } from "react-router-dom";
 
 export default function ListSessions() {
 	//const navigate = useNavigate();
-var res;
-const [state, setState] = useState(initialState);
-//	state = {
-//		sessions: []
+const [sessions, setSessions] = useState([]);
+useEffect(() =>{
+	getSessions();
+}, []);
 
-//	}
+function getSessions() {
 	axios.get('http://192.168.1.15/api/')
 		.then(function(response){
 			if (response.data.error){
 				console.log("Error while getting data.");
 			}else{
-				console.log(response.data);
+				console.log((response.data));
+				setSessions(response.data);
+				//setSessions(response.data);
 				//res = JSON.parse(response.data);
 				// navigate('/');
 			}
 		});
+}
 
-/*
-	state = {
-		courses: []
-	}
 
-	constructor() {
-		super();
-		//api.get('/index.php').then(res => {
-		//	console.log(res.data);
-		//});
-	}
-*/
-
-	const getSessions = async () => {
-
-		
-		
-	
-	
-/*
-		try{
-			const url = "http://192.168.1.15/api";
-		const  response = await axios(url);
-		} catch (error) {
-
-		}
-		
-		Axios.get('http://localhost:80/api/')
-		.then(function(response){
-			if (response.data.error){
-				console.log("Error while getting data.");
-			}else{
-				console.log(response.data);
-				navigate('/');
-			}
-		}); */
-	}
-/*
-	const handleChange = (event) => {
-		const name = event.target.name;
-		const value = event.target.value;
-		setInputs(values => ({...values, [name]: value}));
-	}
-
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		console.log(inputs);
-		}
-
-	
-	
-
-		console.log(inputs);
-
-		useEffect(() => {
-			getUsers();
-		}, [])
-*/
 	return (
 		<div>
-			<h2> List Sessions</h2>
-			
+			<h1> Viewing All Sessions</h1>
+			<table class="sessionDataTable">
+				<thead>
+				<tr>
+					<th>Session Title</th>
+					<th>Room</th>
+					<th>Start Time</th>
+					<th>End Time</th>
+				</tr>
+				</thead>
+				<tbody>
+				 {sessions.map((session, key) => 
+					<tr key={session.session_id}>
+					 	<td>{session.title}</td>
+					 	<td>{session.room}</td>
+					 	<td>{session.startTime}</td>
+					 	<td>{session.endTime}</td>
+					</tr>
+				 	)}
+				</tbody>
+			</table>
 		</div>
 	)
 

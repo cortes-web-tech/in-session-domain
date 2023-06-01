@@ -13,14 +13,15 @@
 	$method = $_SERVER['REQUEST_METHOD'];
 
 	if($method != NULL) {
+		$sessions = array(); 
 		$sql = "SELECT * FROM sessionData";
 		$results = mysqli_query($conn, $sql);
 		$resultCheck = mysqli_num_rows($results);
-
+		
 		while($row = mysqli_fetch_assoc($results)){
-    		print_r($row); 
+    		$sessions[] = $row;
    	}
-
+   	echo json_encode($sessions);
 		exit();
 	}
 
@@ -43,7 +44,7 @@
 	}
 */
 
-	$conn = null;
+	mysqli_close($conn);
 
 
 ?>

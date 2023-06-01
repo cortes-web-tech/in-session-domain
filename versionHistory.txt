@@ -1,3 +1,7 @@
+# 0.015
+# API changes.
+# [ListSessions] Dispaying response from API on front end
+
 # 0.014
 # React running
 # [ListSessions] fetches Session data and is returned in console.
