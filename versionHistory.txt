@@ -1,3 +1,7 @@
+# 0.014
+# React running
+# [ListSessions] fetches Session data and is returned in console.
+
 # 0.013
 # Installed Node on server. Configuring Routing. API Folder hidden
 

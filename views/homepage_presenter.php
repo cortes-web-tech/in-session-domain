@@ -13,9 +13,12 @@ $checkResults = mysqli_num_rows($results);
 </head>
 
 <body>
-	
+	<a href="http://192.168.1.15:3000"><img src="../react-in-session/public/logo192.png"></a>
     <div class="session_data_wrapper">
-      <h1>Your presentations : </h1>
+      <div>
+        <h1>Your presentations : </h1>
+
+      </div>
         <table class="session_data_table">
         <tr>
           <td><h4>Subsession Title</h4></td>

@@ -38,13 +38,20 @@
   }
 }
 
+.App nav {
+  width: 40em;
+
+}
+
 nav ul {
   list-style: none;
+  
 }
 
 nav ul li {
   display: inline-block;
-  padding: 2px;
+  padding: 20px;
+  justify-content: space-between;
 
 }
 
