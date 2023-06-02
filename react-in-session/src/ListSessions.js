@@ -3,10 +3,15 @@ import axios from "axios";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 export default function ListSessions() {
+  var url;
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
     getSessions();
   }, []);
+
+  const [post, setPost] = useState({
+    session_id: "",
+  });
 
   function getSessions() {
     axios
@@ -15,17 +20,19 @@ export default function ListSessions() {
         if (response.data.error) {
           console.log("Error while getting data.");
         } else {
-          //console.log(response.data);
           setSessions(response.data);
         }
       });
   }
 
   function getSession_data(id, title) {
-    var url = "<a href='Session_Info?session_id=" + id + ">" + title + "</a>";
-
-    console.log(url);
-    // return url;
+    var url = "Session_Info?session_id=" + id;
+    axios
+      .post("http://192.168.1.15/api/getSession.php", { id })
+      .then((response) => console.log(response.data))
+      .catch((err) => console.log(err));
+    // console.log(url);
+    return url;
   }
 
   return (
@@ -46,8 +53,10 @@ export default function ListSessions() {
           {sessions.map((session, key) => (
             <tr key={session.session_id}>
               <td>
-                {getSession_data(session.session_id, session.title)}
-                <a href="Session_Info">{session.title}</a>
+                {/* {(url = "Session_Info?session_id=" + session.session_id)} */}
+                <a href={getSession_data(session.session_id)}>
+                  {session.title}
+                </a>
               </td>
               <td>{session.room}</td>
               <td>{session.startTime}</td>

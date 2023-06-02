@@ -1,3 +1,6 @@
+# 0.018
+# API changes, stable version
+
 # 0.017
 # [Sessions] Linking to Session page, data not displaying correctly yet.
 # Questionable Attempt at fetching subsession data

@@ -4,19 +4,18 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 export default function Session_Info() {
   const [subsessions, setSubsessions] = useState([]);
-
+  const [session, setSession] = useState([]);
   useEffect(() => {
     getSession_data();
   }, []);
 
   function getSession_data() {
     axios
-      .get("http://192.168.1.15/api/getSession.php")
+      .get("http://192.168.1.15/api/getSession.php", { session })
       .then(function (response) {
         if (response.data.error) {
           console.log("Error while getting data.");
         } else {
-          // console.log(response.data);
           setSubsessions(response.data);
         }
       });
