@@ -11,11 +11,12 @@ export default function Session_Info() {
 
   function getSession_data() {
     axios
-      .get("http://192.168.1.15/api/getSession.php", { session })
+      .get("http://192.168.1.15/api/getSession.php", {})
       .then(function (response) {
         if (response.data.error) {
           console.log("Error while getting data.");
         } else {
+          // cnso
           setSubsessions(response.data);
         }
       });

@@ -26,12 +26,13 @@ export default function ListSessions() {
   }
 
   function getSession_data(id, title) {
-    var url = "Session_Info?session_id=" + id;
+    var url = "Session_Info";
+    const params = new URLSearchParams();
+    params.append("session_id", id);
     axios
-      .post("http://192.168.1.15/api/getSession.php", { id })
+      .post("http://192.168.1.15/api/getSession.php", { session_id: id })
       .then((response) => console.log(response.data))
       .catch((err) => console.log(err));
-    // console.log(url);
     return url;
   }
 
@@ -53,7 +54,6 @@ export default function ListSessions() {
           {sessions.map((session, key) => (
             <tr key={session.session_id}>
               <td>
-                {/* {(url = "Session_Info?session_id=" + session.session_id)} */}
                 <a href={getSession_data(session.session_id)}>
                   {session.title}
                 </a>

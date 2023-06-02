@@ -1,3 +1,8 @@
+<?php
+// Reroutes to react app
+header("location: http://192.168.1.15:3000")
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
