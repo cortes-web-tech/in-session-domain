@@ -10,10 +10,14 @@ function App() {
         <div class="nav">
           <nav>
             <ul>
-              <Link to="/">Home</Link>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
               <li>Profile</li>
               <li>Current User</li>
-              <Link to="ListSessions">Sessions</Link>
+              <li>
+                <Link to="ListSessions">Sessions</Link>
+              </li>
               <li>Logout</li>
             </ul>
           </nav>

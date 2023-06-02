@@ -21,8 +21,9 @@ export default function ListSessions() {
   }
 
   return (
-    <div>
-      <h1> Viewing All Sessions</h1>
+    <div class="sessionDataContainer">
+      <p>Sessions</p>
+
       <table class="sessionDataTable">
         <thead>
           <tr>
@@ -30,6 +31,7 @@ export default function ListSessions() {
             <th>Room</th>
             <th>Start Time</th>
             <th>End Time</th>
+            <th>SessionId</th>
           </tr>
         </thead>
         <tbody>
@@ -39,6 +41,7 @@ export default function ListSessions() {
               <td>{session.room}</td>
               <td>{session.startTime}</td>
               <td>{session.endTime}</td>
+              <td>{session.session_id}</td>
             </tr>
           ))}
         </tbody>
