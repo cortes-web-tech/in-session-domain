@@ -5,15 +5,15 @@ import "./App.css";
 
 export default function Home() {
   return (
-    <div class="home">
-      <div class="slide-images">
-        <div class="img-container">
+    <div className="home">
+      <div className="slide-images">
+        <div className="img-container">
           <img src={bg1} />
         </div>
-        <div class="img-container">
+        <div className="img-container">
           <img src={bg2} />
         </div>
-        <div class="img-container">
+        <div className="img-container">
           <img src={bg3} />
         </div>
       </div>

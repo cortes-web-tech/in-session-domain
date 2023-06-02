@@ -2,12 +2,13 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import ListSessions from "./ListSessions.js";
 import Home from "./Home.js";
+import Session_Info from "./Session_Info";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div class="nav">
+        <div className="nav">
           <nav>
             <ul>
               <li>
@@ -23,11 +24,12 @@ function App() {
           </nav>
           <h1>Welcome to inSession</h1>
         </div>
-        <div class="content">
+        <div className="content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="ListSessions" element={<ListSessions />} />
             <Route path="Index" element={<Home />} />
+            <Route path="Session_Info" element={<Session_Info />} />
           </Routes>
         </div>
       </BrowserRouter>

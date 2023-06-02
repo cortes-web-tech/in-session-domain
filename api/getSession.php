@@ -1,0 +1,24 @@
+<?php
+	namespace api;
+	header("Access-Control-Allow-Origin: *");
+	header("Access-Control-Allow-Headers: *");
+	include 'DbConnect.php';
+	$objDb = new DbConnect;
+	$conn = $objDb->connect();
+
+	$method = $_SERVER['REQUEST_METHOD'];
+	if($method != NULL) {
+		$subsessions = array(); 
+		$sql = "SELECT * FROM subsessionData WHERE _session_id=1;";
+		$results = mysqli_query($conn, $sql);
+		$resultCheck = mysqli_num_rows($results);
+		
+		while($row = mysqli_fetch_assoc($results)){
+    		$subsessions[] = $row;
+   	}
+   	echo json_encode($subsessions);
+		exit();
+	}
+	mysqli_close($conn);
+?>
+

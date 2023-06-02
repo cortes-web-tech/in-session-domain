@@ -1,5 +1,6 @@
-import { useState, useEffect, initialState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 export default function ListSessions() {
   const [sessions, setSessions] = useState([]);
@@ -14,17 +15,24 @@ export default function ListSessions() {
         if (response.data.error) {
           console.log("Error while getting data.");
         } else {
-          console.log(response.data);
+          //console.log(response.data);
           setSessions(response.data);
         }
       });
   }
 
+  function getSession_data(id, title) {
+    var url = "<a href='Session_Info?session_id=" + id + ">" + title + "</a>";
+
+    console.log(url);
+    // return url;
+  }
+
   return (
-    <div class="sessionDataContainer">
+    <div className="sessionDataContainer">
       <p>Sessions</p>
 
-      <table class="sessionDataTable">
+      <table className="sessionDataTable">
         <thead>
           <tr>
             <th>Session Title</th>
@@ -37,7 +45,10 @@ export default function ListSessions() {
         <tbody>
           {sessions.map((session, key) => (
             <tr key={session.session_id}>
-              <td>{session.title}</td>
+              <td>
+                {getSession_data(session.session_id, session.title)}
+                <a href="Session_Info">{session.title}</a>
+              </td>
               <td>{session.room}</td>
               <td>{session.startTime}</td>
               <td>{session.endTime}</td>

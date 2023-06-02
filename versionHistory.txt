@@ -1,3 +1,7 @@
+# 0.017
+# [Sessions] Linking to Session page, data not displaying correctly yet.
+# Questionable Attempt at fetching subsession data
+
 # 0.016
 # [Home] Added scrolling background animation to landing page.
 
