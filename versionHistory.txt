@@ -1,6 +1,9 @@
 # 0.019
 # API changes.
 # [ListSessions] {session_id}-> [Session]
+# [Session] Displaying correct data from DB! ^_^ 
+# Code cleanup
+# UX/UI updated 
 
 # 0.018
 # API changes, stable version

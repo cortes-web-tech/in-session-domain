@@ -4,6 +4,7 @@ import ListSessions from "./ListSessions.js";
 import Home from "./Home.js";
 import Session from "./Session.js";
 import Session_Info from "./Session_Info.js";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -23,7 +24,6 @@ function App() {
               <li>Logout</li>
             </ul>
           </nav>
-          <h1>Welcome to inSession</h1>
         </div>
         <div className="content">
           <Routes>
@@ -36,6 +36,7 @@ function App() {
             <Route path="Session_Info/" element={<Session_Info />} />
           </Routes>
         </div>
+        <Footer />
       </BrowserRouter>
     </div>
   );

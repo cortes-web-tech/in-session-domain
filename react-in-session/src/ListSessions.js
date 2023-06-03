@@ -4,15 +4,10 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import SessionLink from "./SessionLink";
 
 export default function ListSessions() {
-  var url;
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
     getSessions();
   }, []);
-
-  const [session, setSession] = useState({
-    session_id: "",
-  });
 
   function getSessions() {
     axios
@@ -24,17 +19,6 @@ export default function ListSessions() {
           setSessions(response.data);
         }
       });
-  }
-
-  function getSession_data(id, title) {
-    var url = "Session";
-    /*
-    axios
-      .post("http://192.168.1.15/api/getSession.php", { session_id: id })
-      .then((response) => console.log(response.data))
-      .catch((err) => console.log(err));
-    */
-    return url;
   }
 
   return (

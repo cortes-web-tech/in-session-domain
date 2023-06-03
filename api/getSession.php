@@ -39,7 +39,8 @@
 				$subsessions[] = $row;
 			   }
 			   
-			   echo json_encode($subsessions);
+			echo json_encode($subsessions);
+			mysqli_close($conn);
 			exit();
 			break;
 	}

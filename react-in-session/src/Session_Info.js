@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 const Session_Info = (props) => {
   const sid = props.params;
-  console.log(sid);
+  // console.log(sid);
   const [subsessions, setSubsessions] = useState([]);
   const [session, setSession] = useState([]);
   useEffect(() => {
@@ -18,7 +18,7 @@ const Session_Info = (props) => {
         if (response.data.error) {
           console.log("Error while getting data.");
         } else {
-          console.log(response.data);
+          // console.log(response.data);
           setSubsessions(response.data);
         }
       });
