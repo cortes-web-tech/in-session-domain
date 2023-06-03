@@ -1,10 +1,18 @@
-import { BrowserRouter, Routes, Route, Link, Router } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  Router,
+  useLocation,
+} from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const Session = (props) => {
-  //   console.log("Sessions?");
-  console.log(props);
+  let location = useLocation();
+  console.log(location);
+  //   console.log(props);
   const [session, setSession] = useState([]);
   const { handle } = useParams();
   //   console.log(handle);

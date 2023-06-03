@@ -1,15 +1,24 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
+import { useState, useEffect } from "react";
 const SessionLink = (props) => {
   const session = props.params;
-  //   console.log(session.session_id);
-  const sesh_id = session.session_id;
-  //   console.log(sesh_id);
+  const [session_id, setSession_id] = useState([]);
+  useEffect(() => {
+    getSession();
+  });
+  function getSession() {
+    setSession_id(session.session_id);
+  }
   return (
     <div>
       {/* <div>{sesh_id}</div> */}
 
-      <Link to={"/Session"} data={{ session_id: sesh_id }}>
+      <Link
+        to={{
+          pathname: "/Session",
+          state: session_id,
+        }}
+      >
         {session.title}
       </Link>
     </div>

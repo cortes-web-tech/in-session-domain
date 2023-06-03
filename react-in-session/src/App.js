@@ -30,7 +30,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="ListSessions" element={<ListSessions />} />
             <Route path="Index" element={<Home />} />
-            <Route path=":session_id" element={<Session />} />
+            <Route path="Session/" element={<Session />} />
+            <Route path="Session/:session_id" element={<Session />} />
             <Route path="Session_Info/" element={<Session_Info />} />
           </Routes>
         </div>
