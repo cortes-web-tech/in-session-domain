@@ -1,5 +1,7 @@
 # 0.018
 # API changes, stable version
+# [Session] init to replace [Session_Info], but not receiving data correctly.
+# Session_Info has demo of session fetching API.
 
 # 0.017
 # [Sessions] Linking to Session page, data not displaying correctly yet.

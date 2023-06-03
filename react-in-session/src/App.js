@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import ListSessions from "./ListSessions.js";
 import Home from "./Home.js";
-import Session_Info from "./Session_Info";
+import Session from "./Session.js";
+import Session_Info from "./Session_Info.js";
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="ListSessions" element={<ListSessions />} />
             <Route path="Index" element={<Home />} />
-            <Route path="Session_Info" element={<Session_Info />} />
+            <Route path=":session_id" element={<Session />} />
+            <Route path="Session_Info/" element={<Session_Info />} />
           </Routes>
         </div>
       </BrowserRouter>

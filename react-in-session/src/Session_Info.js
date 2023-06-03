@@ -2,7 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-export default function Session_Info() {
+const Session_Info = (props) => {
+  const sid = props.params;
+  console.log(sid);
   const [subsessions, setSubsessions] = useState([]);
   const [session, setSession] = useState([]);
   useEffect(() => {
@@ -16,7 +18,7 @@ export default function Session_Info() {
         if (response.data.error) {
           console.log("Error while getting data.");
         } else {
-          // cnso
+          console.log(response.data);
           setSubsessions(response.data);
         }
       });
@@ -25,6 +27,7 @@ export default function Session_Info() {
     <div>
       <div>
         <a href="">Click to load session data</a>
+        {/* <p>{this.props.match.}</p> */}
       </div>
       <div>
         <table className="sessionDataTable">
@@ -44,7 +47,7 @@ export default function Session_Info() {
                 <td>{subsession.presenter}</td>
                 <td>{subsession.startTime}</td>
                 <td>{subsession.endTime}</td>
-                <td>{subsession.modName}</td>
+                <td>{sid}</td>
               </tr>
             ))}
           </tbody>
@@ -52,4 +55,5 @@ export default function Session_Info() {
       </div>
     </div>
   );
-}
+};
+export default Session_Info;

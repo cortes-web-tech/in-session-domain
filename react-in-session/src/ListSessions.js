@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import SessionLink from "./SessionLink";
 
 export default function ListSessions() {
   var url;
@@ -9,7 +10,7 @@ export default function ListSessions() {
     getSessions();
   }, []);
 
-  const [post, setPost] = useState({
+  const [session, setSession] = useState({
     session_id: "",
   });
 
@@ -26,13 +27,13 @@ export default function ListSessions() {
   }
 
   function getSession_data(id, title) {
-    var url = "Session_Info";
-    const params = new URLSearchParams();
-    params.append("session_id", id);
+    var url = "Session";
+    /*
     axios
       .post("http://192.168.1.15/api/getSession.php", { session_id: id })
       .then((response) => console.log(response.data))
       .catch((err) => console.log(err));
+    */
     return url;
   }
 
@@ -47,21 +48,38 @@ export default function ListSessions() {
             <th>Room</th>
             <th>Start Time</th>
             <th>End Time</th>
-            <th>SessionId</th>
+            <th>Moderator</th>
           </tr>
         </thead>
         <tbody>
           {sessions.map((session, key) => (
             <tr key={session.session_id}>
               <td>
-                <a href={getSession_data(session.session_id)}>
+                {/* 
+                <a
+                  href={getSession_data(session.session_id)}
+                  params={{ session_id: session.session_id }}
+                >
                   {session.title}
                 </a>
+                */}
+                <SessionLink
+                  params={{
+                    session_id: session.session_id,
+                    title: session.title,
+                  }}
+                />
+
+                {/*
+                <Link to="/Session" params={{ session_id: session.session_id }}>
+                  {session.title}
+                </Link>
+                 */}
               </td>
               <td>{session.room}</td>
               <td>{session.startTime}</td>
               <td>{session.endTime}</td>
-              <td>{session.session_id}</td>
+              <td>{session.modName}</td>
             </tr>
           ))}
         </tbody>
