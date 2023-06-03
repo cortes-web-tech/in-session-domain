@@ -2,6 +2,7 @@
 # API changes, stable version
 # [Session] init to replace [Session_Info], but not receiving data correctly.
 # Session_Info has demo of session fetching API.
+# Testing passing data through React Routes
 
 # 0.017
 # [Sessions] Linking to Session page, data not displaying correctly yet.

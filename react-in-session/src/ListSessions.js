@@ -64,13 +64,13 @@ export default function ListSessions() {
                 </a>
       */}
                 <SessionLink
-                  params={{
-                    session_id: session.session_id,
-                    title: session.title,
-                  }}
+                  session_id={session.session_id}
+                  title={session.title}
+                  // session_id: session.session_id,
+                  // title: session.title,
                 />
 
-                {/*
+                {/* 
                 <Link to="/Session" params={{ session_id: session.session_id }}>
                   {session.title}
                 </Link>

@@ -10,11 +10,13 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const Session = (props) => {
-  let location = useLocation();
-  console.log(location);
+  // let session = useParams();
+  // console.log(session);
+  console.log(props);
+  // console.log(location);
   //   console.log(props);
-  const [session, setSession] = useState([]);
-  const { handle } = useParams();
+  // const [session, setSession] = useState([]);
+  // const { handle } = useParams();
   //   console.log(handle);
 
   function getSession() {

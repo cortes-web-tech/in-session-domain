@@ -32,6 +32,7 @@ function App() {
             <Route path="Index" element={<Home />} />
             <Route path="Session/" element={<Session />} />
             <Route path="Session/:session_id" element={<Session />} />
+            <Route path="SessionLink" element={<Session />} />
             <Route path="Session_Info/" element={<Session_Info />} />
           </Routes>
         </div>
