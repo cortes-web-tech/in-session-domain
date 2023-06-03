@@ -16,8 +16,15 @@ const SessionLink = (props) => {
 
   return (
     <div>
-      {console.log(session_id)}
-      <Link to="/Session" data={sessionNum}>
+      {/* {console.log(sessionNum)} */}
+      <Link
+        to={{
+          pathname: "/Session/:id",
+          state: {
+            session_id: sessionNum,
+          },
+        }}
+      >
         {title}
       </Link>
     </div>

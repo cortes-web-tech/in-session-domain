@@ -55,36 +55,9 @@ export default function ListSessions() {
           {sessions.map((session, key) => (
             <tr key={session.session_id}>
               <td>
-                {/* 
-                <a
-                  href={getSession_data(session.session_id)}
-                  params={{ session_id: session.session_id }}
-                >
-                  {session.title}
-                </a>
-      */}
-                <SessionLink
-                  session_id={session.session_id}
-                  title={session.title}
-                  // session_id: session.session_id,
-                  // title: session.title,
-                />
-
-                {/* 
-                <Link to="/Session" params={{ session_id: session.session_id }}>
+                <Link to="/Session" state={{ session_id: session.session_id }}>
                   {session.title}
                 </Link>
-                
-
-                <Link
-                  to={{
-                    pathname: "Sesssion",
-                    // state: session.session_id,
-                  }}
-                >
-                  {session.title}
-                </Link>
-                 */}
               </td>
               <td>{session.room}</td>
               <td>{session.startTime}</td>

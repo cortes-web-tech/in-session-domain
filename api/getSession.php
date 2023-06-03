@@ -27,7 +27,7 @@
 		case "GET":
 			$session = json_decode(file_get_contents('php://input'), true);
 			$tmp = $session['session_id'];
-			$session_id = $tmp;
+			$session_id = 4;
 
 			$subsessions = array(); 
 			$session_id = 11;

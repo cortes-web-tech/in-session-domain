@@ -1,3 +1,7 @@
+# 0.019
+# API changes.
+# [ListSessions] {session_id}-> [Session]
+
 # 0.018
 # API changes, stable version
 # [Session] init to replace [Session_Info], but not receiving data correctly.
