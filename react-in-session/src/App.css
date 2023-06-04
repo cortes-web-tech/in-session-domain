@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   background-color: #1b7add;
-  height: 100lvh;
+  min-height: 100vh;
   
   display: flex;
   flex-direction: column;
@@ -52,6 +52,7 @@ h2 {
   padding: 1em;
   border-radius:2em;
   border: 2px solid white;
+  margin:.5em;
 }
 
 .sessionDataTable{
@@ -78,9 +79,8 @@ a{
 .sessionDataTable td{
   font-size: 1em;
   text-align: center;
-  
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   border: 0.5px solid white;
 }
 
@@ -96,9 +96,13 @@ a{
   justify-content: center;
   /* padding-bottom: 1em; */
   height: 46rem;
+  border-bottom-left-radius: 2em ;
+  border-bottom-right-radius: 2em ;
+  height:auto
+  /* bottom: 0; */
 }
-
 .home {
+  height: 85vh;
    overflow: hidden; 
 }
 @keyframes slide_animation{
@@ -111,17 +115,16 @@ a{
 }
 
 .slide-images{
+  padding: 2em 0px;
   width: 5100px;
   height: 800px;
+  
   margin: 0 0 0 - 2400px;
   position: relative; 
-  
-  
-
   transition: translate;
-  transition-duration: 10s;
-   animation-name: slide_animation;
-  animation-duration: 15s;
+  transition-duration: 15s;
+  animation-name: slide_animation;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-direction:normal;
   animation-play-state: running;  
@@ -129,8 +132,8 @@ a{
 
 .img-container{
   width: 49em;
-  height:800px;
-
+  height:600px;
+  border-radius: 2em;
   position: relative;
   float: left;
   padding:10px;

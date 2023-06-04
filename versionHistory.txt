@@ -1,3 +1,9 @@
+# 0.020 
+# stable version
+# CSS changes.
+# Inserted more data into db to test front end
+
+
 # 0.019
 # API changes.
 # [ListSessions] {session_id}-> [Session]
