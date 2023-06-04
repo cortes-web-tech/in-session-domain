@@ -13,14 +13,14 @@
 			$tmp = $user['user_id'];
 			$user_id = $tmp;
 			
-			$subsessions = array(); 
+			$user = array(); 
 			$sql = "SELECT * FROM user_info WHERE user_id='$user_id'";
 			$results = mysqli_query($conn, $sql);
 			$resultCheck = mysqli_num_rows($results);
 			while($row = mysqli_fetch_assoc($results)){
-				$subsessions[] = $row;
+				$user[] = $row;
 			}
-			echo json_encode($subsessions);
+			echo json_encode($user);
 			exit;
 			break;
 
@@ -29,17 +29,17 @@
 			$tmp = $user['user_id'];
 			$user_id = $tmp;
 
-			$subsessions = array(); 
+			$user = array(); 
 			$user_id = 6;
 			$sql = "SELECT * FROM user_info WHERE user_id='$user_id'";
 			$results = mysqli_query($conn, $sql);
 			$resultCheck = mysqli_num_rows($results);
 			
 			while($row = mysqli_fetch_assoc($results)){
-				$subsessions[] = $row;
+				$user[] = $row;
 			   }
 			   
-			echo json_encode($subsessions);
+			echo json_encode($user);
 			mysqli_close($conn);
 			exit();
 			break;

@@ -6,9 +6,10 @@ const Session = (props) => {
   const [subsessions, setSubsessions] = useState([]);
   const location = useLocation();
   const session_id = location.state.session_id;
-  // console.log(session_id);
   useEffect(() => {
-    getSession(session_id);
+    setInterval(() => {
+      getSession(session_id);
+    }, 500);
   });
 
   function getSession(id) {

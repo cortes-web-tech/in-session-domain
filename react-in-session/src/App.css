@@ -207,3 +207,26 @@ a{
   background-color: #3898ec;
   border-radius: 2em;
 }
+
+.loginWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;;
+  height: 30rem;
+  
+}
+
+.loginContainer {
+  border-radius: 1em;
+  background-color:#2eda9f;
+  padding: 2em;
+}
+
+.loginForm {
+  
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+

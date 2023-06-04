@@ -1,3 +1,7 @@
+# 0.022
+# [Login] incomplete. CORS policy blocked
+# NavBar elements Hidden until user logs in 
+
 # 0.021
 # [Users] Fetching and displaying correct data from db. Displays data for all users.
 # GET users API ✅
