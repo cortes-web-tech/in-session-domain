@@ -7,38 +7,31 @@ $objDb = new DbConnect;
 $conn = $objDb->connect();
 
 if($_SERVER["REQUEST_METHOD"] !== "POST"){
-	header("location: /");
+	echo "Error. Post method required";
+        // header("Location: /");
         exit();
 }
-
-if(isset($_POST['uname']) && isset($_POST['pw'])) {
-	function validate($data){
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
-	}
-}
-
-$uname = validate($_POST['uname']);
-$pass = validate($_POST['pw']);
+$user = json_decode(file_get_contents('php://input'), true);
+$uname = $user['uname'];
+$pass = $user['pw'];
 
 if(empty($uname)){
 	header("Location: /");
         exit();
 }else if(empty($pass)){
-	header("Location: /");
+	echo "Password blank";
 	exit();
 }
-$user = json_decode(file_get_contents('php://input'), true);
-$uname = $user['uname'];
-$pass = $user['pw'];
-$sql = "SELECT * FROM user_login_table WHERE user_name='$uname' AND password='$pass';";
-$result = mysqli_query($conn, $sql);
 
-// echo $sql;
-/*
-if(mysqli_num_rows($result) === 1){
+
+$method = $_SERVER['REQUEST_METHOD'];
+switch($method){
+        case "POST":                
+                $user = array();
+                $sql = "SELECT * FROM user_login_table WHERE user_name='$uname' AND password='$pass';";
+                $result = mysqli_query($conn, $sql);
+                
+                if(mysqli_num_rows($result) === 1){
                 $row = mysqli_fetch_assoc($result);
                 if($row['user_name'] === $uname && $row['password'] === $pass){
                         $user[] = $row;
@@ -52,5 +45,28 @@ if(mysqli_num_rows($result) === 1){
                     }
 
                     mysqli_close($conn);
-			exit();
-					*/
+// 			exit();
+					
+
+                break;
+}
+
+
+/*
+
+if(isset($_POST['uname']) && isset($_POST['password'])) {
+	function validate($data){
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
+}
+
+$uname = validate($_POST['uname']);
+$pass = validate($_POST['password']);
+
+
+*/
+
+?>

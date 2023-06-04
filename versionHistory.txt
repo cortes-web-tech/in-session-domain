@@ -1,5 +1,5 @@
 # 0.022
-# [Login] incomplete. CORS policy blocked
+# [Login] GET login API correctly fetching data. Not authenticating or passing data through to Homepage.
 # NavBar elements Hidden until user logs in 
 
 # 0.021

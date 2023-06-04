@@ -3,7 +3,8 @@ import axios from "axios";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import SessionLink from "./SessionLink";
 
-export default function ListSessions() {
+export default function ListSessions(props) {
+  console.log(props);
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
     getSessions();

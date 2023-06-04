@@ -1,28 +1,36 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   // console.log(useLocation().state);
 
   function login() {
-    console.log("user: " + username + " pw: " + password);
+    if (password == "" || username == "") {
+      setError("User name or password blank");
+    } else {
+      axios
+        .post("http://192.168.1.15/api/login.php/", {
+          uname: username,
+          pw: password,
+        })
+        .then((response) => {
+          console.log(response.data[0]);
+          setUser(response.data[0]);
+        })
+        .catch((err) => console.log(err));
 
-    axios
-      .post("http://192.168.1.15/api/login.php/", {
-        uname: username,
-        pw: password,
-      })
-      .then((response) => {
-        console.log(response.data);
-        // setUser(response.data);
-      })
-      .catch((err) => console.log(err));
+      // if (user) {
+      // setTimeout(() => {
+      navigate("../ListSessions", { user: user.user_id });
+      // }, 1000);
+      // }
+    }
   }
 
   const handleInputChange = (e, type) => {
@@ -49,6 +57,7 @@ const Login = (props) => {
         <div className="loginContainer">
           {error !== "" ? <span className="error">{error}</span> : ""}
           <div className="loginForm">
+            {user ? "Redirecting" : ""}
             <label>User name</label>
             <input
               type="text"
