@@ -197,9 +197,13 @@ a{
   width: 150px;
   height:150px;
   position:relative;
-  
-  /*  translate: 60px 400px; */
   opacity: 100%;
   border-radius: 50%;
+}
 
+.users_data{
+  padding: 1em;
+  margin: 1em;
+  background-color: #3898ec;
+  border-radius: 2em;
 }

@@ -6,6 +6,7 @@ import ListSessions from "./ListSessions.js";
 import Session from "./Session.js";
 import Footer from "./Footer";
 import watermark from "./images/watermark.jpg";
+import watermark2 from "./images/watermark_2.jpg";
 
 import Session_Info from "./Session_Info.js";
 function App() {
@@ -21,7 +22,7 @@ function App() {
       </div>
       <div className="rightBar">
         <p>We Thank you for your support and participation.</p>
-        <img src={watermark} className="watermark" />
+        <img src={watermark2} className="watermark" />
       </div>
     </div>
   );

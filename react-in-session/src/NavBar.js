@@ -3,6 +3,7 @@ import Home from "./Home.js";
 import ListSessions from "./ListSessions.js";
 import Session from "./Session.js";
 import Session_Info from "./Session_Info.js";
+import Users from "./Users.js";
 import { useEffect, useState } from "react";
 
 // import "moment-timezone";
@@ -28,7 +29,7 @@ const NavBar = (props) => {
               <Link to="ListSessions">Sessions</Link>
             </li>
             <li>
-              <a href="">Users </a>
+              <Link to="Users">Users</Link>
             </li>
           </ul>
           <ul className="rightNav">
@@ -50,6 +51,7 @@ const NavBar = (props) => {
           <Route path="Session/:session_id" element={<Session />} />
           <Route path="SessionLink" element={<Session />} />
           <Route path="Session_Info/" element={<Session_Info />} />
+          <Route path="Users" element={<Users />} />
         </Routes>
       </div>
     </BrowserRouter>
