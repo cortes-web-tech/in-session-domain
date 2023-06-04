@@ -24,19 +24,11 @@ const Login = (props) => {
           pw: password,
         })
         .then((response) => {
-          // console.log(response.data[0]);
-          // redirect();
           // setUser(response.data[0].user_id);
           navigate("../ListSessions", { state: response.data[0] });
           // console.log(user);
         })
         .catch((err) => console.log(err));
-
-      // if (user) {
-      // setTimeout(() => {
-
-      // }, 1000);
-      // }
     }
   }
 

@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import Nav from "./Nav";
 const User = (props) => {
   const [user, setUser] = useState([]);
   const location = useLocation();

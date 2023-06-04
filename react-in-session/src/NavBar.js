@@ -19,58 +19,24 @@ const NavBar = (props) => {
   // console.log(loggedIn);
 
   return (
-    <BrowserRouter>
-      <div className="nav">
-        <nav>
-          <ul className="leftNav">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            {loggedIn ? (
-              <li>
-                <Link to="ListSessions">Sessions</Link>
-              </li>
-            ) : (
-              ""
-            )}
-            {loggedIn ? (
-              <li>
-                <Link to="Users">Users</Link>
-              </li>
-            ) : (
-              ""
-            )}
-          </ul>
-          <ul className="rightNav">
-            {loggedIn ? (
-              <li>
-                <a href="">Profile</a>
-              </li>
-            ) : (
-              ""
-            )}
-            <li>
-              {loggedIn ? "Hello " + user : <Link to="Login">Login</Link>}
-            </li>
-            <li>{loggedIn ? "Logout" : ""}</li>
-          </ul>
-        </nav>
-      </div>
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="ListSessions" element={<ListSessions />} />
-          <Route path="Index" element={<Home />} />
-          <Route path="Session/" element={<Session />} />
-          <Route path="Session/:session_id" element={<Session />} />
-          <Route path="SessionLink" element={<Session />} />
-          <Route path="Session_Info/" element={<Session_Info />} />
-          <Route path="User" element={<User />} />
-          <Route path="Users" element={<Users />} />
-          <Route path="Login" element={<Login />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="ListSessions" element={<ListSessions />} />
+            <Route path="Index" element={<Home />} />
+            <Route path="Session/" element={<Session />} />
+            <Route path="Session/:session_id" element={<Session />} />
+            <Route path="SessionLink" element={<Session />} />
+            <Route path="Session_Info/" element={<Session_Info />} />
+            <Route path="User" element={<User />} />
+            <Route path="Users" element={<Users />} />
+            <Route path="Login" element={<Login />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
   );
 };
 

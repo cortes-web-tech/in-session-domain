@@ -1,4 +1,10 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import "./App.css";
 import NavBar from "./NavBar";
 import Home from "./Home.js";
@@ -9,7 +15,8 @@ import watermark from "./images/watermark.jpg";
 import watermark2 from "./images/watermark_2.jpg";
 
 import Session_Info from "./Session_Info.js";
-function App() {
+const App = () => {
+  // const location = useLocation();
   return (
     <div className="AppContainer">
       <div className="leftBar">
@@ -26,6 +33,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
