@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const [user, setUser] = useState("");
@@ -9,6 +9,10 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   // console.log(useLocation().state);
+
+  function redirect() {
+    navigate("../NavBar", { state: 4 });
+  }
 
   function login() {
     if (password == "" || username == "") {
@@ -20,14 +24,17 @@ const Login = (props) => {
           pw: password,
         })
         .then((response) => {
-          console.log(response.data[0]);
-          setUser(response.data[0]);
+          // console.log(response.data[0]);
+          // redirect();
+          // setUser(response.data[0].user_id);
+          navigate("../ListSessions", { state: response.data[0] });
+          // console.log(user);
         })
         .catch((err) => console.log(err));
 
       // if (user) {
       // setTimeout(() => {
-      navigate("../ListSessions", { user: user.user_id });
+
       // }, 1000);
       // }
     }

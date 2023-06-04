@@ -9,6 +9,7 @@ const User = (props) => {
 
   useEffect(() => {
     getUser(user_id);
+    // console.log(location);
   });
 
   function getUser(id) {

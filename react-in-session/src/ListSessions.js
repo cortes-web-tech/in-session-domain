@@ -1,10 +1,18 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import SessionLink from "./SessionLink";
 
-export default function ListSessions(props) {
-  console.log(props);
+const ListSessions = (props) => {
+  const location = useLocation().state;
+
+  console.log(location);
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
     getSessions();
@@ -54,4 +62,6 @@ export default function ListSessions(props) {
       </table>
     </div>
   );
-}
+};
+
+export default ListSessions;

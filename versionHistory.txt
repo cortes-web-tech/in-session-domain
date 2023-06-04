@@ -1,5 +1,6 @@
 # 0.022
-# [Login] GET login API correctly fetching data. Not authenticating or passing data through to Homepage.
+# [Login] GET login API correctly fetching data and passing data through to Homepage.
+# Authentication not working properly
 # NavBar elements Hidden until user logs in 
 
 # 0.021
