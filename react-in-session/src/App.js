@@ -1,43 +1,28 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-import ListSessions from "./ListSessions.js";
+import NavBar from "./NavBar";
 import Home from "./Home.js";
+import ListSessions from "./ListSessions.js";
 import Session from "./Session.js";
-import Session_Info from "./Session_Info.js";
 import Footer from "./Footer";
+import watermark from "./images/watermark.jpg";
 
+import Session_Info from "./Session_Info.js";
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <div className="nav">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>Profile</li>
-              <li>Current User</li>
-              <li>
-                <Link to="ListSessions">Sessions</Link>
-              </li>
-              <li>Logout</li>
-            </ul>
-          </nav>
-        </div>
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="ListSessions" element={<ListSessions />} />
-            <Route path="Index" element={<Home />} />
-            <Route path="Session/" element={<Session />} />
-            <Route path="Session/:session_id" element={<Session />} />
-            <Route path="SessionLink" element={<Session />} />
-            <Route path="Session_Info/" element={<Session_Info />} />
-          </Routes>
-        </div>
+    <div className="AppContainer">
+      <div className="leftBar">
+        <p>A special thank you to all of our sponsors.</p>
+        <img src={watermark} className="watermark" />
+      </div>
+      <div className="App">
+        <NavBar />
         <Footer />
-      </BrowserRouter>
+      </div>
+      <div className="rightBar">
+        <p>We Thank you for your support and participation.</p>
+        <img src={watermark} className="watermark" />
+      </div>
     </div>
   );
 }

@@ -1,3 +1,39 @@
+.leftBar{
+  background-color: #1b7add;
+  width: 50lvh;
+  
+}
+
+.rightBar{
+  padding:0px 20px 0 20px;
+  font-style: italic;
+  text-align: center;
+  background-color: #1b7add;
+  width: 50lvh;
+}
+
+.AppContainer{
+  /* width: 100vh; */
+  display: flex;
+  height: 100%;
+}
+.AppContainer p{
+  padding:0px 20px 0 20px;
+  font-style: italic;
+  text-align: center;
+  color: floralwhite;
+  font-size: 1.3em;
+}
+
+
+.AppContainer img{
+  margin-top: 80px;
+}
+
+.AppContainer p{
+  margin-top: 40px;
+}
+
 .App {
   text-align: center;
   background-color: #1b7add;
@@ -33,7 +69,7 @@
 
 nav ul {
   list-style: none;
-  
+  display: inline-block;
 }
 
 nav ul li {
@@ -43,22 +79,38 @@ nav ul li {
 
 }
 
+.nav {
+  background-color: #2eda9f;
+  height: 60px;
+}
+
+.leftNav {
+  float:left;
+}
+
+.rightNav {
+  float:right;
+  padding-right:1em;
+}
+
 h2 {
   color: #3898ec;
 }
 
 .sessionDataContainer{
   background-color: #3898ec;
-  padding: 1em;
+  padding: 0 1em 1em 1em;
   border-radius:2em;
   border: 2px solid white;
   margin:.5em;
+  
 }
 
 .sessionDataTable{
   /* background-color: #1b7add; */
   border-radius: 0.5em;
   padding: 10px;
+ 
 }
 
 .sessionDataTable tr {
@@ -84,10 +136,7 @@ a{
   border: 0.5px solid white;
 }
 
-.nav {
-  background-color: #2eda9f;
-  
-}
+
 
 .content {
   background-color: #e2adf9;
@@ -111,7 +160,9 @@ a{
   35% {left: -49.8em;}
   55% {left: -49.8em;}
   70% {left: -99.5em;}
-  100% {left: -99.5em;}
+  95% {left: -99.5em;}
+  99% {left: -150em;}
+  100% {left: -5550px;}
 }
 
 .slide-images{
@@ -140,4 +191,15 @@ a{
   justify-content: space-between;
   margin-right: 1px;
   overflow: hidden;
+}
+
+.watermark{
+  width: 150px;
+  height:150px;
+  position:relative;
+  
+  /*  translate: 60px 400px; */
+  opacity: 100%;
+  border-radius: 50%;
+
 }
