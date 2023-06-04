@@ -1,26 +1,29 @@
-// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-const Users = (props) => {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    getUsers();
-  }, []);
 
-  function getUsers() {
-    axios.get("http://192.168.1.15/api/users.php").then(function (response) {
-      if (response.data.error) {
-        console.log("Error while getting data.");
-      } else {
-        setUsers(response.data);
-      }
-    });
+const User = (props) => {
+  const [user, setUser] = useState([]);
+  const location = useLocation();
+  const user_id = location.state.user_id;
+
+  useEffect(() => {
+    getUser(user_id);
+  });
+
+  function getUser(id) {
+    axios
+      .post("http://192.168.1.15/api/user.php/", { user_id: id })
+      .then((response) => {
+        // console.log(response.data);
+        setUser(response.data);
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
     <div className="users_data">
-      <div>Admin page: User List</div>
+      <div>Admin page: User Info</div>
       <div>
         <table className="sessionDataTable">
           <thead>
@@ -28,20 +31,20 @@ const Users = (props) => {
               <th>Full Name</th>
               <th>First Name</th>
               <th>Last Name</th>
+              <th>Username</th>
+              <th>Email</th>
               <th>Organization</th>
               <th>Sessions</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user, key) => (
+            {user.map((user, key) => (
               <tr key={user.user_id}>
-                <td>
-                  <Link to="/User" state={{ user_id: user.user_id }}>
-                    {user.fullName}
-                  </Link>
-                </td>
+                <td>{user.fullName}</td>
                 <td>{user.firstName}</td>
                 <td>{user.lastName}</td>
+                <td>{user.userName}</td>
+                <td>{user.email}</td>
                 <td>{user.organization}</td>
                 <td>Function WIP</td>
               </tr>
@@ -53,4 +56,4 @@ const Users = (props) => {
   );
 };
 
-export default Users;
+export default User;

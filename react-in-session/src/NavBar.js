@@ -1,17 +1,15 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./Home.js";
-import ListSessions from "./ListSessions.js";
-import Session from "./Session.js";
-import Session_Info from "./Session_Info.js";
-import Users from "./Users.js";
+import Home from "./Home";
+import ListSessions from "./ListSessions";
+import Session from "./Session";
+import Session_Info from "./Session_Info";
+import User from "./User";
+import Users from "./Users";
 import { useEffect, useState } from "react";
-
-// import "moment-timezone";
 
 const NavBar = (props) => {
   const [loggedIn, setLoggedIn] = useState([]);
   const user = "masaomi";
-  // const date = new Date();
   useEffect(() => {
     setLoggedIn(1);
   });
@@ -51,6 +49,7 @@ const NavBar = (props) => {
           <Route path="Session/:session_id" element={<Session />} />
           <Route path="SessionLink" element={<Session />} />
           <Route path="Session_Info/" element={<Session_Info />} />
+          <Route path="User" element={<User />} />
           <Route path="Users" element={<Users />} />
         </Routes>
       </div>
