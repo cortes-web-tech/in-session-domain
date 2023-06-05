@@ -10,6 +10,10 @@ import NavBar from "./NavBar";
 import Home from "./Home.js";
 import ListSessions from "./ListSessions.js";
 import Session from "./Session.js";
+import User from "./User";
+import Users from "./Users";
+import Login from "./Login";
+import Nav from "./Nav";
 import Footer from "./Footer";
 import watermark from "./images/watermark.jpg";
 import watermark2 from "./images/watermark_2.jpg";
@@ -25,6 +29,8 @@ const App = () => {
       </div>
       <div className="App">
         <NavBar />
+        {/* <Nav /> */}
+
         <Footer />
       </div>
       <div className="rightBar">

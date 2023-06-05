@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
+import App from "./App";
 import ListSessions from "./ListSessions";
 import Session from "./Session";
 import Session_Info from "./Session_Info";
@@ -17,8 +18,6 @@ const NavBar = (props) => {
     setLoggedIn(false);
     setUser("Masaomi");
   });
-  // console.log(loggedIn);
-
   return (
     <div>
       <BrowserRouter>
@@ -38,6 +37,19 @@ const NavBar = (props) => {
           </Routes>
         </div>
       </BrowserRouter>
+
+      {loggedIn ? (
+        <div>
+          {/*
+         
+      */}
+        </div>
+      ) : (
+        <div>
+          <div>Welcome to inSession</div>
+          <div>{/* Please <Link to="/Login">Login</Link> to continue */}</div>
+        </div>
+      )}
     </div>
   );
 };
