@@ -1,3 +1,9 @@
+# 0.023
+# Introduced Logout API.
+# [Login] available, then grants access to ALL pages
+# [Home] not rendering BEFORE LOGIN due to state bug. 
+# Upon logout, [home] not rendering due to stae bug.
+
 # 0.022
 # [Login] GET login API correctly fetching data and passing data through to Homepage.
 # Authentication not working properly

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Logout from "./Logout";
 const Nav = (props) => {
   const [loggedIn, setLoggedIn] = useState([]);
   //   const [user, setUser] = useState([]);
@@ -51,7 +51,7 @@ const Nav = (props) => {
               <Link to="Login">Login</Link>
             )}
           </li>
-          <li>{loggedIn ? "Logout" : ""}</li>
+          <li>{loggedIn ? <Logout /> : ""}</li>
         </ul>
       </nav>
     </div>

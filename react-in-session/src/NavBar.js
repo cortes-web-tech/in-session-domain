@@ -6,6 +6,7 @@ import Session_Info from "./Session_Info";
 import User from "./User";
 import Users from "./Users";
 import Login from "./Login";
+import Logout from "./Logout";
 import { useEffect, useState } from "react";
 
 const NavBar = (props) => {
@@ -33,6 +34,7 @@ const NavBar = (props) => {
             <Route path="User" element={<User />} />
             <Route path="Users" element={<Users />} />
             <Route path="Login" element={<Login />} />
+            <Route path="Logout" element={<Home />} />
           </Routes>
         </div>
       </BrowserRouter>
