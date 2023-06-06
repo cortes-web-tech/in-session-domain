@@ -5,12 +5,13 @@ import "./App.css";
 import Nav from "./Nav";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import Login from "./Login";
 
 const Home = (props) => {
-  console.log(props);
-  const location = useLocation().state;
-  console.log(location);
-  const user = location.user;
+  // console.log(props);
+  // const location = useLocation().state;
+  // console.log(location);
+  // const user = location.user;
   const [loggedIn, setLoggedIn] = useState(false);
   // setLoggedIn(false);
   // console.log(user);
@@ -30,8 +31,8 @@ const Home = (props) => {
         </div>
       ) : (
         <div className="home">
-          <Nav state={{ user }} />
           place holder
+          {/* <Login /> */}
         </div>
       )}
     </div>
