@@ -1,8 +1,9 @@
 # 0.024
 # Merging to AWS
 # Buggy version
-# Homepage barely rendering. 
-# Manually navigate to localhost/login
+# The merge to AWS broke the react app due to how the Browser Routing was was set up on the test server.
+# It was not compatible with single page mode on the build mode.
+# Being stiched together on a new project file before being meged in.
 
 # 0.023
 # Introduced Logout API.
