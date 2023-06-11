@@ -14,7 +14,7 @@ const User = (props) => {
 
   function getUser(id) {
     axios
-      .post("http://192.168.1.15/api/user.php/", { user_id: id })
+      .post("/api/user.php/", { user_id: id })
       .then((response) => {
         // console.log(response.data);
         setUser(response.data);

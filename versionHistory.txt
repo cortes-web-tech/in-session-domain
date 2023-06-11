@@ -4,6 +4,7 @@
 # The merge to AWS broke the react app due to how the Browser Routing was was set up on the test server.
 # It was not compatible with single page mode on the build mode.
 # Being stiched together on a new project file before being meged in.
+# API connection changes to reflect live server config
 
 # 0.023
 # Introduced Logout API.

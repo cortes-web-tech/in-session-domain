@@ -14,7 +14,7 @@ const Session = (props) => {
 
   function getSession(id) {
     axios
-      .post("http://192.168.1.15/api/getSession.php", { session_id: id })
+      .post("/api/getSession.php", { session_id: id })
       .then((response) => setSubsessions(response.data))
       .catch((err) => console.log(err));
   }

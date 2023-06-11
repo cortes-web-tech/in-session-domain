@@ -12,16 +12,14 @@ const Session_Info = (props) => {
   }, []);
 
   function getSession_data() {
-    axios
-      .get("http://192.168.1.15/api/getSession.php", {})
-      .then(function (response) {
-        if (response.data.error) {
-          console.log("Error while getting data.");
-        } else {
-          // console.log(response.data);
-          setSubsessions(response.data);
-        }
-      });
+    axios.get("/api/getSession.php", {}).then(function (response) {
+      if (response.data.error) {
+        console.log("Error while getting data.");
+      } else {
+        // console.log(response.data);
+        setSubsessions(response.data);
+      }
+    });
   }
   return (
     <div>

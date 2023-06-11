@@ -14,7 +14,7 @@ const Users = (props) => {
   }, []);
 
   function getUsers() {
-    axios.get("http://192.168.1.15/api/users.php").then(function (response) {
+    axios.get("/api/users.php").then(function (response) {
       if (response.data.error) {
         console.log("Error while getting data.");
       } else {
