@@ -6,21 +6,17 @@ import {
   useLocation,
 } from "react-router-dom";
 import "./App.css";
-import NavBar from "./NavBar";
-import Home from "./Home.js";
-import ListSessions from "./ListSessions.js";
-import Session from "./Session.js";
-import User from "./User";
-import Users from "./Users";
-import Login from "./Login";
-import Nav from "./Nav";
-import Footer from "./Footer";
 import watermark from "./images/watermark.jpg";
 import watermark2 from "./images/watermark_2.jpg";
+import Home from "./Home.js";
+import Homepage from "./Homepage";
+import Logout from "./Logout";
+import Session from "./Session";
+import Sessions from "./Sessions";
+import Users from "./Users";
+import User from "./User";
 
-import Session_Info from "./Session_Info.js";
 const App = () => {
-  // const location = useLocation();
   return (
     <div className="AppContainer">
       <div className="leftBar">
@@ -28,10 +24,17 @@ const App = () => {
         <img src={watermark} className="watermark" />
       </div>
       <div className="App">
-        <NavBar />
-        {/* <Nav /> */}
-
-        <Footer />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="Session" element={<Session />} />
+            <Route path="Sessions" element={<Sessions />} />
+            <Route path="Users" element={<Users />} />
+            <Route path="User" element={<User />} />
+            <Route path="Homepage" element={<Homepage />} />
+            <Route path="Logout" element={<Logout />} />
+          </Routes>
+        </BrowserRouter>
       </div>
       <div className="rightBar">
         <p>We Thank you for your support and participation.</p>
