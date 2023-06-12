@@ -1,3 +1,6 @@
+# 0.026
+# Created Registration Form. API not configured yet.
+
 # 0.025
 # Merging code from live server to fix SPA glitch from previous version
 # [Register] page created. API not built yet.
