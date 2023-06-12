@@ -15,7 +15,7 @@ import Session from "./Session";
 import Sessions from "./Sessions";
 import Users from "./Users";
 import User from "./User";
-
+import Register from "./Register";
 const App = () => {
   return (
     <div className="AppContainer">
@@ -33,6 +33,7 @@ const App = () => {
             <Route path="User" element={<User />} />
             <Route path="Homepage" element={<Homepage />} />
             <Route path="Logout" element={<Logout />} />
+            <Route path="Register" element={<Register />} />
           </Routes>
         </BrowserRouter>
       </div>

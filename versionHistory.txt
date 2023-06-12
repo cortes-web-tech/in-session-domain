@@ -1,5 +1,8 @@
 # 0.025
 # Merging code from live server to fix SPA glitch from previous version
+# [Register] page created. API not built yet.
+# Logout not configured properly after merging code.
+# Login bug fixed where it bypassed login API and allowed anyone to log in.
 
 # 0.024
 # Merging to AWS

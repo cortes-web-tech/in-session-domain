@@ -1,32 +1,31 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { redirect, useLocation, useNavigate } from "react-router-dom";
-
+import { redirect, useLocation, useNavigate, Link } from "react-router-dom";
+import Register from "./Register";
 const Login = (props) => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  // console.log(useLocation().state);
-
-  function redirect() {
-    navigate("../NavBar", { state: 4 });
-  }
 
   function login() {
     if (password == "" || username == "") {
       setError("User name or password blank");
     } else {
       axios
-        .post("http://192.168.1.15/api/login.php/", {
+        .post("/api/login.php/", {
           uname: username,
           pw: password,
         })
         .then((response) => {
-          // setUser(response.data[0].user_id);
-          navigate("../ListSessions", { state: response.data[0] });
-          // console.log(user);
+          if (response.data < 1) {
+            setError("User not found. Please try login again.");
+          } else {
+            console.log(response.data);
+            setUser(response.data);
+            navigate("/Homepage", { state: response.data });
+          }
         })
         .catch((err) => console.log(err));
     }
@@ -79,7 +78,7 @@ const Login = (props) => {
             />
             Log In
           </div>
-          <div>Register Function WIP</div>
+          <Link to="Register">Register</Link>
         </div>
       </div>
     </div>
