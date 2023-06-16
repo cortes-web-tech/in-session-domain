@@ -1,3 +1,7 @@
+# 0.027 State bug with Nav not storing user properly.
+# Added new [homepage] after login, need to reevaulate user auth
+# Need to implement state management.
+
 # 0.026
 # Created Registration Form. API not configured yet.
 # Working on Registration API.

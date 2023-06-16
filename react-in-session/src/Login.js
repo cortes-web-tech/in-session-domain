@@ -22,7 +22,6 @@ const Login = (props) => {
           if (response.data < 1) {
             setError("User not found. Please try login again.");
           } else {
-            console.log(response.data);
             setUser(response.data);
             navigate("/Homepage", { state: response.data });
           }
