@@ -1,3 +1,7 @@
+# 0.028
+# Merging code back with dev server
+# Fixing navbar state mgmt bug 
+
 # 0.027 State bug with Nav not storing user properly.
 # Added new [homepage] after login, need to reevaulate user auth
 # Need to implement state management.

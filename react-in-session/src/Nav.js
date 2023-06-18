@@ -28,7 +28,7 @@ const Nav = (props) => {
           )}
           {loggedIn ? (
             <li>
-              <Link to="../Users" state={{ user }}>
+              <Link to="../ViewUsers" state={{ user }}>
                 Users
               </Link>
             </li>
