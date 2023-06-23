@@ -5,7 +5,7 @@ const Nav = (props) => {
   const [loggedIn, setLoggedIn] = useState([]);
   //   const [user, setUser] = useState([]);
 
-  const user = props.state.user;
+  //const user = props.state.user;
   //   console.log(user);<Nav state={{ user: user }} />
   //   setUser("Masaomi");
   return (
@@ -13,24 +13,18 @@ const Nav = (props) => {
       <nav className="nav">
         <ul className="leftNav">
           <li>
-            <Link to="/" state={{ user }}>
-              Home
-            </Link>
+            <Link to="/">Home</Link>
           </li>
           {loggedIn ? (
             <li>
-              <Link to="../ListSessions" state={{ user }}>
-                Sessions
-              </Link>
+              <Link to="/Sessions">Sessions</Link>
             </li>
           ) : (
             ""
           )}
           {loggedIn ? (
             <li>
-              <Link to="../ViewUsers" state={{ user }}>
-                Users
-              </Link>
+              <Link to="/Users">Users</Link>
             </li>
           ) : (
             ""
@@ -44,13 +38,7 @@ const Nav = (props) => {
           ) : (
             ""
           )}
-          <li>
-            {loggedIn ? (
-              "Hello " + user._firstName
-            ) : (
-              <Link to="Login">Login</Link>
-            )}
-          </li>
+          <li>{loggedIn ? "Hello " : <Link to="Login">Login</Link>}</li>
           <li>{loggedIn ? <Logout /> : ""}</li>
         </ul>
       </nav>

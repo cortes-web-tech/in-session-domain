@@ -1,16 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Nav from "./Nav";
 const Session = (props) => {
   const [session, setSession] = useState([]);
   const [subsessions, setSubsessions] = useState([]);
   const location = useLocation();
   const session_id = location.state.session_id;
   useEffect(() => {
-    setInterval(() => {
-      getSession(session_id);
-    }, 500);
-  });
+    getSession(session_id);
+  }, []);
 
   function getSession(id) {
     axios
@@ -21,6 +20,7 @@ const Session = (props) => {
 
   return (
     <div>
+      <Nav />
       <div className="sessionDataContainer">
         <h3>Session Title</h3>
         <table className="sessionDataTable">
