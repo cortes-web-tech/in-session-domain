@@ -5,11 +5,14 @@ import Nav from "./Nav";
 const ViewUser = (props) => {
   const [user, setUser] = useState([]);
   const [subsessions, setSubsessions] = useState([]);
+  const [files, setFiles] = useState([]);
+  const [filename, setFilename] = useState([]);
   const location = useLocation();
   const user_id = location.state.user_id;
   useEffect(() => {
     getUser(user_id);
     presentingIn(user_id);
+    getFiles(22);
   }, []);
 
   function getUser(id) {
@@ -28,6 +31,17 @@ const ViewUser = (props) => {
       .catch((err) => console.log(err));
   }
 
+  function getFiles(id) {
+    axios
+      .post("/api/getFiles.php", { subsession_id: id })
+      .then((response) => {
+        const filename = response.data[0];
+        console.log(response.data);
+        setFiles(response.data);
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <div className="users_data">
       <Nav />
@@ -42,7 +56,6 @@ const ViewUser = (props) => {
               <th>Username</th>
               <th>Email</th>
               <th>Organization</th>
-              <th>Sessions</th>
               <th>User tier</th>
             </tr>
           </thead>
@@ -55,7 +68,6 @@ const ViewUser = (props) => {
                 <td>{user.userName}</td>
                 <td>{user.email}</td>
                 <td>{user.organization}</td>
-                <td>Function WIP</td>
                 <td>{user.user_tier}</td>
               </tr>
             ))}
@@ -70,13 +82,26 @@ const ViewUser = (props) => {
             <th>Session time</th>
             <th>Moderator</th>
           </tr>
-          {subsessions.map((subsession, key) => (
-            <tr key={subsession.subsession_id}>
-              <td>{subsession.subsession_title}</td>
-              <td>{subsession.startTime}</td>
-              <td>{subsession.modName}</td>
-            </tr>
-          ))}
+          <tbody>
+            {subsessions.map((subsession, key) => (
+              <tr key={subsession.subsession_id}>
+                <td>
+                  {subsession.subsession_title}
+                  <br />
+                  <div>
+                    <tbody>
+                      {subsession.subsession_id}
+                      {files.map((file, key) => (
+                        <tr key={file.file_id}>{file.filename}</tr>
+                      ))}
+                    </tbody>
+                  </div>
+                </td>
+                <td>{subsession.startTime}</td>
+                <td>{subsession.modName}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>

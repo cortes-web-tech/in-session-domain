@@ -37,7 +37,11 @@ const Session = (props) => {
             {subsessions.map((subsession, key) => (
               <tr key={subsession.subsession_id}>
                 <td>{subsession.subsession_title}</td>
-                <td>{subsession.presenter}</td>
+                <td>
+                  <Link to="/ViewUser" state={{ user_id: subsession._user_id }}>
+                    {subsession.presenter}
+                  </Link>
+                </td>
                 <td>{subsession.startTime}</td>
                 <td>{subsession.endTime}</td>
                 <td>{subsession.modName}</td>
