@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "./Nav";
+import Filelist from "./Filelist";
 const ViewUser = (props) => {
   const [user, setUser] = useState([]);
   const [subsessions, setSubsessions] = useState([]);
@@ -9,6 +10,7 @@ const ViewUser = (props) => {
   const [filename, setFilename] = useState([]);
   const location = useLocation();
   const user_id = location.state.user_id;
+  let filelist = [];
   useEffect(() => {
     getUser(user_id);
     presentingIn(user_id);
@@ -35,8 +37,7 @@ const ViewUser = (props) => {
     axios
       .post("/api/getFiles.php", { subsession_id: id })
       .then((response) => {
-        const filename = response.data[0];
-        console.log(response.data);
+        // console.log(response.data);
         setFiles(response.data);
       })
       .catch((err) => console.log(err));
@@ -91,6 +92,8 @@ const ViewUser = (props) => {
                   <div>
                     <tbody>
                       {subsession.subsession_id}
+                      {/* {getFiles(subsession.subsession_id)} */}
+                      <Filelist state={{ subsesh: subsession.subsession_id }} />
                       {files.map((file, key) => (
                         <tr key={file.file_id}>{file.filename}</tr>
                       ))}

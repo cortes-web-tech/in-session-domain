@@ -7,7 +7,7 @@ import Nav from "./Nav";
 const Users = (props) => {
   const location = useLocation().state;
   const user = location;
-  // console.log(location);
+  //console.log(location);
   const [users, setUsers] = useState([]);
   useEffect(() => {
     getUsers();

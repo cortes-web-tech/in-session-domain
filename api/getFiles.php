@@ -26,4 +26,5 @@ switch($method) {
 	exit;
     break;
 }
+mysqli_close($conn);
 ?>
