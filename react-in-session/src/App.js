@@ -9,6 +9,7 @@ import Users from "./Users";
 import User from "./User";
 import Register from "./Register";
 import ViewUser from "./ViewUser";
+import Filelist from "./Filelist";
 const App = () => {
   return (
     <div className="App">
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="Logout" element={<Home />} />
           <Route path="Register" element={<Register />} />
           <Route path="ViewUser" element={<ViewUser />} />
+          <Route path="Filelist" element={<Filelist />} />
         </Routes>
       </BrowserRouter>
     </div>

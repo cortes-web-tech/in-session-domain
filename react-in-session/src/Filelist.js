@@ -3,12 +3,11 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 const Filelist = (props) => {
   const [files, setFiles] = useState([]);
-  // setFiles()
   const location = useLocation();
   const subsesh = location.state;
-  console.log(subsesh);
+  console.log(location.state);
   useEffect(() => {
-    setFiles(subsesh);
+    //setFiles(subsesh);
     getFiles(22);
   }, []);
 
@@ -16,12 +15,21 @@ const Filelist = (props) => {
     axios
       .post("/api/getFiles.php", { subsession_id: id })
       .then((response) => {
-        // console.log(response.data);
+        //console.log(response.data);
         setFiles(response.data);
       })
       .catch((err) => console.log(err));
   }
-  return <div>file info will go here</div>;
+  return (
+    <div>
+      filelist
+      <tbody>
+        {files.map((file, key) => (
+          <tr key={file.file_id}>{file.filename}</tr>
+        ))}
+      </tbody>
+    </div>
+  );
 };
 
 export default Filelist;
