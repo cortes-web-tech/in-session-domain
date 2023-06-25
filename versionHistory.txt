@@ -1,3 +1,6 @@
+# 0.030
+# Displaying correct file names, not downloadable yet
+
 # 0.029
 # UI/UX/ API merge stable
 # Building file download API

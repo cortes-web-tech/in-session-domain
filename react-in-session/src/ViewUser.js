@@ -79,8 +79,7 @@ const ViewUser = (props) => {
                   <br />
                   <div>
                     <tbody>
-                      {subsession.subsession_id}
-                      <Filelist state={{ id: 6 }} />
+                      <Filelist state={{ id: subsession.subsession_id }} />
                     </tbody>
                   </div>
                 </td>
