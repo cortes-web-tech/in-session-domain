@@ -229,4 +229,22 @@ a{
   padding: 1em;
 }
 
+.fileList{
+  display: flex;
+  justify-content: left;
+}
 
+.fileDownload{
+  border-radius: 1em;
+  padding: 5px;
+  padding-inline: 20px;
+  background-color: #2eda9f;
+}
+
+.fileDownload:hover{
+  background-color: floralwhite;
+}
+
+.fileStyle{
+  justify-content: left;
+}
