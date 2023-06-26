@@ -5,15 +5,13 @@ import "./App.css";
 const Filelist = (props) => {
   const [files, setFiles] = useState([]);
   useEffect(() => {
-    //setFiles(subsesh);
     getFiles(props.state.id);
   }, []);
-  // echo "<a href='../downloadFile.php?file=$filename'>" . $filename . "</a></br>";
+
   function getFiles(id) {
     axios
       .post("/api/getFiles.php", { subsession_id: id })
       .then((response) => {
-        //console.log(response.data);
         setFiles(response.data);
       })
       .catch((err) => console.log(err));
@@ -21,10 +19,12 @@ const Filelist = (props) => {
 
   const dl_fl = (e, filename) => {
     e.preventDefault();
-    axios
-      .post("/api/downloadFile.php", { file: filename })
+    axios({
+      url: "uploads/" + filename,
+      method: "GET",
+      responseType: "blob",
+    })
       .then((response) => {
-        console.log(response.data);
         FileDownload(response.data, filename);
       })
       .catch((err) => console.log(err));
@@ -36,14 +36,13 @@ const Filelist = (props) => {
         <tbody>
           {files.map((file, key) => (
             <tr key={file.file_id}>
-              <td className="fileDownload">
-                <a
-                  href=""
+              <td>
+                <button
                   onClick={(e) => dl_fl(e, file.filename)}
                   download={file.filename}
                 >
                   {file.filename}
-                </a>
+                </button>
               </td>
 
               <td>

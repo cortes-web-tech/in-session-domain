@@ -232,6 +232,7 @@ a{
 .fileList{
   display: flex;
   justify-content: left;
+  
 }
 
 .fileDownload{
@@ -247,4 +248,13 @@ a{
 
 .fileStyle{
   justify-content: left;
+}
+
+.fileDownload button {
+  background: none;
+  border: none;
+  color: #111111;
+}
+.fileDownload button:hover{
+  color: red;
 }

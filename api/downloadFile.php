@@ -3,25 +3,44 @@ namespace api;
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 include 'DbConnect.php';
+session_start();
 $objDb = new DbConnect;
 $conn = $objDb->connect();
 
 $method = $_SERVER['REQUEST_METHOD'];
 switch($method) {
+	case "GET":
+		$filename = basename($_GET['filename']);
+        $filepath = 'uploads/' . $filename;
+		
+		if(!empty($filename) && file_exists($filepath)){		
+			echo $filename;
+		}
+		exit;
+		break;
     case "POST":
         $tmp = json_decode(file_get_contents('php://input'), true);
         $filename = basename($tmp['file']);
         $session_id = $tmp;
         $filepath = 'uploads/' . $filename;
         
-        if(!empty($filename) || file_exists($filepath)){
-            echo $filepath;
-            exit;
+        if(!empty($filename) && file_exists($filepath)){		
+			echo $filename;
+			/*	
+			header("Cache-Control: public");
+			header("Content-Description: File Transfer");
+			header("Content-Disposition: attachment; filename=" . $filename);
+			header('Content-Type: application/force-download');
+			header("Content-Transfer-Encoding: Binary");
+			header('Expires: 0');
+			header('Pragma: public');
+			readfile('uploads/' . $filename);
+			*/
         }else{
             echo "file not found";
         }
 
-        
+        exit();
         break;
     }
 /*
