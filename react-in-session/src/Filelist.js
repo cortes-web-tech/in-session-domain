@@ -19,31 +19,32 @@ const Filelist = (props) => {
   }
 
   function dl_fl(filename) {
-    filename = "/api/downloadFile.php?file=" + filename;
-    console.log(filename);
+    axios
+      .post("/api/downloadFile.php", { file: filename })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
     <div>
-      <tbody>
-        {files.map((file, key) => (
-          <tr key={file.file_id}>
-            <div className="fileList">
-              <div className="fileDownload">
-                <a
-                  href={"/api/downloadFile.php?file=" + file.filename}
-                  onClick={dl_fl(file.filename)}
-                  download={file.filename}
-                >
-                  {file.filename}
-                </a>
-              </div>
-              <a> 🗑</a>
-            </div>
-          </tr>
-        ))}
-        <div className="fileList">upload 📂</div>
-      </tbody>
+      <table className="fileList">
+        <tbody>
+          {files.map((file, key) => (
+            <tr key={file.file_id}>
+              <td className="fileDownload">
+                <a onClick={dl_fl(file.filename)}>{file.filename}</a>
+              </td>
+
+              <td>
+                <a> 🗑</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="fileList">upload 📂</div>
     </div>
   );
 };

@@ -6,6 +6,25 @@ include 'DbConnect.php';
 $objDb = new DbConnect;
 $conn = $objDb->connect();
 
+$method = $_SERVER['REQUEST_METHOD'];
+switch($method) {
+    case "POST":
+        $tmp = json_decode(file_get_contents('php://input'), true);
+        $filename = $tmp['file'];
+        $session_id = $tmp;
+        $filepath = 'uploads/' . $filename;
+        
+        if(!empty($filename) || file_exists($filepath)){
+            echo $filepath;
+            exit;
+        }else{
+            echo "file not found";
+        }
+
+        
+        break;
+    }
+
 if(!empty($_GET['file']))
 	{
 		$filename = basename($_GET['file']);

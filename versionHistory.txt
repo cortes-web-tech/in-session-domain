@@ -1,6 +1,6 @@
 # 0.030
 # Displaying correct file names, not downloadable yet
-# UX/UI changes
+# UX/UI changes, pt 2
 
 # 0.029
 # UI/UX/ API merge stable
