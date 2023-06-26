@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import FileDownload from "js-file-download";
 import "./App.css";
 const Filelist = (props) => {
   const [files, setFiles] = useState([]);
@@ -18,14 +19,16 @@ const Filelist = (props) => {
       .catch((err) => console.log(err));
   }
 
-  function dl_fl(filename) {
+  const dl_fl = (e, filename) => {
+    e.preventDefault();
     axios
       .post("/api/downloadFile.php", { file: filename })
       .then((response) => {
         console.log(response.data);
+        FileDownload(response.data, filename);
       })
       .catch((err) => console.log(err));
-  }
+  };
 
   return (
     <div>
@@ -34,7 +37,13 @@ const Filelist = (props) => {
           {files.map((file, key) => (
             <tr key={file.file_id}>
               <td className="fileDownload">
-                <a onClick={dl_fl(file.filename)}>{file.filename}</a>
+                <a
+                  href=""
+                  onClick={(e) => dl_fl(e, file.filename)}
+                  download={file.filename}
+                >
+                  {file.filename}
+                </a>
               </td>
 
               <td>

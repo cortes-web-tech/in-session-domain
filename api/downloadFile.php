@@ -10,7 +10,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch($method) {
     case "POST":
         $tmp = json_decode(file_get_contents('php://input'), true);
-        $filename = $tmp['file'];
+        $filename = basename($tmp['file']);
         $session_id = $tmp;
         $filepath = 'uploads/' . $filename;
         
@@ -24,7 +24,7 @@ switch($method) {
         
         break;
     }
-
+/*
 if(!empty($_GET['file']))
 	{
 		$filename = basename($_GET['file']);
@@ -51,4 +51,5 @@ if(!empty($_GET['file']))
 			//header("Location: homepage.php?error=File_not_found");
 			exit();		
 		}
+        */
 ?>
