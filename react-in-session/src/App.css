@@ -51,6 +51,32 @@
   pointer-events: none;
 }
 
+.loginBox{
+  position: relative;
+  animation: landing;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes landing {
+  0% {top:-600px}
+  
+  40% {top:50px}
+  80% {top:0px}
+}
+
+.metrics{
+  opacity: 0%;
+  animation: render-metrics;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes render-metrics {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -5,6 +5,8 @@ import Nav from "./Nav";
 const Session = (props) => {
   const [session, setSession] = useState([]);
   const [subsessions, setSubsessions] = useState([]);
+  const [addSubsession, setAddSubsession] = useState(false);
+  const [add_subsessionTitle, setadd_subsessionTitle] = [];
   const location = useLocation();
   const session_id = location.state.session_id;
   useEffect(() => {
@@ -16,6 +18,10 @@ const Session = (props) => {
       .post("/api/getSession.php", { session_id: id })
       .then((response) => setSubsessions(response.data))
       .catch((err) => console.log(err));
+  }
+
+  function toggleAddSubsession() {
+    setAddSubsession(!addSubsession);
   }
 
   return (
@@ -49,6 +55,23 @@ const Session = (props) => {
             ))}
           </tbody>
         </table>
+        <div>
+          {addSubsession ? (
+            <div>
+              <div>
+                <label>Subsession Title</label>
+                <input
+                  type="text"
+                  value={add_subsessionTitle}
+                  placeholder="SubsessionTitle"
+                />
+              </div>
+              <button onClick={toggleAddSubsession}>cancel</button>
+            </div>
+          ) : (
+            <button onClick={toggleAddSubsession}>add subssession</button>
+          )}
+        </div>
       </div>
     </div>
   );

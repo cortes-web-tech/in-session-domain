@@ -12,7 +12,7 @@ const Home = (props) => {
         <h1>Welcome</h1>
         <p>Please log in to continue</p>
       </div>
-      <div>
+      <div className="loginBox">
         <Login />
       </div>
       <Footer />
