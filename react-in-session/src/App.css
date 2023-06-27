@@ -232,6 +232,7 @@ a{
 .fileList{
   display: flex;
   justify-content: left;
+  border: none;
   
 }
 
@@ -239,7 +240,8 @@ a{
   border-radius: 1em;
   padding: 5px;
   padding-inline: 20px;
-  background-color: #2eda9f;
+  background: none;
+  border: none;
 }
 
 .fileDownload:hover{
@@ -247,6 +249,7 @@ a{
 }
 
 .fileStyle{
+  background-color: #2eda9f;
   justify-content: left;
 }
 
@@ -254,6 +257,7 @@ a{
   background: none;
   border: none;
   color: #111111;
+  background-color: #2eda9f;
 }
 .fileDownload button:hover{
   color: red;

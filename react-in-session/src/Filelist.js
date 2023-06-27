@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import FileDownload from "js-file-download";
 import "./App.css";
 const Filelist = (props) => {
+  const subsession_id = props.state.id;
   const [files, setFiles] = useState([]);
   useEffect(() => {
     getFiles(props.state.id);
@@ -17,7 +18,7 @@ const Filelist = (props) => {
       .catch((err) => console.log(err));
   }
 
-  const dl_fl = (e, filename) => {
+  const download_file = (e, filename) => {
     e.preventDefault();
     axios({
       url: "uploads/" + filename,
@@ -30,15 +31,17 @@ const Filelist = (props) => {
       .catch((err) => console.log(err));
   };
 
+  const upload_file = (e) => {};
+
   return (
     <div>
       <table className="fileList">
         <tbody>
           {files.map((file, key) => (
             <tr key={file.file_id}>
-              <td>
+              <td className="FileDownload">
                 <button
-                  onClick={(e) => dl_fl(e, file.filename)}
+                  onClick={(e) => download_file(e, file.filename)}
                   download={file.filename}
                 >
                   {file.filename}
@@ -52,7 +55,19 @@ const Filelist = (props) => {
           ))}
         </tbody>
       </table>
-      <div className="fileList">upload 📂</div>
+      <div className="fileList">
+        <form
+          action={"uploadFile.php?id=" + subsession_id}
+          method="post"
+          enctype="multipart/form-data"
+          id={subsession_id}
+        >
+          <label for="file">📂 </label>
+
+          <button>Upload</button>
+          <input type="file" id="file" name="file" />
+        </form>
+      </div>
     </div>
   );
 };

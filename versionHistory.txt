@@ -1,5 +1,6 @@
 # 0.031
-# Download files works
+# [View User] Download files works
+# [View User] Upload works and assigns files to correct subsession 
 
 # 0.030
 # Displaying correct file names, not downloadable yet

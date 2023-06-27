@@ -40,14 +40,14 @@ $dest = __DIR__ . "/uploads/" . $filename;
 if(!move_uploaded_file($_FILES["file"]["tmp_name"], $dest)){
    exit("Can't move uploaded file.. Try again.");
 }
-
- $sql = "INSERT INTO `files`(`filepath`, `filename`) VALUES ('./uploads/$filename','$filename');";
+$subsession_id = $_GET['id'];
+ $sql = "INSERT INTO `files`(`subsession_id`, `filepath`, `filename`) VALUES ($subsession_id, './uploads/$filename','$filename');";
  if(!mysqli_query($conn, $sql)){
 	echo "Error inserting file into database.";	
 }
 
-     $filetype = $_FILES["file"]["type"];
-   echo $filetype;
+   $filetype = $_FILES["file"]["type"];
+
 // Alerts successful file upload. Redirects to home page.
 if($_FILES["file"]["error"] === UPLOAD_ERR_OK){
 
@@ -56,7 +56,7 @@ if($_FILES["file"]["error"] === UPLOAD_ERR_OK){
 //	echo "error";
 //}
 
-   echo '<script type="text/JavaScript">alert("File uploaded successfully!");window.location.href="homepage.php";</script>';
+   echo '<script type="text/JavaScript">alert("File uploaded successfully!");window.location.href="/";</script>';
    exit();
    }
 
