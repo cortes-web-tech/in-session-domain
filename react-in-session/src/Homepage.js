@@ -14,15 +14,19 @@ const Homepage = (props) => {
   const user = location;
   const [sessionCount, setSessionCount] = useState([0]);
   const [subsessionCount, setSubsessionCount] = useState([0]);
+  const [subsessionFileCount, setSubsessionFileCount] = useState([0]);
   const [roomCount, setRoomCount] = useState([0]);
   const [fileCount, setFileCount] = useState([0]);
   const [userCount, setUserCount] = useState([0]);
+  const [fileData, setFileData] = useState([]);
   useEffect(() => {
     countSessions();
     countSubSessions();
     countRooms();
     countUsers();
     countFiles();
+    getFileData();
+    countSubsessionFiles();
   }, []);
 
   function countSessions() {
@@ -80,6 +84,18 @@ const Homepage = (props) => {
       });
   }
 
+  function getFileData() {
+    axios.post("/api/getFileData.php").then((response) => {
+      setFileData(response.data);
+    });
+  }
+
+  function countSubsessionFiles() {
+    axios.get("/api/subsessionFileCount.php").then((response) => {
+      setSubsessionFileCount(response.data["COUNT(distinct subsession_id)"]);
+    });
+  }
+
   return (
     <div>
       <Nav state={{ user }} />
@@ -108,14 +124,11 @@ const Homepage = (props) => {
             <td>{fileCount}</td>
           </tbody>
         </table>
-        <div className="metrics">
+        <div>
           <h3>Metrics</h3>
-          <table>
-            <tr>
-              <td>Data</td>
-              <td>analysis</td>
-            </tr>
-          </table>
+          <div className="metrics">
+            <p>Subsession File count: {subsessionFileCount}</p>
+          </div>
         </div>
       </div>
     </div>
