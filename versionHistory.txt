@@ -2,6 +2,7 @@
 # Dashboard displays session count
 # Dashboard displays subsession count 
 # UI/UX changes, add subsession introduced
+# Dashboard displays unique room count
 
 # 0.031
 # [View User] Download files works

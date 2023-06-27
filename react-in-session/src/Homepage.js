@@ -19,6 +19,7 @@ const Homepage = (props) => {
   useEffect(() => {
     countSessions();
     countSubSessions();
+    countRooms();
   }, []);
 
   function countSessions() {
@@ -37,6 +38,17 @@ const Homepage = (props) => {
       .post("/api/countSubSessions.php")
       .then((response) => {
         setSubsessionCount(response.data["COUNT(*)"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  function countRooms() {
+    axios
+      .post("/api/countRooms.php")
+      .then((response) => {
+        setRoomCount(response.data["COUNT(DISTINCT room)"]);
       })
       .catch((error) => {
         console.log(error);
