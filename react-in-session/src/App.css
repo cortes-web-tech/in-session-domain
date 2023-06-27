@@ -66,13 +66,14 @@
 }
 
 .metrics{
-  
+  display: flex;
+  flex-direction: column;
   opacity: 0%;
   animation: render-metrics;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   background-color: floralwhite;
-  height: 200px;
+  height: 450px;
   font-size:42px;
   padding: 10px;
   color:#1b7add;

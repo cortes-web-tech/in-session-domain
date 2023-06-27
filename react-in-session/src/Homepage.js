@@ -14,15 +14,15 @@ const Homepage = (props) => {
   const location = useLocation().state;
   const user = location;
   const [sessionCount, setSessionCount] = useState(0);
-  const [sessionFileCount, setSessionFileCount] = useState([0]);
+  const [sessionFileCount, setSessionFileCount] = useState(2);
   const [sessionPercent, setSessionPercent] = useState(0);
   const [subsessionCount, setSubsessionCount] = useState(0);
   const [subsessionPercent, setSubsessionPercent] = useState(0);
   const [subsessionFileCount, setSubsessionFileCount] = useState(0);
 
-  const [roomCount, setRoomCount] = useState([0]);
-  const [fileCount, setFileCount] = useState([0]);
-  const [userCount, setUserCount] = useState([0]);
+  const [roomCount, setRoomCount] = useState(0);
+  const [fileCount, setFileCount] = useState(0);
+  const [userCount, setUserCount] = useState(0);
   const [fileData, setFileData] = useState([]);
   useEffect(() => {
     countSessions();
@@ -32,7 +32,7 @@ const Homepage = (props) => {
     countFiles();
     getFileData();
     countSubsessionFiles();
-    calculateSubsessionPercentage();
+    countSessionFiles();
   }, []);
 
   function countSessions() {
@@ -100,6 +100,7 @@ const Homepage = (props) => {
     axios.get("/api/countSubsessionFiles.php").then((response) => {
       setSubsessionFileCount(response.data["COUNT(distinct subsession_id)"]);
     });
+    calculateSubsessionPercentage();
   }
 
   function calculateSubsessionPercentage() {
@@ -109,9 +110,14 @@ const Homepage = (props) => {
   }
 
   function countSessionFiles() {
-    axios.get("/api/countSessionFiles.php").then((response) => {
-      setSessionFileCount(response.data["COUNT(distinct subsession_id)"]);
-    });
+    axios
+      .get("/api/countSessionFiles.php")
+      .then((response) => {
+        console.log(response.data.sort());
+      })
+      .catch((error) => console.log(error));
+
+    console.log(fileData.sort());
     calculateSessionPercentage();
   }
 
@@ -152,7 +158,7 @@ const Homepage = (props) => {
         <div>
           <h3>Metrics</h3>
           <div className="metrics">
-            Unique subsession file count: {subsessionFileCount}
+            <h4>subsession completion</h4>
             <div className="subsessionCompletion">
               <div
                 className="subsessionProgess"
@@ -160,6 +166,22 @@ const Homepage = (props) => {
               >
                 {subsessionPercent.toFixed(2)}%
               </div>
+            </div>
+            <div className="sessionProgress">
+              <h4>Session completion</h4>
+              <div className="subsessionCompletion">
+                <div
+                  className="subsessionProgess"
+                  style={{ width: sessionPercent * 2 }}
+                >
+                  {sessionPercent.toFixed(2)}%
+                </div>
+              </div>
+              {/*fileData.map((fd, key) => (
+                <tr key={fd.file_id}>
+                  <td>{fd.subsession_id}</td>
+                </tr>
+              ))*/}
             </div>
           </div>
         </div>

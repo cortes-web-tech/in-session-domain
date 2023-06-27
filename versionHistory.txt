@@ -1,6 +1,7 @@
 # 0.033
 # stable version
 # subsession file progress ✅
+# session progress WIP
 
 # 0.032
 # Dashboard displays session count

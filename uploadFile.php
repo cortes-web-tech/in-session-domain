@@ -56,7 +56,7 @@ if($_FILES["file"]["error"] === UPLOAD_ERR_OK){
 //	echo "error";
 //}
 
-   echo '<script type="text/JavaScript">alert("File uploaded successfully!");window.location.href="sessions";</script>';
+   echo '<script type="text/JavaScript">alert("File uploaded successfully!");window.location.href="homepage";</script>';
    exit();
    }
 

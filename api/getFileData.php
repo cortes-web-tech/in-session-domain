@@ -10,7 +10,7 @@ $sql = "SELECT * FROM files;";
 $results = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($results);
     while($row = mysqli_fetch_assoc($results)){
-        $subsessions[] = $row;
+        $subsessions[] = $row['subsession_id'];
     }
     echo json_encode($subsessions);
 ?>
