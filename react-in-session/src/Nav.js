@@ -13,7 +13,7 @@ const Nav = (props) => {
       <nav className="nav">
         <ul className="leftNav">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/Homepage">Home</Link>
           </li>
           {loggedIn ? (
             <li>

@@ -109,12 +109,12 @@ h2 {
 .sessionDataTable{
   /* background-color: #1b7add; */
   border-radius: 0.5em;
-  padding: 10px;
- 
+  padding: 0px 100px;
+  margin: auto;
 }
 
 .sessionDataTable tr {
-  margin: 20px;
+  padding: 20px;
   color: 2eda9f;
 }
 a{
@@ -261,4 +261,16 @@ a{
 }
 .fileDownload button:hover{
   color: red;
+}
+
+.metrics {
+  align-items: center;
+  justify-content: center;
+
+}
+.metrics table {
+  border: 1px solid white;
+  padding: 180px 400px;
+  margin: auto;
+  justify-content: center;
 }

@@ -12,56 +12,56 @@ import "./App.css";
 const Homepage = (props) => {
   const location = useLocation().state;
   const user = location;
-  const [sessions, setSessions] = useState([]);
+  const [sessionCount, setSessionCount] = useState([0]);
+  const [subsessionCount, setSubsessionCount] = useState([0]);
+  const [roomCount, setRoomCount] = useState([0]);
+  const [fileCount, setFileCount] = useState([0]);
   useEffect(() => {
-    getSessions();
+    countSessions();
   }, []);
 
-  function getSessions() {
-    axios.get("/api/getSessions.php").then(function (response) {
-      if (response.data.error) {
-        console.log("Error while getting data.");
-      } else {
-        setSessions(response.data);
-      }
-    });
+  function countSessions() {
+    axios
+      .post("/api/countSessions.php")
+      .then((response) => {
+        setSessionCount(response.data["COUNT(*)"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
     <div>
       <Nav state={{ user }} />
       <div className="sessionDataContainer">
-        <p>Viewing Sessions</p>
+        <p>Admin dashboard</p>
 
         <table className="sessionDataTable">
           <thead>
             <tr>
-              <th>Session Title</th>
-              <th>Room</th>
-              <th>Start Time</th>
-              <th>End Time</th>
-              <th>Moderator</th>
+              <th>Sessions</th>
+              <th>Subsessions</th>
+              <th>Rooms</th>
+              <th>Files</th>
             </tr>
           </thead>
           <tbody>
-            {sessions.map((session, key) => (
-              <tr key={session.session_id}>
-                <td>
-                  <Link
-                    to="/Session"
-                    state={{ session_id: session.session_id, user: user }}
-                  >
-                    {session.title}
-                  </Link>
-                </td>
-                <td>{session.room}</td>
-                <td>{session.startTime}</td>
-                <td>{session.endTime}</td>
-                <td>{session.modName}</td>
-              </tr>
-            ))}
+            <td>{sessionCount}</td>
+            <td>{subsessionCount}</td>
+            <td>{roomCount}</td>
+            <td>{fileCount}</td>
           </tbody>
         </table>
+        <div className="metrics">
+          <h3>Metrics</h3>
+          <table>
+            <tr>
+              <td>woo</td>
+              <td>woo</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   );
