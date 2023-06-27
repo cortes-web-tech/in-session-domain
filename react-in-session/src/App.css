@@ -66,12 +66,19 @@
 }
 
 .metrics{
+  
   opacity: 0%;
   animation: render-metrics;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 
+.metrics table{
+  background-color: floralwhite;
+  font-size:42px;
+  color:aquamarine;
+  border-radius: 30px;
+}
 @keyframes render-metrics {
   0% {opacity: 0}
   100% {opacity: 1}

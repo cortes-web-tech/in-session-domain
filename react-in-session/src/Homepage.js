@@ -22,6 +22,7 @@ const Homepage = (props) => {
     countSubSessions();
     countRooms();
     countUsers();
+    countFiles();
   }, []);
 
   function countSessions() {
@@ -68,6 +69,17 @@ const Homepage = (props) => {
       });
   }
 
+  function countFiles() {
+    axios
+      .post("/api/countFiles.php")
+      .then((response) => {
+        setFileCount(response.data["COUNT(*)"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <div>
       <Nav state={{ user }} />
@@ -100,8 +112,8 @@ const Homepage = (props) => {
           <h3>Metrics</h3>
           <table>
             <tr>
-              <td>woo</td>
-              <td>woo</td>
+              <td>Data</td>
+              <td>analysis</td>
             </tr>
           </table>
         </div>
