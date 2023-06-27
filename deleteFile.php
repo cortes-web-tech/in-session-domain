@@ -15,7 +15,7 @@ if(!file_exists($path)){
     }else{
     $sql = "DELETE FROM `files` WHERE file_id=$file_id";
     mysqli_query($conn, $sql);
-    echo "file deleted";
+    echo '<script type="text/JavaScript">alert("File deleted.");window.location.href="sessions";</script>';
         
     }
 }

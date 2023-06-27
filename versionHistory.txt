@@ -2,6 +2,7 @@
 # [View User] Download files works
 # [View User] Upload works and assigns files to correct subsession 
 # [View User] Trash bin icon deletes files from server
+# UI/UX Updates
 
 # 0.030
 # Displaying correct file names, not downloadable yet
