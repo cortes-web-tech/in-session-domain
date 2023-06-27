@@ -12,9 +12,10 @@ import "./App.css";
 const Homepage = (props) => {
   const location = useLocation().state;
   const user = location;
-  const [sessionCount, setSessionCount] = useState([0]);
-  const [subsessionCount, setSubsessionCount] = useState([0]);
-  const [subsessionFileCount, setSubsessionFileCount] = useState([0]);
+  const [sessionCount, setSessionCount] = useState(0);
+  const [subsessionCount, setSubsessionCount] = useState(0);
+  const [subsessionPercent, setSubsessionPercent] = useState(0);
+  const [subsessionFileCount, setSubsessionFileCount] = useState(0);
   const [roomCount, setRoomCount] = useState([0]);
   const [fileCount, setFileCount] = useState([0]);
   const [userCount, setUserCount] = useState([0]);
@@ -27,6 +28,7 @@ const Homepage = (props) => {
     countFiles();
     getFileData();
     countSubsessionFiles();
+    calculateSubsessionPercentage();
   }, []);
 
   function countSessions() {
@@ -96,6 +98,12 @@ const Homepage = (props) => {
     });
   }
 
+  function calculateSubsessionPercentage() {
+    let tmp = subsessionFileCount / subsessionCount;
+    tmp *= 100;
+    setSubsessionPercent(tmp);
+  }
+
   return (
     <div>
       <Nav state={{ user }} />
@@ -127,7 +135,15 @@ const Homepage = (props) => {
         <div>
           <h3>Metrics</h3>
           <div className="metrics">
-            <p>Subsession File count: {subsessionFileCount}</p>
+            Unique subsession file count: {subsessionFileCount}
+            <div className="subsessionCompletion">
+              <div
+                className="subsessionProgess"
+                style={{ width: subsessionPercent * 2 }}
+              >
+                {subsessionPercent}%
+              </div>
+            </div>
           </div>
         </div>
       </div>
