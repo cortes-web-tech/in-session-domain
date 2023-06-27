@@ -6,7 +6,7 @@ include 'DbConnect.php';
 $objDb = new DbConnect;
 $conn = $objDb->connect();
 
-$sql = "SELECT COUNT(*) FROM sessionData;";
+$sql = "SELECT COUNT(*) FROM user_login_table;";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) === 1){
     $row = mysqli_fetch_assoc($result);

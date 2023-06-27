@@ -16,10 +16,12 @@ const Homepage = (props) => {
   const [subsessionCount, setSubsessionCount] = useState([0]);
   const [roomCount, setRoomCount] = useState([0]);
   const [fileCount, setFileCount] = useState([0]);
+  const [userCount, setUserCount] = useState([0]);
   useEffect(() => {
     countSessions();
     countSubSessions();
     countRooms();
+    countUsers();
   }, []);
 
   function countSessions() {
@@ -55,6 +57,17 @@ const Homepage = (props) => {
       });
   }
 
+  function countUsers() {
+    axios
+      .post("/api/countUsers.php")
+      .then((response) => {
+        setUserCount(response.data["COUNT(*)"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <div>
       <Nav state={{ user }} />
@@ -67,13 +80,19 @@ const Homepage = (props) => {
               <th>Sessions</th>
               <th>Subsessions</th>
               <th>Rooms</th>
+              <th>Users</th>
               <th>Files</th>
             </tr>
           </thead>
           <tbody>
-            <td>{sessionCount}</td>
+            <td>
+              <Link to="/sessions">{sessionCount}</Link>
+            </td>
             <td>{subsessionCount}</td>
             <td>{roomCount}</td>
+            <td>
+              <Link to="/users">{userCount}</Link>
+            </td>
             <td>{fileCount}</td>
           </tbody>
         </table>
