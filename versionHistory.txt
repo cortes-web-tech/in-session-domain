@@ -1,5 +1,6 @@
 # 0.032
 # Dashboard displays session count
+# Dashboard displays subsession count 
 
 # 0.031
 # [View User] Download files works

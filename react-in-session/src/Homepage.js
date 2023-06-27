@@ -18,6 +18,7 @@ const Homepage = (props) => {
   const [fileCount, setFileCount] = useState([0]);
   useEffect(() => {
     countSessions();
+    countSubSessions();
   }, []);
 
   function countSessions() {
@@ -25,6 +26,17 @@ const Homepage = (props) => {
       .post("/api/countSessions.php")
       .then((response) => {
         setSessionCount(response.data["COUNT(*)"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  function countSubSessions() {
+    axios
+      .post("/api/countSubSessions.php")
+      .then((response) => {
+        setSubsessionCount(response.data["COUNT(*)"]);
       })
       .catch((error) => {
         console.log(error);
