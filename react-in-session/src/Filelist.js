@@ -46,19 +46,23 @@ const Filelist = (props) => {
             <tr key={file.file_id}>
               <td className="FileDownload">
                 <button
-                  onClick={(e) => download_file(e, file.filename)}
-                  download={file.filename}
+                  onClick={(e) => download_file(e, file.file_name)}
+                  download={file.file_name}
                 >
-                  {file.filename}
+                  {file.file_name}
                 </button>
               </td>
 
               <td>
                 <form
-                  action={"deleteFile.php?file=" + file.filename}
-                  onClick={(e) => delete_file(file.filename)}
+                  action={
+                    "deleteFile.php?file=" +
+                    file.file_name +
+                    "&file_id=" +
+                    file.file_id
+                  }
+                  onClick={(e) => delete_file(file.file_name)}
                   method="post"
-                  file_id={file.file_id}
                 >
                   <button type="submit" name="submit">
                     🗑

@@ -41,7 +41,7 @@ if(!move_uploaded_file($_FILES["file"]["tmp_name"], $dest)){
    exit("Can't move uploaded file.. Try again.");
 }
 $subsession_id = $_GET['id'];
- $sql = "INSERT INTO `files`(`subsession_id`, `filepath`, `filename`) VALUES ($subsession_id, './uploads/$filename','$filename');";
+ $sql = "INSERT INTO `files`(`subsession_id`, `filepath`, `file_name`) VALUES ($subsession_id, './uploads/$filename','$filename');";
  if(!mysqli_query($conn, $sql)){
 	echo "Error inserting file into database.";	
 }
