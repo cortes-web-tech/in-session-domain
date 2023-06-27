@@ -12,6 +12,7 @@ if(mysqli_num_rows($result) === 1){
     $row = mysqli_fetch_assoc($result);
     $nSessions[] = $row;
     echo json_encode($row);
+    exit();
     mysqli_close($conn);   
 }
 ?>

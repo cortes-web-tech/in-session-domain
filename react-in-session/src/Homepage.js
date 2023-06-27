@@ -8,14 +8,18 @@ import {
   useLocation,
 } from "react-router-dom";
 import Nav from "./Nav";
+import Moment from "moment";
 import "./App.css";
 const Homepage = (props) => {
   const location = useLocation().state;
   const user = location;
   const [sessionCount, setSessionCount] = useState(0);
+  const [sessionFileCount, setSessionFileCount] = useState([0]);
+  const [sessionPercent, setSessionPercent] = useState(0);
   const [subsessionCount, setSubsessionCount] = useState(0);
   const [subsessionPercent, setSubsessionPercent] = useState(0);
   const [subsessionFileCount, setSubsessionFileCount] = useState(0);
+
   const [roomCount, setRoomCount] = useState([0]);
   const [fileCount, setFileCount] = useState([0]);
   const [userCount, setUserCount] = useState([0]);
@@ -93,7 +97,7 @@ const Homepage = (props) => {
   }
 
   function countSubsessionFiles() {
-    axios.get("/api/subsessionFileCount.php").then((response) => {
+    axios.get("/api/countSubsessionFiles.php").then((response) => {
       setSubsessionFileCount(response.data["COUNT(distinct subsession_id)"]);
     });
   }
@@ -102,6 +106,19 @@ const Homepage = (props) => {
     let tmp = subsessionFileCount / subsessionCount;
     tmp *= 100;
     setSubsessionPercent(tmp);
+  }
+
+  function countSessionFiles() {
+    axios.get("/api/countSessionFiles.php").then((response) => {
+      setSessionFileCount(response.data["COUNT(distinct subsession_id)"]);
+    });
+    calculateSessionPercentage();
+  }
+
+  function calculateSessionPercentage() {
+    let tmp = sessionFileCount / sessionCount;
+    tmp *= 100;
+    setSessionPercent(tmp);
   }
 
   return (
@@ -141,7 +158,7 @@ const Homepage = (props) => {
                 className="subsessionProgess"
                 style={{ width: subsessionPercent * 2 }}
               >
-                {subsessionPercent}%
+                {subsessionPercent.toFixed(2)}%
               </div>
             </div>
           </div>
