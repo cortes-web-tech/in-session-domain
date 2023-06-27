@@ -1,6 +1,7 @@
 # 0.031
 # [View User] Download files works
 # [View User] Upload works and assigns files to correct subsession 
+# Delete file function WIP
 
 # 0.030
 # Displaying correct file names, not downloadable yet

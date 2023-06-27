@@ -31,7 +31,12 @@ const Filelist = (props) => {
       .catch((err) => console.log(err));
   };
 
-  const upload_file = (e) => {};
+  const delete_file = (e, filename) => {
+    let del = prompt("Are you sure you want to delete " + filename + "?");
+    if (del != null) {
+      console.log("Attempting to delete " + filename);
+    }
+  };
 
   return (
     <div>
@@ -49,7 +54,16 @@ const Filelist = (props) => {
               </td>
 
               <td>
-                <a> 🗑</a>
+                <form
+                  action={"deleteFile.php?file=" + file.filename}
+                  onClick={(e) => delete_file(file.filename)}
+                  method="post"
+                  file_id={file.file_id}
+                >
+                  <button type="submit" name="submit">
+                    🗑
+                  </button>
+                </form>
               </td>
             </tr>
           ))}
