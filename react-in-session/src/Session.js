@@ -10,6 +10,9 @@ const Session = (props) => {
   const [add_subsessionTitle, setadd_subsessionTitle] = [];
   const location = useLocation();
   const session_id = location.state.session_id;
+
+  const [error, setError] = useState([]);
+  const [addSession, setAddSession] = useState([]);
   useEffect(() => {
     getSession(session_id);
   }, []);
@@ -24,6 +27,18 @@ const Session = (props) => {
   function toggleAddSubsession() {
     setAddSubsession(!addSubsession);
   }
+
+  const handleInputChange = (e, type) => {
+    switch (type) {
+      case "title":
+        setError("");
+        setAddSession(e.target.value);
+        if (e.target.value === "") {
+          setError("Subsession title left blank.");
+        }
+        break;
+    }
+  };
 
   return (
     <div>
@@ -64,9 +79,12 @@ const Session = (props) => {
                 <input
                   type="text"
                   value={add_subsessionTitle}
+                  onChange={(e) => handleInputChange(e, "title")}
                   placeholder="SubsessionTitle"
                 />
               </div>
+
+              {error !== "" ? <span className="error">{error}</span> : ""}
               <button onClick={toggleAddSubsession}>cancel</button>
             </div>
           ) : (
