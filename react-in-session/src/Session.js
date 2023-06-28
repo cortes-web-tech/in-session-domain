@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "./Nav";
+import Moment from "moment";
 const Session = (props) => {
   const [session, setSession] = useState([]);
   const [subsessions, setSubsessions] = useState([]);
@@ -48,8 +49,8 @@ const Session = (props) => {
                     {subsession.presenter}
                   </Link>
                 </td>
-                <td>{subsession.startTime}</td>
-                <td>{subsession.endTime}</td>
+                <td>{Moment(subsession.startTime).format("MM/DD/YY h:mmA")}</td>
+                <td>{Moment(subsession.endTime).format("MM/DD/YY h:mmA")}</td>
                 <td>{subsession.modName}</td>
               </tr>
             ))}

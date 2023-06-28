@@ -1,14 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Nav from "./Nav";
 import "./App.css";
+import Moment from "moment";
 const Sessions = (props) => {
   const location = useLocation().state;
   // console.log(location);
@@ -59,8 +54,8 @@ const Sessions = (props) => {
                   </Link>
                 </td>
                 <td>{session.room}</td>
-                <td>{session.startTime}</td>
-                <td>{session.endTime}</td>
+                <td>{Moment(session.startTime).format("MM/DD/YY h:mmA")}</td>
+                <td>{Moment(session.endTime).format("MM/DD/YY h:mmA")}</td>
                 <td>{session.modName}</td>
               </tr>
             ))}
