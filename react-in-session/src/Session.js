@@ -4,16 +4,16 @@ import axios from "axios";
 import Nav from "./Nav";
 import Moment from "moment";
 const Session = (props) => {
-  const [session, setSession] = useState([]);
-  const [subsessions, setSubsessions] = useState([]);
-  const [addSubsession, setAddSubsession] = useState(false);
-  const [add_subsessionTitle, setadd_subsessionTitle] = [];
-  const [add_presenter, setAdd_presenter] = useState([]);
   const location = useLocation();
   const session_id = location.state.session_id;
-
   const [error, setError] = useState([]);
-  const [addSession, setAddSession] = useState([]);
+
+  const [subsessions, setSubsessions] = useState([]);
+  const [toggleSubsession, setToggle] = useState(false);
+  const [add_subsessionTitle, setAdd_subsessionTitle] = useState([]);
+  const [add_presenter, setAdd_presenter] = useState([]);
+
+  const [session, setSession] = useState([]);
   useEffect(() => {
     getSession(session_id);
   }, []);
@@ -25,15 +25,15 @@ const Session = (props) => {
       .catch((err) => console.log(err));
   }
 
-  function toggleAddSubsession() {
-    setAddSubsession(!addSubsession);
+  function toggleAdd() {
+    setToggle(!toggleSubsession);
   }
 
   const handleInputChange = (e, type) => {
     switch (type) {
       case "title":
         setError("");
-        setAddSession(e.target.value);
+        setAdd_subsessionTitle(e.target.value);
         if (e.target.value === "") {
           setError("Subsession title left blank.");
         }
@@ -47,6 +47,10 @@ const Session = (props) => {
         break;
     }
   };
+
+  function addNewSubession() {
+    console.log(add_subsessionTitle + " " + add_presenter);
+  }
 
   return (
     <div>
@@ -80,7 +84,7 @@ const Session = (props) => {
           </tbody>
         </table>
         <div>
-          {addSubsession ? (
+          {toggleSubsession ? (
             <div>
               <div>
                 <label>Subsession Title</label>
@@ -97,13 +101,20 @@ const Session = (props) => {
                   onChange={(e) => handleInputChange(e, "presenter")}
                   placeholder="presenter"
                 />
+
+                <input
+                  type="submit"
+                  defaultValue="Log in"
+                  id="login_button"
+                  onClick={addNewSubession}
+                />
               </div>
 
               {error !== "" ? <span className="error">{error}</span> : ""}
-              <button onClick={toggleAddSubsession}>cancel</button>
+              <button onClick={toggleAdd}>cancel</button>
             </div>
           ) : (
-            <button onClick={toggleAddSubsession}>add subssession</button>
+            <button onClick={toggleAdd}>add subssession</button>
           )}
         </div>
       </div>

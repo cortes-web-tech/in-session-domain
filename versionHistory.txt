@@ -3,6 +3,7 @@
 # subsession file progress ✅
 # session progress WIP
 # Formatted time display
+# [Session] add new Subsession WIP
 
 # 0.032
 # Dashboard displays session count
