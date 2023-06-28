@@ -8,6 +8,7 @@ const Session = (props) => {
   const [subsessions, setSubsessions] = useState([]);
   const [addSubsession, setAddSubsession] = useState(false);
   const [add_subsessionTitle, setadd_subsessionTitle] = [];
+  const [add_presenter, setAdd_presenter] = useState([]);
   const location = useLocation();
   const session_id = location.state.session_id;
 
@@ -35,6 +36,13 @@ const Session = (props) => {
         setAddSession(e.target.value);
         if (e.target.value === "") {
           setError("Subsession title left blank.");
+        }
+        break;
+      case "presenter":
+        setError("");
+        setAdd_presenter(e.target.value);
+        if (e.target.value === "") {
+          setError("Presenter left blank.");
         }
         break;
     }
@@ -81,6 +89,13 @@ const Session = (props) => {
                   value={add_subsessionTitle}
                   onChange={(e) => handleInputChange(e, "title")}
                   placeholder="SubsessionTitle"
+                />
+                <label>Presenter</label>
+                <input
+                  type="text"
+                  value={add_presenter}
+                  onChange={(e) => handleInputChange(e, "presenter")}
+                  placeholder="presenter"
                 />
               </div>
 
