@@ -1,6 +1,7 @@
 # 0.034
 # create subsession API WIP
 # create session API WIP
+# Fixed register bug
 
 # 0.033
 # stable version
