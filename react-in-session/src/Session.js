@@ -49,7 +49,19 @@ const Session = (props) => {
   };
 
   function addNewSubession() {
-    console.log(add_subsessionTitle + " " + add_presenter);
+    if (add_subsessionTitle == "" || add_presenter == "") {
+      setError("Blank field. Please check the session you're trying to add.");
+    } else {
+      console.log("Adding subsession");
+      axios
+        .post("/api/createSubsession.php", {
+          session_id: session_id,
+          title: add_subsessionTitle,
+          presenter: add_presenter,
+        })
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+    }
   }
 
   return (

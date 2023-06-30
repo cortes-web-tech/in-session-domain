@@ -22,13 +22,9 @@ $tier = 0;
 $method = $_SERVER['REQUEST_METHOD'];
 switch($method){
   case "POST":
-    $sql =  "INSERT INTO user_login_table (user_name, user_tier, password, _firstName)VALUES('$username', '$tier', '$pass', '$fullname');";
-//    $stmt = mysqli_prepare($conn, $sql);
-//    vardump($stmt);
-//   $stmt->bind_param("sss", $tier,  $pass, $fullname)
-//    echo $sql;
-   if(mysqli_query($conn, $sql)){
-      echo "User created.";
+    $sql =  "INSERT INTO user_login_table (user_name, user_tier, password, _firstName) VALUES ('$username', '$tier', '$pass', '$fullname');";
+    if(mysqli_query($conn, $sql)){
+      echo "User added";
     }
     //}else{
       //echo "Error: " . $sql . "<br>" . mysqli_connect_error($conn);
