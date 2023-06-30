@@ -23,7 +23,6 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch($method){
   case "POST":
     $sql =  "INSERT INTO `sessionData` (title, room, modName) VALUES ('$title', '$room', '$modName');";
-    echo $sql;
    if(mysqli_query($conn, $sql)){ 
       echo " Session created";
     }

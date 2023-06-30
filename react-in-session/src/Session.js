@@ -7,7 +7,7 @@ const Session = (props) => {
   const location = useLocation();
   const session_id = location.state.session_id;
   const [error, setError] = useState([]);
-
+  const [presenterList, setPresenterList] = useState([]);
   const [subsessions, setSubsessions] = useState([]);
   const [toggleSubsession, setToggle] = useState(false);
   const [add_subsessionTitle, setAdd_subsessionTitle] = useState([]);
@@ -16,6 +16,7 @@ const Session = (props) => {
   const [session, setSession] = useState([]);
   useEffect(() => {
     getSession(session_id);
+    getPresenterList();
   }, []);
 
   function getSession(id) {
@@ -26,6 +27,10 @@ const Session = (props) => {
   }
 
   function toggleAdd() {
+    setToggle(!toggleSubsession);
+  }
+
+  function toggleRemove() {
     setToggle(!toggleSubsession);
   }
 
@@ -64,21 +69,23 @@ const Session = (props) => {
     }
   }
 
+  function getPresenterList(e) {
+    axios
+      .get("/api/presenterList.php")
+      .then((res) => {
+        setPresenterList(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
+  function dropDown(presenter) {
+    setAdd_presenter(presenter);
+  }
   return (
     <div>
       <Nav />
       <div className="sessionDataContainer">
         <h3>Session Title</h3>
         <table className="sessionDataTable">
-          <thead>
-            <tr>
-              <th>Subsession Title</th>
-              <th>Presenter</th>
-              <th>Start Time</th>
-              <th>End Time</th>
-              <th>Moderator</th>
-            </tr>
-          </thead>
           <tbody>
             {subsessions.map((subsession, key) => (
               <tr key={subsession.subsession_id}>
@@ -107,13 +114,11 @@ const Session = (props) => {
                   placeholder="SubsessionTitle"
                 />
                 <label>Presenter</label>
-                <input
-                  type="text"
-                  value={add_presenter}
-                  onChange={(e) => handleInputChange(e, "presenter")}
-                  placeholder="presenter"
-                />
-
+                <select onChange={(e) => dropDown(e.target.value)}>
+                  {presenterList.map((presenter) => {
+                    return <option>{presenter}</option>;
+                  })}
+                </select>
                 <input
                   type="submit"
                   defaultValue="Log in"
@@ -123,7 +128,7 @@ const Session = (props) => {
               </div>
 
               {error !== "" ? <span className="error">{error}</span> : ""}
-              <button onClick={toggleAdd}>cancel</button>
+              <button onClick={toggleRemove}>cancel</button>
             </div>
           ) : (
             <button onClick={toggleAdd}>add subssession</button>

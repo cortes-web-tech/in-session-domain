@@ -106,11 +106,11 @@ const Homepage = (props) => {
     axios
       .get("/api/countSessionFiles.php")
       .then((response) => {
-        console.log(response.data.sort());
+        //  console.log(response.data.sort());
       })
       .catch((error) => console.log(error));
 
-    console.log(fileData.sort());
+    // console.log(fileData.sort());
     calculateSessionPercentage();
   }
 

@@ -24,9 +24,8 @@ switch($method){
     $sql =  "INSERT INTO subsessionData (_session_id, presenter, subsession_title, startTime, endTime, modName) VALUES ('$session_id', '$presenter', '$title', '2023-06-29 19:46:36.000000', '2023-06-29 19:46:36.000000', '$modName');";
 
    if(mysqli_query($conn, $sql)){
-      echo "Subsession created.";
+    echo "Subsession created.";
     }
-  
     break;
 }
 mysqli_close($conn);
