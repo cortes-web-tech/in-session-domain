@@ -7,6 +7,7 @@ const Login = (props) => {
   const [error, setError] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
 
   function login() {
@@ -52,32 +53,36 @@ const Login = (props) => {
     <div>
       <div className="loginWrapper">
         <div className="loginContainer">
+          {toggle ? (
+            <Link to="/Register">Register</Link>
+          ) : (
+            <div className="loginForm">
+              {user ? "Redirecting" : ""}
+              <label>User name</label>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => handleInputChange(e, "username")}
+                placeholder="User name"
+              />
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                onChange={(e) => handleInputChange(e, "password")}
+                placeholder="Password"
+              />
+              <input
+                type="submit"
+                defaultValue="Log in"
+                id="login_button"
+                onClick={login}
+              />
+              Log In
+              <Link to="/Register">Register</Link>
+            </div>
+          )}
           {error !== "" ? <span className="error">{error}</span> : ""}
-          <div className="loginForm">
-            {user ? "Redirecting" : ""}
-            <label>User name</label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => handleInputChange(e, "username")}
-              placeholder="User name"
-            />
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              onChange={(e) => handleInputChange(e, "password")}
-              placeholder="Password"
-            />
-            <input
-              type="submit"
-              defaultValue="Log in"
-              id="login_button"
-              onClick={login}
-            />
-            Log In
-          </div>
-          <Link to="Register">Register</Link>
         </div>
       </div>
     </div>

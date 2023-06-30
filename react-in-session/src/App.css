@@ -58,6 +58,8 @@
   animation-fill-mode: forwards;
 }
 
+
+
 @keyframes landing {
   0% {top:-600px}
   
@@ -257,6 +259,32 @@ a{
 }
 
 .loginForm {
+  
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.registrationWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;;
+  height: 30rem;
+  margin-top: 2em;
+  position: relative;
+  animation: landing;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  
+}
+
+.registrationContainer {
+  border-radius: 1em;
+  background-color:#2eda9f;
+  padding: 3em;
+}
+
+.registrationForm {
   
   display: flex;
   flex-direction: column;

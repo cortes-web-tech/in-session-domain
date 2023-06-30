@@ -4,6 +4,7 @@
 # create session Works
 # Fixed register bug
 # Add session has a dropdown option to list presenters
+# Edited login/logout/register behavior
 
 # 0.033
 # stable version
