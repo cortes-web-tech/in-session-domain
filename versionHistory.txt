@@ -3,6 +3,7 @@
 # create subsession Works
 # create session Works
 # Fixed register bug
+# Add session has a dropdown option to list presenters
 
 # 0.033
 # stable version
