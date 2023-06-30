@@ -4,13 +4,12 @@ import { Link, useLocation } from "react-router-dom";
 import Nav from "./Nav";
 import "./App.css";
 import Moment from "moment";
+import CreateSession from "./CreateSession";
 const Sessions = (props) => {
   const location = useLocation().state;
   // console.log(location);
   //  const user = location;
-  //  const userName = location._firstName;
-
-  // console.log(user);
+  const [toggle, setToggle] = useState(false);
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
     getSessions();
@@ -26,12 +25,15 @@ const Sessions = (props) => {
     });
   }
 
+  function toggleAdd() {
+    setToggle(!toggle);
+  }
+
   return (
     <div>
       <Nav />
       <div className="sessionDataContainer">
         <p>Viewing Sessions</p>
-
         <table className="sessionDataTable">
           <thead>
             <tr>
@@ -61,6 +63,14 @@ const Sessions = (props) => {
             ))}
           </tbody>
         </table>
+        {toggle ? (
+          <div>
+            <CreateSession />
+            <button onClick={toggleAdd}>Cancel</button>
+          </div>
+        ) : (
+          <button onClick={toggleAdd}>add session</button>
+        )}
       </div>
     </div>
   );

@@ -23,13 +23,12 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch($method){
   case "POST":
     $sql =  "INSERT INTO user_login_table (user_name, user_tier, password, _firstName) VALUES ('$username', '$tier', '$pass', '$fullname');";
-    if(mysqli_query($conn, $sql)){
+   if(mysqli_query($conn, $sql)){
       echo "User added";
-    }
-    //}else{
+    //}
+    }else{
       //echo "Error: " . $sql . "<br>" . mysqli_connect_error($conn);
 //    }
-    break;
 }
 mysqli_close($conn);
 exit();
