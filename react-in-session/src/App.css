@@ -356,3 +356,22 @@ a{
   0% {opacity: 0}
   100% {opacity: 1}
 }
+
+.createUser{
+  display: flex;  
+  background-color: #3AA6B9;
+  padding:20px;
+  flex-direction: column;
+}
+
+.createUser label {
+  padding: 20px;
+}
+.createUser input {
+  padding: 20px;
+  
+}
+
+.hiddenDot {
+  color: #1b7add;
+}

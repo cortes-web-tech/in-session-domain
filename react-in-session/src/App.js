@@ -10,6 +10,7 @@ import User from "./User";
 import Register from "./Register";
 import ViewUser from "./ViewUser";
 import Filelist from "./Filelist";
+import CreateUser from "./CreateUser";
 const App = () => {
   return (
     <div className="App">
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="Register" element={<Register />} />
           <Route path="ViewUser" element={<ViewUser />} />
           <Route path="Filelist" element={<Filelist />} />
+          <Route path="CreateUser" element={<CreateUser />} />
         </Routes>
       </BrowserRouter>
     </div>

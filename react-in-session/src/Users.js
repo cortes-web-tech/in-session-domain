@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import Nav from "./Nav";
+import CreateUser from "./CreateUser";
 
 const Users = (props) => {
+  const [toggle, setToggle] = useState(false);
   const location = useLocation().state;
   const user = location;
   //console.log(location);
@@ -21,6 +23,10 @@ const Users = (props) => {
         setUsers(response.data);
       }
     });
+  }
+
+  function toggleAdd() {
+    setToggle(!toggle);
   }
 
   return (
@@ -56,6 +62,8 @@ const Users = (props) => {
             </tbody>
           </table>
         </div>
+
+        <Link to="/CreateUser">Create user</Link>
       </div>
     </div>
   );
