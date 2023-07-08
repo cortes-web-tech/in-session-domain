@@ -1,6 +1,8 @@
 # 0.0.36
 # Previously we used 'npm create-react-app' to get started developing.
 # Merging code into new app using 'npm create vite@latest' to reduce bloatware.
+# Built new app's layout/link system
+# Began hosting on [inSessionEvent.com](https://inSessionEvent.com)
 
 # 0.035
 # Create user Front end WIP

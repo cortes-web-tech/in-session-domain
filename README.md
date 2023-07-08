@@ -1,12 +1,10 @@
 # inSession
-## An open source presentation management solution
 
-A modular software that allows full database and interface customization.
+## An open source presentation management solution [Demo](https://inSessionEvent.com)
 
-* Built on LAMP
-* Customizable databases using MariaDB & MySQLi
+- Built on LAMP
+- ReactJS Front end
+- Customizable databases using MariaDB & MySQL
+- Hosted on AWS EC2
 
-## Hosting
-[Demo](https://24mp.world)
-Server being hosted on AWS EC2 and traffic served through Cloudflare. 
-*May be off line due to cost saving measures.*
+**inSession was made as an open source project and is not intended for commercial use.**

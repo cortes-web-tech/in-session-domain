@@ -5,3 +5,5 @@
 ## 0.0.36
 
 - _Began new app and confirmed it compiles and runs in Ubuntu VM._
+- _Built basic layout/links for the new app._
+- _Deploying to [inSessionEvent.com](https://inSessionEvent.com) to test live server._
