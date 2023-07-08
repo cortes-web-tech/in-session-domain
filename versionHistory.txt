@@ -1,3 +1,7 @@
+# 0.0.36
+# Previously we used 'npm create-react-app' to get started developing.
+# Merging code into new app using 'npm create vite@latest' to reduce bloatware.
+
 # 0.035
 # Create user Front end WIP
 
