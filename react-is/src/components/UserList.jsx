@@ -35,7 +35,7 @@ const [users, setUsers] = useState ([])
 
   return (
     <div>
-        <table>
+        <table className="usersTable">
         <tbody>
             <tr>
                 <th>Name</th>

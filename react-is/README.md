@@ -8,6 +8,7 @@
 - _Added data to database._
 - _Connected database._
 - _Fetching and displaying User data in a table._
+- _Fetching and displaying Session data in a table._
 
 ## 0.0.36
 

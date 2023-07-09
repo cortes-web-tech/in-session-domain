@@ -1,11 +1,13 @@
 #root {
-  max-width: 1280px;
+  
+  /* max-width: 1380px; */
   margin: 0 auto;
   text-align: center;
   color: white;
 }
 
 .pageLayout{
+  
   display: flex;
   flex-direction: column;
   min-height: 99vh;
@@ -14,7 +16,8 @@
 }
 
 .content{
-  flex-grow: 1;  
+  flex-grow: 1;
+  align-self: center;
 }
 
 .content a{
@@ -34,6 +37,7 @@ body {
 }
 
 .nav {
+  width:1380px;
   display: flex;
   justify-content: space-evenly;
 }
