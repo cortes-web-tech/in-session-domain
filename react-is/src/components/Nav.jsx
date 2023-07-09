@@ -4,8 +4,8 @@ function Nav() {
   return <div className="nav">
     <Link to="/">Home</Link>
     <Link to="/Dashboard">Dashboard</Link>
-    <Link to="/Users">Users</Link>
     <Link to="/Sessions">Sessions</Link>
+    <Link to="/Users">Users</Link>
   </div>;
 }
 
