@@ -9,6 +9,8 @@
 - _Connected database._
 - _Fetching and displaying User data in a table._
 - _Fetching and displaying Session data in a table._
+- _Added links to Sessions page, API not connected yet._
+- _Connected API to connect Sessions/Session pages._
 
 ## 0.0.36
 

@@ -1,4 +1,5 @@
 import { useState,useEffect, React } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Moment from "moment"
 function SessionList() {
@@ -34,7 +35,12 @@ const [sessions, setSessions] = useState([]);
             {sessions.map((session, key) => (
               <tr key={session.session_id}>
                 <td>                  
+                <Link
+                    to="/Session"
+                    state={{ session_id: session.session_id }}
+                  >
                     {session.title}
+                  </Link>
                   
                 </td>
                 <td>{session.room}</td>
