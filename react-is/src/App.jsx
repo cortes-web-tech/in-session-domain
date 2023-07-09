@@ -2,10 +2,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import './App.css'
 import Home from './layout/Home'
+import User from './layout/User'
 import Users from './layout/Users'
+import Session from './layout/Session'
 import Sessions from './layout/Sessions'
 import Dashboard from './layout/Dashboard'
-import Session from './layout/Session'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="User" element={<User />} />
         <Route path="Users" element={<Users />} />
         <Route path="Session" element={<Session />} />
         <Route path="Sessions" element={<Sessions />}/>

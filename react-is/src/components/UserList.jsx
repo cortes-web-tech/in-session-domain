@@ -46,7 +46,9 @@ const [users, setUsers] = useState ([])
             
         {users.map((user, key) => (
             <tr key={user.user_id}>
-                <td>{user.fullName}</td>
+                <td><Link to="/User" state={{ user_id: user.user_id }}>
+                      {user.fullName}
+                    </Link></td>
                 <td>{user.email}</td>
                 <td>{user.organization}</td>
                 <td>{role(user.user_tier)}</td>
