@@ -1,3 +1,10 @@
+# 0.0.38
+# Previous commit broke git.. testing things out again.
+
+# 0.037
+# Forgot to log this version in here.
+# It's documented inside the 'react-is' repo.
+
 # 0.0.36
 # Previously we used 'npm create-react-app' to get started developing.
 # Merging code into new app using 'npm create vite@latest' to reduce bloatware.
