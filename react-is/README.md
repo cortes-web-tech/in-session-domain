@@ -8,6 +8,10 @@
 - _File list being displayed underneath each subsession in the Session page._
 - _Didn't need React-Redux after all. Was able to get the advanced features with React props._
 - _File list doesn't have any of the functionality enabled yet._
+- _Previous commit broke git.. testing things out again._
+- _github repo hotfix worked!_
+- _Updated Filelist UI, cleaned up code._
+- _Functionality not enabled yet._
 
 ## 0.0.37
 

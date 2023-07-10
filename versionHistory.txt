@@ -1,5 +1,7 @@
 # 0.0.38
 # Previous commit broke git.. testing things out again.
+# github repo hotfix worked!
+# Updated sessions UI to include file list, Functions not implemented yet.
 
 # 0.037
 # Forgot to log this version in here.

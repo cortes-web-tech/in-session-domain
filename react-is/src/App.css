@@ -66,3 +66,50 @@ body {
 .userInfo_col {
   grid-row: 1;
 }
+
+.filelist {
+  /* position: relative; */
+  display: flex;
+}
+
+.filename {
+  flex: 3;
+  text-align: start;
+  padding-right: 10px;
+}
+
+.btnContainer {
+  align-content: end;
+
+  /* flex-shrink: 1; */
+}
+
+.button{
+  background-color: #1776d9;
+  border:none;
+  text-align: end;
+  
+}
+
+.button:hover{
+  background-color: aquamarine;
+  border:none;
+}
+
+.sessionDataTable{
+  margin: 40px;
+  padding: 0 20px;
+  border: 1px solid floralwhite;
+}
+
+.subsessions tr{
+
+  border-bottom: 1px solid floralwhite;
+ }
+
+.subsessions{
+  border: 2px solid black;
+  
+  /* color: red; */
+  
+}
