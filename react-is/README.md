@@ -2,6 +2,20 @@
 
 - _A previous iteration of this app was built using `bash npm create react app`. This new version was built using `bash npm create vite@latest` to reduce bloateware. For simplicity's sake, the version history will continue off from the previous number rather than begin at 0.0.1_
 
+<<<<<<< HEAD
+=======
+## 0.0.38
+
+- _Imported more data from previous dev server._
+- _File list being displayed underneath each subsession in the Session page._
+- _Didn't need React-Redux after all. Was able to get the advanced features with React props._
+- _File list doesn't have any of the functionality enabled yet._
+- _Previous commit broke git.. testing things out again._
+- _github repo hotfix worked!_
+- _Updated Filelist UI, cleaned up code._
+- _Functionality not enabled yet._
+
+>>>>>>> test
 ## 0.0.37
 
 - _Styled basic layout of page._

@@ -23,8 +23,8 @@ return <div className="pageLayout">
 <Nav/>
 <div className="content">  
 <table className="sessionDataTable">
-  <tbody>
-    <tr>
+  <tbody >
+    <tr >
       <td>Subsession Title</td>
       <td>Presenter</td>
       <td>Start Time</td>
@@ -32,9 +32,9 @@ return <div className="pageLayout">
       <td>Moderator</td>
     </tr>
     {subsessions.map((subsession, key) => (
-    <tr key={subsession.subsession_id}>
+    <tr key={subsession.subsession_id} className="subsessions">
       <td>
-        {subsession.subsession_title} 
+        <h4>{subsession.subsession_title} </h4>
         <br/> <Filelist state={{ id: subsession.subsession_id }} />
       </td>
       <td>
