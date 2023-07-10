@@ -3,6 +3,9 @@
 # Merging code into new app using 'npm create vite@latest' to reduce bloatware.
 # Built new app's layout/link system
 # Began hosting on [inSessionEvent.com](https://inSessionEvent.com)
+# Improved overall layout, connected APIs as features were enabled.
+# However, localdev database is missing data from previous dev database.
+# Calling this a stopping point since several I've written dozens if not hundreds of lines today without commiting once oops.
 
 # 0.035
 # Create user Front end WIP

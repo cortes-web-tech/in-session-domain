@@ -12,6 +12,9 @@
 - _Added links to Sessions page, API not connected yet._
 - _Connected API to connect Sessions/Session pages._
 - _Added links to Users page, API not connected yet._
+- _Improved UI/UX. Connected Users/User APi._
+- _While implementing the filelist component, noticed database was missing some data from previous dev environment iteration._
+- _Tried working on some other things, but realized I need to implement React-Redux for state managagement for some advanced features._
 
 ## 0.0.36
 

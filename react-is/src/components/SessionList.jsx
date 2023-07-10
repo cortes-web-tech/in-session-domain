@@ -34,14 +34,13 @@ const [sessions, setSessions] = useState([]);
           <tbody>
             {sessions.map((session, key) => (
               <tr key={session.session_id}>
-                <td>                  
+                <td style={{columnSpan: 2}}>                  
                 <Link
                     to="/Session"
                     state={{ session_id: session.session_id }}
                   >
                     {session.title}
-                  </Link>
-                  
+                  </Link>                
                 </td>
                 <td>{session.room}</td>
                 <td>{Moment(session.startTime).format("MM/DD/YY h:mmA")}</td>
