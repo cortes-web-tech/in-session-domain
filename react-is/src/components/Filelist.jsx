@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 function Filelist(props) {
 const subsession_id = props.state // won't let me add .id on init
 const [files, setFiles] = useState([]);
-
 useEffect(()=>{
     getFiles(subsession_id);
 }, [])
@@ -19,10 +18,8 @@ function getFiles(id) {
       })
       .catch((err) => console.log(err));
   }
-
 return (
-<div>
-    
+<div> 
   { files != "" && files.length > 0 ? 
   <div>
     <table>
@@ -31,10 +28,10 @@ return (
         <tr className="filelist" key={file.file_id}>
           <td className="filename">{file.file_name}</td>
           <td className="btnContainer">
-            <button className="button" type="submit" name="submit" >
+            <button className="button" type="submit" name="submit" title="Upload File">
               🗂
             </button>
-            <button className="button" type="submit" name="submit" >
+            <button className="rm-file-button" type="submit" name="submit" title="Delete File">
               🗑
             </button>
           </td>             
@@ -43,9 +40,8 @@ return (
     </tbody>
     </table>
   </div>
-  
-  
-  : <div>No files uploaded yet.</div> }
+  : 
+  <div>No files uploaded yet.</div> }
 </div>
 )
 }

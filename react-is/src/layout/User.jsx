@@ -3,26 +3,23 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Presenting from "../components/Presenting";
 
-function User() {
+function User(props) {
 const location = useLocation();
 const user_id = location.state.user_id;
-const [user, setUser] = useState([]);
-const [subsessions, setSubsessions] = useState([]);
+const [user, setUser] = useState([])
+console.log(props);
 useEffect(() => {
-  getUser(user_id);
-  presentingIn(user_id);
+  getUser(user_id);  
 }, []);
-
 function getUser(id) {
   axios
   .post("http://localhost/api/user.php/", { user_id: id })
   .then((response) => {
     setUser(response.data[0]);
-    console.log(response.data[0])
   }).catch((err) => console.log(err));
 }
-
 
 return <div className="pageLayout">
 <Nav/>
@@ -41,7 +38,8 @@ return <div className="pageLayout">
         <p>{user.pronouns}</p>
         <p>{user.organization}</p>
       </div>
-    </div>          
+    </div>         
+    <Presenting state={{user_id}}/>
 </div>
 <Footer/>  
 </div>;

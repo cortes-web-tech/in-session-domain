@@ -38,7 +38,7 @@ return <div className="pageLayout">
         <br/> <Filelist state={{ id: subsession.subsession_id }} />
       </td>
       <td>
-        <Link to="/ViewUser" state={{ user_id: subsession._user_id }}>
+        <Link to="/User" state={{ user_id: subsession._user_id }}>
           {subsession.presenter}
         </Link>        
       </td>

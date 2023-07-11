@@ -12,6 +12,7 @@
 - _github repo hotfix worked!_
 - _Updated Filelist UI, cleaned up code._
 - _Functionality not enabled yet._
+- _Code cleanup, added Presenting() and Filelist() functionality to the User page._
 
 ## 0.0.37
 

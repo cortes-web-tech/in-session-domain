@@ -88,11 +88,21 @@ body {
   background-color: #1776d9;
   border:none;
   text-align: end;
-  
 }
 
 .button:hover{
   background-color: aquamarine;
+  border:none;
+}
+
+.rm-file-button {
+  background-color: #1776d9;
+  border:none;
+  text-align: end;
+}
+
+.rm-file-button:hover{
+  background-color: #dc4269;
   border:none;
 }
 
