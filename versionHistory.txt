@@ -1,3 +1,7 @@
+# 0.0.39
+# Started implement on Dashboard UI
+# Added CC BY-NC-SA 4.0 International License
+
 # 0.0.38
 # Previous commit broke git.. testing things out again.
 # github repo hotfix worked!
