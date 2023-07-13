@@ -1,8 +1,6 @@
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import UserList from '../components/UserList';
-
-import PageWIP from '../components/PageWIP';
 function Users() {
   
     return <div className="pageLayout">

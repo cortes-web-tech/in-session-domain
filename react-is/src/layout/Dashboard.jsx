@@ -14,7 +14,75 @@ function Dashboard() {
   const [subsessionFileCount, setSubsessionFileCount] = useState(0);
   // const [sessionPercent, setSessionPercent] = useState(0);
   // const [subsessionPercent, setSubsessionPercent] = useState(0);
-  const [fileData, setFileData] = useState([]);
+  // const [fileData, setFileData] = useState([]);
+  useEffect(() =>{
+    runCounters()
+  }, [])
+
+  function runCounters(){
+    countSessions()
+    countUsers()
+    countSubSessions()
+    countRooms()
+    countFiles()
+  }
+
+  function countSessions() {
+    axios
+      .post("http://localhost/api/countSessions.php")
+      .then((response) => {
+        // console.log(response.data["COUNT(*)"]);
+        setSessionCount(response.data["COUNT(*)"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  function countSubSessions() {
+    axios
+      .post("http://localhost/api/countSubSessions.php")
+      .then((response) => {
+        setSubsessionCount(response.data["COUNT(*)"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  function countUsers() {
+    axios
+      .post("http://localhost/api/countUsers.php")
+      .then((response) => {
+        setUserCount(response.data["COUNT(*)"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  function countRooms() {
+    axios
+      .post("http://localhost/api/countRooms.php")
+      .then((response) => {
+        setRoomCount(response.data["COUNT(DISTINCT room)"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  function countFiles() {
+    axios
+      .post("http://localhost/api/countFiles.php")
+      .then((response) => {
+        setFileCount(response.data["COUNT(*)"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return <div className="pageLayout">
   <Nav/>
   <div className="content">  
@@ -22,14 +90,15 @@ function Dashboard() {
     <table className="sessionDataTable">
           <thead>
             <tr>
-              <th>Sessions</th>
-              <th>Subsessions</th>
-              <th>Rooms</th>
-              <th>Users</th>
-              <th>Files</th>
+              <td>Sessions</td>
+              <td>Subsessions</td>
+              <td>Rooms</td>
+              <td>Users</td>
+              <td>Files</td>
             </tr>
           </thead>
           <tbody>
+            <tr>
             <td>
               <Link to="/sessions">{sessionCount}</Link>
             </td>
@@ -39,6 +108,7 @@ function Dashboard() {
               <Link to="/users">{userCount}</Link>
             </td>
             <td>{fileCount}</td>
+            </tr>
           </tbody>
         </table>
     

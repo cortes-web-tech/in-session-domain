@@ -7,6 +7,7 @@
 - _Added data counters to the Dashboard display._
 - _Haven't fetched the data yet because I may need to change the API._
 - _Looking into different data visualization tools._
+- _Re-implemeted the API to fetch data from SQL DB to display on dashboard._
 
 ## 0.0.38
 
