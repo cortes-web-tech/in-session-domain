@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import DataVisualization from "../components/DataVisualization";
 
 function Dashboard() {
   const [sessionCount, setSessionCount] = useState(0);
@@ -30,8 +31,7 @@ function Dashboard() {
   function countSessions() {
     axios
       .post("http://localhost/api/countSessions.php")
-      .then((response) => {
-        // console.log(response.data["COUNT(*)"]);
+      .then((response) => {        
         setSessionCount(response.data["COUNT(*)"]);
       })
       .catch((error) => {
@@ -88,30 +88,36 @@ function Dashboard() {
   <div className="content">  
     <h1>Dashboard</h1>
     <table className="sessionDataTable">
-          <thead>
-            <tr>
-              <td>Sessions</td>
-              <td>Subsessions</td>
-              <td>Rooms</td>
-              <td>Users</td>
-              <td>Files</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td>
-              <Link to="/sessions">{sessionCount}</Link>
-            </td>
-            <td>{subsessionCount}</td>
-            <td>{roomCount}</td>
-            <td>
-              <Link to="/users">{userCount}</Link>
-            </td>
-            <td>{fileCount}</td>
-            </tr>
-          </tbody>
-        </table>
-    
+        <thead>
+          <tr>
+            <td>Sessions</td>
+            <td>Subsessions</td>
+            <td>Rooms</td>
+            <td>Users</td>
+            <td>Files</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <td>
+            <Link to="/sessions">{sessionCount}</Link>
+          </td>
+          <td>{subsessionCount}</td>
+          <td>{roomCount}</td>
+          <td>
+            <Link to="/users">{userCount}</Link>
+          </td>
+          <td>{fileCount}</td>
+          </tr>
+        </tbody>
+      </table>
+    <DataVisualization data={{
+      sessions: sessionCount,
+      subsessions: subsessionCount,
+      rooms: roomCount,
+      users: userCount,
+      files: fileCount
+      }}/>
   </div>
   <Footer/>  
 </div>;
