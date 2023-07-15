@@ -2,12 +2,17 @@
 
 - _A previous iteration of this app was built using `bash npm create react app`. This new version was built using `bash npm create vite@latest` to reduce bloateware. For simplicity's sake, the version history will continue off from the previous number rather than begin at 0.0.1_
 
+## 0.0.40
+
+- _Installed tailwinds CSS._
+
 ## 0.0.39
 
 - _Added data counters to the Dashboard display._
 - _Haven't fetched the data yet because I may need to change the API._
 - _Looking into different data visualization tools._
 - _Re-implemeted the API to fetch data from SQL DB to display on dashboard._
+- _Passing data through to a Data Visualization component._
 
 ## 0.0.38
 

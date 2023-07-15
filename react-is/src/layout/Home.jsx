@@ -6,8 +6,8 @@ function Home() {
   return <div className="pageLayout">
     <Nav/>
     <div className="content">  
-      <h1>inSession</h1>
-      <p>
+      <h1 className="text-3xl">inSession</h1>
+      <p className="text-lg">
         inSession is an open source presentation management solution. <br/>
         Created by <a href="https://www.linkedin.com/in/alejandro-cortes-157051156/" target="_blank"> Alejandro Cortes</a> as a <a href="https://24mp.world" target="_blank"> portfolio</a> project.
       </p>        
