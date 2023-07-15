@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
+
 import DataVisualization from "../components/DataVisualization";
 
 function Dashboard() {
@@ -84,7 +83,7 @@ function Dashboard() {
   }
 
   return <div className="pageLayout">
-  <Nav/>
+  
   <div className="content">  
     <h1>Dashboard</h1>
     <table className="sessionDataTable">
@@ -119,7 +118,7 @@ function Dashboard() {
       files: fileCount
       }}/>
   </div>
-  <Footer/>  
+  
 </div>;
 }
 

@@ -1,10 +1,7 @@
 import React from "react";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 function Home() {
   return <div className="pageLayout">
-    <Nav/>
     <div className="content">  
       <h1 className="text-3xl">inSession</h1>
       <p className="text-lg">
@@ -16,11 +13,10 @@ function Home() {
         React JS Front End <br/>
         PHP / MySQL Back End <br/>
         AWS EC2 Hosting
-      </p>
-      
+      </p>      
       <p>To view a demo, please continue to the <Link to="/Dashboard">Dashboard</Link></p>
     </div>
-    <Footer/>  
+    
   </div>;
 }
 

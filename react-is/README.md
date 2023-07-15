@@ -5,6 +5,8 @@
 ## 0.0.40
 
 - _Installed tailwinds CSS._
+- _Stripped CSS to begin implementing Tailwind._
+- _Re-did BrowserRouter so that the Nav/Footer don't re-render when clicking between pages._
 
 ## 0.0.39
 

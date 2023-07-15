@@ -8,7 +8,6 @@ function Presenting(props) {
   useEffect(()=>{
     presentingIn(props.state.user_id)
     }, [])
-  console.log(props.state.user_id);
   function presentingIn(id) {
     axios
       .post("http://localhost/api/presentingIn.php", { user_id: id })

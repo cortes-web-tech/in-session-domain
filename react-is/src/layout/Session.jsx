@@ -2,8 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Moment from "moment";
 import axios from "axios";
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
 import Filelist from "../components/Filelist";
 function Session() {
 const location = useLocation();
@@ -20,7 +18,7 @@ useEffect(() => {
       .catch((err) => console.log(err));
   }
 return <div className="pageLayout">
-<Nav/>
+
 <div className="content">  
 <table className="sessionDataTable">
   <tbody >
@@ -50,7 +48,6 @@ return <div className="pageLayout">
   </tbody>
 </table>
 </div>
-<Footer/>  
 </div>;
 }
 export default Session
