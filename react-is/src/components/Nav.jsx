@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 function Nav() {
-  return <div className="nav">
-    <Link to="/">Home</Link>
-    <Link to="/Dashboard">Dashboard</Link>
-    <Link to="/Sessions">Sessions</Link>
-    <Link to="/Users">Users</Link>
+  return <div className="flex min-w-max">
+    <div className="flex-1"><Link to="/">Home</Link></div>
+    <div className="flex-1"><Link to="/Dashboard">Dashboard</Link></div>
+    <div className="flex-1"><Link to="/Sessions">Sessions</Link></div>
+    <div className="flex-1"><Link to="/Users">Users</Link></div>
   </div>;
 }
 

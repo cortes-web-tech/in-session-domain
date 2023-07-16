@@ -7,6 +7,7 @@
 - _Installed tailwinds CSS._
 - _Stripped CSS to begin implementing Tailwind._
 - _Re-did BrowserRouter so that the Nav/Footer don't re-render when clicking between pages._
+- _Added basic page layout, using Tailwind._
 
 ## 0.0.39
 

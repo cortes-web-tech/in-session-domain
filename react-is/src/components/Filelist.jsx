@@ -1,8 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
 function Filelist(props) {
 const subsession_id = props.state // won't let me add .id on init
 const [files, setFiles] = useState([]);

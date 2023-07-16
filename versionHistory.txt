@@ -2,6 +2,7 @@
 # Added tailwinds CSS and tested that it works.
 # Stripped CSS to begin implementing Tailwind
 # Re-did BrowserRouter so that the Nav/Footer don't re-render when clicking between pages.
+# Added basic page layout, using Tailwind.
 
 # 0.0.39
 # Started implement on Dashboard UI

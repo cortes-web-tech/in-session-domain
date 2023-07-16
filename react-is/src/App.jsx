@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
-// import './App.css'
 import Home from './layout/Home'
 import User from './layout/User'
 import Users from './layout/Users'
@@ -13,9 +12,10 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div className='container flex flex-col mx-auto min-h-screen min-w-fit items-center text-black'>
       
-      <Nav/>
+      <div className="bg-cyan-100 min-w-full"><Nav /></div>
+      <div className='flex-grow min-w-full text-center'>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="User" element={<User />} />
@@ -24,9 +24,11 @@ function App() {
         <Route path="Sessions" element={<Sessions />}/>
         <Route path="Dashboard" element={<Dashboard />} />    
       </Routes>
-      <Footer/>
+      </div>
+      <div className="bg-cyan-100 bot-0 min-w-full"><Footer /></div>
       
-    </>
+      
+    </div>
   )
 }
 
