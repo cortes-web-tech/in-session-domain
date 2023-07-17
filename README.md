@@ -10,6 +10,7 @@
 
 - Built on LAMP
 - ReactJS Front end
+- Tailwind CSS
 - Hosted on AWS EC2
 - Vite to reduce React bloatware
 - Customizable databases using MariaDB & MySQL
