@@ -33,8 +33,8 @@ const [users, setUsers] = useState ([])
   }
 
   return (
-    <div>
-        <table className="usersTable">
+    <div className="bg-blue-800 p-2 rounded-md">
+        <table>
         <tbody>
             <tr>
                 <th>Name</th>
@@ -44,11 +44,11 @@ const [users, setUsers] = useState ([])
             </tr>
             
         {users.map((user, key) => (
-            <tr key={user.user_id}>
-                <td><Link to="/User" state={{ user_id: user.user_id }}>
+            <tr key={user.user_id} className="border-t-4  border-blue-500">
+                <td className="border-r-4 border-blue-500 pr-2"><Link to="/User" state={{ user_id: user.user_id }} className="text-blue-400 underline underline-offset-2 hover:text-blue-500">
                       {user.fullName}
                     </Link></td>
-                <td>{user.email}</td>
+                <td className="pl-2">{user.email}</td>
                 <td>{user.organization}</td>
                 <td>{role(user.user_tier)}</td>
             </tr>

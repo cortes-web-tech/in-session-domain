@@ -20,8 +20,8 @@ const [sessions, setSessions] = useState([]);
 
 
   return (
-    <div>
-        <table className="sessionsTable">
+    <div className='p-2 bg-blue-800 rounded-md'>
+        <table>
           <thead>
             <tr>
               <th>Session Title</th>
@@ -33,16 +33,17 @@ const [sessions, setSessions] = useState([]);
           </thead>
           <tbody>
             {sessions.map((session, key) => (
-              <tr key={session.session_id}>
-                <td style={{columnSpan: 2}}>                  
+              <tr key={session.session_id} className='border-t-4 border-blue-500'>
+                <td style={{columnSpan: 2}} className='border-r-4 border-blue-500 px-2'>                  
                 <Link
                     to="/Session"
                     state={{ session_id: session.session_id }}
+                    className="text-blue-400 underline underline-offset-2 hover:text-blue-500 "
                   >
                     {session.title}
                   </Link>                
                 </td>
-                <td>{session.room}</td>
+                <td className='pl-2'>{session.room}</td>
                 <td>{Moment(session.startTime).format("MM/DD/YY h:mmA")}</td>
                 <td>{Moment(session.endTime).format("MM/DD/YY h:mmA")}</td>
                 <td>{session.modName}</td>

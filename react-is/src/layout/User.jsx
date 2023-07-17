@@ -18,24 +18,26 @@ function getUser(id) {
   }).catch((err) => console.log(err));
 }
 
-return <div className="pageLayout">
-<div className="content">  
-  <h2>User Info</h2>
-    <div className="userInfo">
-      <div className="userInfo_col">
+return <div>
+  <h1>User Info</h1>
+  <div className=" bg-blue-800 justify-center rounded-md p-2">  
+    <div className="flex justify-center">
+      <div>
         <p>Name</p>
         <p>Email</p>
         <p>Pronouns</p>
         <p>Organization</p>
       </div>
-      <div className="userInfo_col">
+      <div>
         <p>{user.fullName}</p>
         <p>{user.email}</p>
         <p>{user.pronouns}</p>
         <p>{user.organization}</p>
       </div>
-    </div>         
-    <Presenting state={{user_id}}/>
+    </div>
+    <div className="flex justify-center">
+    <Presenting state={{user_id}}/>    
+    </div>
 </div>
 </div>;
 }

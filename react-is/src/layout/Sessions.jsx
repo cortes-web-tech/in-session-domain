@@ -2,9 +2,8 @@ import React from 'react'
 
 import SessionList from '../components/SessionList';
 function Sessions() {
-  return <div className="pageLayout">
-  
-  <div className="content">  
+return <div className='flex justify-center'>
+  <div>  
     <h1>Sessions</h1>
     <SessionList/>
   </div>

@@ -19,17 +19,17 @@ function getFiles(id) {
 return (
 <div> 
   { files != "" && files.length > 0 ? 
-  <div>
+  <div className="flex table-auto">
     <table>
     <tbody>
       {files.map((file, key) => (
-        <tr className="filelist" key={file.file_id}>
-          <td className="filename">{file.file_name}</td>
-          <td className="btnContainer">
-            <button className="button" type="submit" name="submit" title="Upload File">
+        <tr key={file.file_id} className="flex w-full">
+        <td className="flex-1">{file.file_name}</td>
+          <td>
+            <button className="hover:bg-green-400 flex-1" type="submit" name="submit" title="Upload File">
               🗂
             </button>
-            <button className="rm-file-button" type="submit" name="submit" title="Delete File">
+            <button className="hover:bg-red-400 flex-1" type="submit" name="submit" title="Delete File">
               🗑
             </button>
           </td>             

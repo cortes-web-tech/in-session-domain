@@ -82,11 +82,11 @@ function Dashboard() {
       });
   }
 
-  return <div className="pageLayout">
-  
-  <div className="content">  
+  return <div className="flex justify-center">
+  <div>  
     <h1>Dashboard</h1>
-    <table className="sessionDataTable">
+    <div className="p-2 bg-blue-800 rounded-md">
+    <table>
         <thead>
           <tr>
             <td>Sessions</td>
@@ -99,17 +99,18 @@ function Dashboard() {
         <tbody>
           <tr>
           <td>
-            <Link to="/sessions">{sessionCount}</Link>
+            <Link to="/Sessions" className="text-blue-400 underline underline-offset-2 hover:text-blue-500">{sessionCount}</Link>
           </td>
           <td>{subsessionCount}</td>
           <td>{roomCount}</td>
           <td>
-            <Link to="/users">{userCount}</Link>
+            <Link to="/Users" className="text-blue-400 underline underline-offset-2 hover:text-blue-500">{userCount}</Link>
           </td>
           <td>{fileCount}</td>
           </tr>
         </tbody>
       </table>
+      </div>
     <DataVisualization data={{
       sessions: sessionCount,
       subsessions: subsessionCount,

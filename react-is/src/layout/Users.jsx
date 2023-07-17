@@ -1,9 +1,9 @@
 import UserList from '../components/UserList';
 function Users() {
   
-    return <div className="pageLayout">
+    return <div className='flex justify-center'>
     
-    <div className="content">  
+    <div>  
       <h1>Users</h1>
       <UserList/>
     </div>

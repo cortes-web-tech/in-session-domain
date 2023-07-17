@@ -15,7 +15,7 @@ function Presenting(props) {
       .catch((err) => console.log(err));
   }
   return (
-    <div>
+    <div className="">
       <h2>Presenting</h2>
       <table>
         <tbody>
@@ -23,14 +23,14 @@ function Presenting(props) {
                 <td>Subsession title</td>
                 <td>Start time</td>
                 <td>End time</td>
-                <td>Moderator</td>
+                <td>Moderator</td>              
             </tr>
         {subsessions.map((subsession, key)=> (
-          <tr key={subsession.subsession_id}>
-            <td>{subsession.subsession_title}
+          <tr key={subsession.subsession_id} className="align-top border-t-4 border-blue-500">
+            <td className="border-r-4 border-blue-500">{subsession.subsession_title}
             <br/> <Filelist state={{ id: subsession.subsession_id }} />
             </td>
-            <td>{subsession.startTime}</td>
+            <td className="pl-2">{subsession.startTime}</td>
             <td>{subsession.endTime}</td>
             <td>{subsession.modName}</td>
           </tr>

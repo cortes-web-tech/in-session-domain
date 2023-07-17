@@ -17,10 +17,10 @@ useEffect(() => {
       .then((response) => setSubsessions(response.data))
       .catch((err) => console.log(err));
   }
-return <div className="pageLayout">
-
-<div className="content">  
-<table className="sessionDataTable">
+return <div>
+<h1>Session</h1>
+<div className="bg-blue-800 flex justify-center rounded-md">  
+<table>
   <tbody >
     <tr >
       <td>Subsession Title</td>
@@ -30,13 +30,14 @@ return <div className="pageLayout">
       <td>Moderator</td>
     </tr>
     {subsessions.map((subsession, key) => (
-    <tr key={subsession.subsession_id} className="subsessions">
-      <td>
+    <tr key={subsession.subsession_id} className="border-t-4 align-top border-blue-500">
+      <td className="pr-2 border-r-4 border-blue-500"> 
         <h4>{subsession.subsession_title} </h4>
         <br/> <Filelist state={{ id: subsession.subsession_id }} />
       </td>
       <td>
-        <Link to="/User" state={{ user_id: subsession._user_id }}>
+        <Link to="/User" state={{ user_id: subsession._user_id }}
+         className="text-blue-400 underline underline-offset-2 hover:text-blue-500 px-1">
           {subsession.presenter}
         </Link>        
       </td>

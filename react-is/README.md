@@ -8,6 +8,8 @@
 - _Stripped CSS to begin implementing Tailwind._
 - _Re-did BrowserRouter so that the Nav/Footer don't re-render when clicking between pages._
 - _Added basic page layout, using Tailwind._
+- _Finished striping CSS that was leftover._
+- _Styled pages back to a decent spot, using Tailwind CSS._
 
 ## 0.0.39
 

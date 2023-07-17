@@ -12,9 +12,9 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='container flex flex-col mx-auto min-h-screen min-w-fit items-center text-black'>
+    <div className='container flex flex-col mx-auto min-h-screen min-w-fit items-center text-white'>
       
-      <div className="bg-cyan-100 min-w-full"><Nav /></div>
+      <div className="min-w-full bg-blue-800"><Nav /></div>
       <div className='flex-grow min-w-full text-center'>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,7 +25,7 @@ function App() {
         <Route path="Dashboard" element={<Dashboard />} />    
       </Routes>
       </div>
-      <div className="bg-cyan-100 bot-0 min-w-full"><Footer /></div>
+      <div className="bg-blue-800 bot-0 px-3 min-w-full text-center"><Footer /></div>
       
       
     </div>
