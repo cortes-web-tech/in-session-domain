@@ -17,26 +17,22 @@ function getFiles(id) {
       .catch((err) => console.log(err));
   }
 return (
-<div> 
+<div className="min-w-fit"> 
   { files != "" && files.length > 0 ? 
-  <div className="flex table-auto">
-    <table>
-    <tbody>
+  <div className= "min-w-max">        
       {files.map((file, key) => (
-        <tr key={file.file_id} className="flex w-full">
-        <td className="flex-1">{file.file_name}</td>
-          <td>
+        <div key={file.file_id} className="flex min-w-fit">
+          <div className="flex-1">{file.file_name}</div>
+          <div>
             <button className="hover:bg-green-400 flex-1" type="submit" name="submit" title="Upload File">
               🗂
             </button>
             <button className="hover:bg-red-400 flex-1" type="submit" name="submit" title="Delete File">
               🗑
             </button>
-          </td>             
-        </tr>
-        ))}
-    </tbody>
-    </table>
+          </div>             
+        </div>
+      ))}  
   </div>
   : 
   <div>No files uploaded yet.</div> }

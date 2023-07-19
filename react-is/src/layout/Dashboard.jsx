@@ -82,18 +82,18 @@ function Dashboard() {
       });
   }
 
-  return <div className="flex justify-center">
-  <div>  
+  return <div className="flex justify-center ">
+  <div className="min-w-fit">  
     <h1>Dashboard</h1>
-    <div className="p-2 bg-blue-800 rounded-md">
-    <table>
+    <div >
+    <table className="px-20 bg-blue-800 rounded-md">
         <thead>
-          <tr>
-            <td>Sessions</td>
-            <td>Subsessions</td>
-            <td>Rooms</td>
-            <td>Users</td>
-            <td>Files</td>
+          <tr >
+            <td className="px-2">Sessions</td>
+            <td className="px-2">Subsessions</td>
+            <td className="px-2">Rooms</td>
+            <td className="px-2">Users</td>
+            <td className="px-2">Files</td>
           </tr>
         </thead>
         <tbody>
