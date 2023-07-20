@@ -1,6 +1,7 @@
 # 0.0.41
 # Stable version.
 # Styled filelist to display better across all pages.
+# Started working on client app
 
 # 0.0.40
 # Added tailwinds CSS and tested that it works.
