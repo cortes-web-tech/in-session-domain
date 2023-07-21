@@ -5,6 +5,8 @@
 
 # 0.0.41
 # Started working on Mac app.
+# Super basic layout as I learn how to program a GUI in go 😳
+# Close button works though 😎
 
 # 0.0.40
 # Added tailwinds CSS and tested that it works.
