@@ -3,6 +3,9 @@
 # Styled filelist to display better across all pages.
 # Started working on client app
 
+# 0.0.41
+# Started working on Mac app.
+
 # 0.0.40
 # Added tailwinds CSS and tested that it works.
 # Stripped CSS to begin implementing Tailwind
