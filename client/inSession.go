@@ -24,17 +24,18 @@ func main() {
 		fmt.Println("App closed successfully.")
 	})
 	blue := color.NRGBA{R: 27, G: 122, B: 221, A: 255}
-	red := color.NRGBA{R: 222, G: 22, B: 21, A: 255}
-	closeapp.ExtendBaseWidget(closeapp)
-	inSession := canvas.NewText("inSession", blue)
-	sessionTitle := canvas.NewText("Session Title", color.White)
-	sessionData := canvas.NewText("SessionData", color.White)
+	green := color.NRGBA{R: 17, G: 182, B: 121, A: 255}
+	// closeapp.ExtendBaseWidget(closeapp)
+	appTitle := canvas.NewText("inSession", blue)
+	sessionTitle := container.NewCenter(canvas.NewText("Session Title", color.White))
+	sessionData := container.NewCenter(canvas.NewText("Session Data", color.White))
 
-	closeAppButton := container.NewMax(canvas.NewRectangle(red), closeapp)
-	top := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), inSession, layout.NewSpacer(), closeAppButton)
+	closeAppButton := container.NewMax(canvas.NewRectangle(green), closeapp)
+	top := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), appTitle, layout.NewSpacer(), closeAppButton)
 	wrapper := container.NewMax(canvas.NewRectangle(blue), sessionTitle)
-	sessionDataWrapper := container.NewCenter(canvas.NewRectangle(blue), sessionData)
-	middle := container.NewMax(canvas.NewRectangle(blue), wrapper, layout.NewSpacer(), sessionDataWrapper)
+
+	sessionDataWrapper := container.NewMax(canvas.NewRectangle(blue), sessionData)
+	middle := container.New(layout.NewGridLayoutWithRows(2), wrapper, sessionDataWrapper)
 
 	content := container.NewBorder(top, nil, nil, nil, middle)
 
