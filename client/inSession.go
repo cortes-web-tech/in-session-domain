@@ -26,26 +26,26 @@ func main() {
 	closeapp := widget.NewButtonWithIcon("", theme.CancelIcon(), func() {
 		a.Quit()
 	})
-
-	appTitle := canvas.NewText("inSession", lightblue)
-	sessionTitle := container.New(layout.NewCenterLayout(),
-		container.NewCenter(
-			container.NewMax(
-				container.New(layout.NewPaddedLayout(),
-					canvas.NewRectangle(blue),
-					canvas.NewText(" Session Title ", color.White)))))
-	sessionData := container.NewCenter(canvas.NewText("Session Data", color.White))
-	// test := container.NewMax(canvas.NewRectangle(green), sessionData)
-
-	footer := container.New(layout.NewPaddedLayout(), container.NewMax(canvas.NewRectangle(color.Transparent), container.NewCenter(canvas.NewText("Footer", color.White))))
+	sTitle := canvas.NewText(" Session Title ", color.White)
+	sessionTime := canvas.NewText(" Time ", color.White)
+	moderator := canvas.NewText(" Modeator ", color.White)
+	sTitle.TextSize, sessionTime.TextSize, moderator.TextSize = 50, 30, 26
+	appTitle := canvas.NewText("inSession", blue)
+	titleContainer := container.NewCenter(sTitle)
+	timeContainer := container.NewCenter(sessionTime)
+	modContainer := container.NewCenter(moderator)
+	sessionInfo := container.NewCenter(
+		container.New(layout.NewVBoxLayout(), titleContainer, timeContainer, modContainer))
+	sessionInfoWrapper := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), sessionInfo, layout.NewSpacer())
+	dataTable := container.NewMax(canvas.NewRectangle(color.Transparent))
+	currentTime := container.NewCenter(canvas.NewText(" Time ", color.White))
+	// iconContainer := container.New(layout.NewPaddedLayout(), layout.NewSpacer())
+	helpInfo := container.NewMax(canvas.NewRectangle(lightblue), container.New(layout.NewVBoxLayout(), currentTime))
+	footer := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), layout.NewSpacer(), helpInfo)
 
 	top := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), appTitle, layout.NewSpacer(), closeapp)
 	topWrapper := container.NewMax(canvas.NewRectangle(color.Transparent), top)
-	titleWrapper := container.New(layout.NewPaddedLayout(), container.NewMax(container.NewWithoutLayout(), sessionTitle))
-	vspace := container.New(layout.NewVBoxLayout(), layout.NewSpacer(), canvas.NewText("", color.White), layout.NewSpacer())
-
-	sessionDataWrapper := container.New(layout.NewPaddedLayout(), container.NewMax(canvas.NewRectangle(blue), sessionData))
-	middle := container.New(layout.NewVBoxLayout(), vspace, titleWrapper, sessionDataWrapper, layout.NewSpacer(), footer)
+	middle := container.New(layout.NewGridLayoutWithRows(3), sessionInfoWrapper, dataTable, footer)
 	middleWrapper := container.New(layout.NewMaxLayout(), container.NewMax(canvas.NewVerticalGradient(lightblue, darkblue), middle))
 
 	content := container.NewBorder(topWrapper, nil, nil, nil, middleWrapper)
