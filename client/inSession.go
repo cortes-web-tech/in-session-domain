@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"image/color"
+	"os"
+	"os/exec"
 	"time"
 
 	"fyne.io/fyne/v2/app"
@@ -12,6 +14,17 @@ import (
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 )
+
+func openFileOnClick() error {
+	wd, _ := os.Getwd()
+	filepath := (wd + "/files/room/test_room_01/Jul-22-2023/inSession.key")
+	// fmt.Println(filepath)
+	cmd := exec.Command("open", filepath)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
+
+}
 
 func main() {
 	a := app.New()
@@ -41,7 +54,11 @@ func main() {
 	presentationTitle, pTime := canvas.NewText("Presentation info", color.White), canvas.NewText("Presenter name", color.White)
 	presentationTitle.TextSize, pTime.TextSize = 20, 18
 
-	pInfoWrapper := container.New(layout.NewGridLayout(1), presentationTitle, pTime, widget.NewButtonWithIcon("", theme.FileApplicationIcon(), func() {}))
+	pInfoWrapper := container.New(layout.NewGridLayout(1), presentationTitle, pTime, widget.NewButtonWithIcon("", theme.FileApplicationIcon(), func() {
+		openFileOnClick()
+		win.Close()
+		// win.SetContent(canvas.NewRectangle(color.NRGBA{R: 0, G: 0, B: 0, A: 0}))
+	}))
 	dataTable := container.New(layout.NewGridLayout(3), layout.NewSpacer(), container.NewMax(canvas.NewRectangle(lightblue), container.NewCenter(pInfoWrapper), layout.NewSpacer()))
 	currentTime := container.NewCenter(canvas.NewText(time.Now().Format(time.RFC1123), blue))
 

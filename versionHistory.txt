@@ -3,6 +3,9 @@
 # Styled filelist to display better across all pages.
 # Started working on client app
 
+# 0.0.42 
+# Client app opens file from local directory, when requested. Static link.
+
 # 0.0.41
 # Started working on Mac app.
 # Super basic layout as I learn how to program a GUI in go 😳
