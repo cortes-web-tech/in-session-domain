@@ -23,22 +23,27 @@ func main() {
 
 	fmt.Printf("Starting inSession..\n\n")
 
-	closeapp := widget.NewButtonWithIcon("", theme.CancelIcon(), func() {
+	closeapp := container.New(layout.NewGridLayout(4), layout.NewSpacer(), layout.NewSpacer(), layout.NewSpacer(), widget.NewButtonWithIcon("", theme.CancelIcon(), func() {
 		a.Quit()
-	})
+	}))
 	sTitle := canvas.NewText(" Session Title ", color.White)
 	sessionTime := canvas.NewText(" Time ", color.White)
-	moderator := canvas.NewText(" Modeator ", color.White)
+	moderator := canvas.NewText(" Moderator ", color.White)
 	sTitle.TextSize, sessionTime.TextSize, moderator.TextSize = 50, 30, 26
-	appTitle := canvas.NewText("inSession", blue)
+	appTitle := container.NewCenter(canvas.NewText("inSession", lightblue))
 	titleContainer := container.NewCenter(sTitle)
 	timeContainer := container.NewCenter(sessionTime)
 	modContainer := container.NewCenter(moderator)
 	sessionInfo := container.NewCenter(
 		container.New(layout.NewVBoxLayout(), titleContainer, timeContainer, modContainer))
 	sessionInfoWrapper := container.New(layout.NewGridLayoutWithColumns(3), layout.NewSpacer(), sessionInfo, layout.NewSpacer())
-	dataTable := container.NewMax(canvas.NewRectangle(color.Transparent))
-	currentTime := container.NewCenter(canvas.NewText(time.Now().Format(time.RFC1123), color.White))
+
+	presentationTitle, pTime := canvas.NewText("Presentation info", color.White), canvas.NewText("Presenter name", color.White)
+	presentationTitle.TextSize, pTime.TextSize = 20, 18
+
+	pInfoWrapper := container.New(layout.NewGridLayout(1), presentationTitle, pTime, widget.NewButtonWithIcon("", theme.FileApplicationIcon(), func() {}))
+	dataTable := container.New(layout.NewGridLayout(3), layout.NewSpacer(), container.NewMax(canvas.NewRectangle(lightblue), container.NewCenter(pInfoWrapper), layout.NewSpacer()))
+	currentTime := container.NewCenter(canvas.NewText(time.Now().Format(time.RFC1123), blue))
 
 	iconInfo := container.New(layout.NewGridLayout(4),
 		container.NewCenter(canvas.NewText("Refresh", color.White)),
@@ -50,10 +55,16 @@ func main() {
 		container.NewCenter(widget.NewButtonWithIcon("", theme.AccountIcon(), func() {})),
 		container.NewCenter(widget.NewButtonWithIcon("", theme.HelpIcon(), func() {})),
 	)
-	helpInfo := container.NewMax(canvas.NewRectangle(color.Transparent), container.New(layout.NewGridLayout(1), currentTime, iconInfo))
-	footer := container.New(layout.NewGridLayoutWithColumns(3), layout.NewSpacer(), layout.NewSpacer(), helpInfo)
+	dayChoose := container.New(layout.NewGridLayout(3),
+		layout.NewSpacer(), layout.NewSpacer(), layout.NewSpacer(),
+		container.NewCenter(widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {})),
+		container.NewCenter(canvas.NewText(time.Now().Format(time.DateOnly), color.White)),
+		container.NewCenter(widget.NewButtonWithIcon("", theme.NavigateNextIcon(), func() {})))
 
-	top := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), appTitle, layout.NewSpacer(), closeapp)
+	chooseDay := container.NewMax(canvas.NewRectangle(color.Transparent), container.New(layout.NewGridLayout(1), canvas.NewRectangle(color.Transparent), container.New(layout.NewGridLayout(1), dayChoose)))
+	helpInfo := container.NewMax(canvas.NewRectangle(color.Transparent), container.New(layout.NewGridLayout(1), layout.NewSpacer(), iconInfo))
+	footer := container.New(layout.NewGridLayoutWithColumns(3), chooseDay, layout.NewSpacer(), helpInfo)
+	top := container.New(layout.NewGridLayout(5), currentTime, layout.NewSpacer(), appTitle, layout.NewSpacer(), closeapp)
 	topWrapper := container.NewMax(canvas.NewRectangle(color.Transparent), top)
 	middle := container.New(layout.NewGridLayoutWithRows(3), sessionInfoWrapper, dataTable, footer)
 	middleWrapper := container.New(layout.NewMaxLayout(), container.NewMax(canvas.NewVerticalGradient(lightblue, darkblue), middle))
