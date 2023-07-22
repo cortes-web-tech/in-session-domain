@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 	"image/color"
+	"time"
 
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/layout"
-
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 )
@@ -36,12 +36,22 @@ func main() {
 	modContainer := container.NewCenter(moderator)
 	sessionInfo := container.NewCenter(
 		container.New(layout.NewVBoxLayout(), titleContainer, timeContainer, modContainer))
-	sessionInfoWrapper := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), sessionInfo, layout.NewSpacer())
+	sessionInfoWrapper := container.New(layout.NewGridLayoutWithColumns(3), layout.NewSpacer(), sessionInfo, layout.NewSpacer())
 	dataTable := container.NewMax(canvas.NewRectangle(color.Transparent))
-	currentTime := container.NewCenter(canvas.NewText(" Time ", color.White))
-	// iconContainer := container.New(layout.NewPaddedLayout(), layout.NewSpacer())
-	helpInfo := container.NewMax(canvas.NewRectangle(lightblue), container.New(layout.NewVBoxLayout(), currentTime))
-	footer := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), layout.NewSpacer(), helpInfo)
+	currentTime := container.NewCenter(canvas.NewText(time.Now().Format(time.RFC1123), color.White))
+
+	iconInfo := container.New(layout.NewGridLayout(4),
+		container.NewCenter(canvas.NewText("Refresh", color.White)),
+		container.NewCenter(canvas.NewText("Files", color.White)),
+		container.NewCenter(canvas.NewText("Help", color.White)),
+		container.NewCenter(canvas.NewText("How-to", color.White)),
+		container.NewCenter(widget.NewButtonWithIcon("", theme.FileIcon(), func() {})),
+		container.NewCenter(widget.NewButtonWithIcon("", theme.ComputerIcon(), func() {})),
+		container.NewCenter(widget.NewButtonWithIcon("", theme.AccountIcon(), func() {})),
+		container.NewCenter(widget.NewButtonWithIcon("", theme.HelpIcon(), func() {})),
+	)
+	helpInfo := container.NewMax(canvas.NewRectangle(color.Transparent), container.New(layout.NewGridLayout(1), currentTime, iconInfo))
+	footer := container.New(layout.NewGridLayoutWithColumns(3), layout.NewSpacer(), layout.NewSpacer(), helpInfo)
 
 	top := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), appTitle, layout.NewSpacer(), closeapp)
 	topWrapper := container.NewMax(canvas.NewRectangle(color.Transparent), top)
