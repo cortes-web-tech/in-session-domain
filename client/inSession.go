@@ -28,14 +28,20 @@ func main() {
 	})
 
 	appTitle := canvas.NewText("inSession", lightblue)
-	sessionTitle := container.NewCenter(canvas.NewText("Session Title", color.White))
+	sessionTitle := container.New(layout.NewCenterLayout(),
+		container.NewCenter(
+			container.NewMax(
+				container.New(layout.NewPaddedLayout(),
+					canvas.NewRectangle(blue),
+					canvas.NewText(" Session Title ", color.White)))))
 	sessionData := container.NewCenter(canvas.NewText("Session Data", color.White))
+	// test := container.NewMax(canvas.NewRectangle(green), sessionData)
 
 	footer := container.New(layout.NewPaddedLayout(), container.NewMax(canvas.NewRectangle(color.Transparent), container.NewCenter(canvas.NewText("Footer", color.White))))
 
 	top := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), appTitle, layout.NewSpacer(), closeapp)
 	topWrapper := container.NewMax(canvas.NewRectangle(color.Transparent), top)
-	titleWrapper := container.New(layout.NewPaddedLayout(), container.NewMax(canvas.NewRectangle(blue), sessionTitle))
+	titleWrapper := container.New(layout.NewPaddedLayout(), container.NewMax(container.NewWithoutLayout(), sessionTitle))
 	vspace := container.New(layout.NewVBoxLayout(), layout.NewSpacer(), canvas.NewText("", color.White), layout.NewSpacer())
 
 	sessionDataWrapper := container.New(layout.NewPaddedLayout(), container.NewMax(canvas.NewRectangle(blue), sessionData))
