@@ -73,6 +73,7 @@ func main() {
 	presenterList := []string{}
 	subTitleList := []string{}
 	startTimeList := []string{}
+	endTimeList := []string{}
 	for rows.Next() {
 		err := rows.Scan(&subsession_id, &session_id, &presenter, &subsession_title, &startTime, &endTime, &modName, &date_added, &user_id, &user_name)
 		if err != nil {
@@ -81,6 +82,7 @@ func main() {
 		presenterList = append(presenterList, presenter)
 		subTitleList = append(subTitleList, subsession_title)
 		startTimeList = append(startTimeList, startTime)
+		endTimeList = append(endTimeList, endTime)
 	}
 
 	if err := rows.Err(); err != nil {
@@ -94,7 +96,7 @@ func main() {
 	}))
 	sTitle := canvas.NewText(" Introducing inSession ", color.White)
 	sessionTime := canvas.NewText(time.Now().Format(time.DateOnly), color.White)
-	moderator := canvas.NewText(" Motoko Kusanagi ", color.White)
+	moderator := canvas.NewText(" Misato Katsuragi ", color.White)
 	sTitle.TextSize, sessionTime.TextSize, moderator.TextSize = 50, 30, 26
 	appTitle := container.NewCenter(canvas.NewText("inSession", lightblue))
 	titleContainer := container.NewCenter(sTitle)
@@ -121,12 +123,25 @@ func main() {
 
 	pCont2 := make([]*fyne.Container, len(presenterList))
 	for i := 0; i < len(presenterList); i++ {
-		subtitle := canvas.NewText(subTitleList[i], color.White)
-		subtitle.TextSize = 30
+		subtitle, presenter := canvas.NewText(subTitleList[i], color.White), canvas.NewText(presenterList[i], color.White)
+		subtitle.TextSize, presenter.TextSize = 30, 16
+		parsedTime, err := time.Parse("2006-01-02 15:04:05", startTimeList[i])
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
+		parsedEndTime, err := time.Parse("2006-01-02 15:04:05", endTimeList[i])
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
 		box := container.New(layout.NewVBoxLayout(),
 			subtitle,
-			canvas.NewText(presenterList[i], color.White),
-			canvas.NewText(subTitleList[i], color.White),
+			container.New(layout.NewHBoxLayout(),
+				canvas.NewText(parsedTime.Format(time.Kitchen), color.White),
+				canvas.NewText(" - ", color.White),
+				canvas.NewText(parsedEndTime.Format(time.Kitchen), color.White)),
+			presenter,
 			pInfoWrapper)
 		box.Resize(fyne.NewSize(50, 50))
 		pCont2[i] = box
