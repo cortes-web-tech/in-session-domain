@@ -14,6 +14,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 
+	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
@@ -69,13 +70,17 @@ func main() {
 	var date_added string
 	var user_id int
 	var user_name string
-
+	presenterList := []string{}
+	subTitleList := []string{}
+	startTimeList := []string{}
 	for rows.Next() {
 		err := rows.Scan(&subsession_id, &session_id, &presenter, &subsession_title, &startTime, &endTime, &modName, &date_added, &user_id, &user_name)
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("Title: %s, Presenter: %s, Start Time: %s\n", subsession_title, presenter, startTime)
+		presenterList = append(presenterList, presenter)
+		subTitleList = append(subTitleList, subsession_title)
+		startTimeList = append(startTimeList, startTime)
 	}
 
 	if err := rows.Err(); err != nil {
@@ -87,9 +92,9 @@ func main() {
 		a.Quit()
 
 	}))
-	sTitle := canvas.NewText(" Welcome to inSession ", color.White)
+	sTitle := canvas.NewText(" Introducing inSession ", color.White)
 	sessionTime := canvas.NewText(time.Now().Format(time.DateOnly), color.White)
-	moderator := canvas.NewText(" Spike Spiegel ", color.White)
+	moderator := canvas.NewText(" Motoko Kusanagi ", color.White)
 	sTitle.TextSize, sessionTime.TextSize, moderator.TextSize = 50, 30, 26
 	appTitle := container.NewCenter(canvas.NewText("inSession", lightblue))
 	titleContainer := container.NewCenter(sTitle)
@@ -102,11 +107,35 @@ func main() {
 	presentationTitle, pTime := canvas.NewText("inSesion software demo", color.White), canvas.NewText("Alejandro Cortes", color.White)
 	presentationTitle.TextSize, pTime.TextSize = 20, 18
 
-	pInfoWrapper := container.New(layout.NewGridLayout(1), presentationTitle, pTime, widget.NewButtonWithIcon("", theme.FileApplicationIcon(), func() {
+	pInfoWrapper := container.New(layout.NewGridLayout(1), widget.NewButtonWithIcon("", theme.FileApplicationIcon(), func() {
 		openFileOnClick()
 		win.Close()
 	}))
-	dataTable := container.New(layout.NewGridLayout(3), layout.NewSpacer(), container.NewMax(canvas.NewRectangle(lightblue), container.NewCenter(pInfoWrapper), layout.NewSpacer()))
+	// subTitleList := []string{}
+	presentations := make([]*canvas.Text, len(presenterList))
+	for i := 0; i < len(presenterList); i++ {
+		box := canvas.NewText(presenterList[i], color.White)
+		box.Resize(fyne.NewSize(50, 50))
+		presentations[i] = box
+	}
+
+	pCont2 := make([]*fyne.Container, len(presenterList))
+	for i := 0; i < len(presenterList); i++ {
+		subtitle := canvas.NewText(subTitleList[i], color.White)
+		subtitle.TextSize = 30
+		box := container.New(layout.NewVBoxLayout(),
+			subtitle,
+			canvas.NewText(presenterList[i], color.White),
+			canvas.NewText(subTitleList[i], color.White),
+			pInfoWrapper)
+		box.Resize(fyne.NewSize(50, 50))
+		pCont2[i] = box
+	}
+	presContainer := container.New(layout.NewGridLayout(3), pCont2[0], pCont2[1], pCont2[2])
+	dataTable := container.NewMax(canvas.NewRectangle(color.Transparent), presContainer)
+	dataContainer := container.New(layout.NewGridLayout(3),
+		layout.NewSpacer(), container.NewMax(
+			canvas.NewRectangle(color.Transparent), container.NewCenter(dataTable), layout.NewSpacer()))
 	currentTime := container.NewCenter(canvas.NewText(time.Now().Format(time.Kitchen), blue))
 
 	iconInfo := container.New(layout.NewGridLayout(4),
@@ -130,7 +159,7 @@ func main() {
 	footer := container.New(layout.NewGridLayoutWithColumns(3), chooseDay, layout.NewSpacer(), helpInfo)
 	top := container.New(layout.NewGridLayout(5), currentTime, layout.NewSpacer(), appTitle, layout.NewSpacer(), closeapp)
 	topWrapper := container.NewMax(canvas.NewRectangle(color.Transparent), top)
-	middle := container.New(layout.NewGridLayoutWithRows(3), sessionInfoWrapper, dataTable, footer)
+	middle := container.New(layout.NewGridLayoutWithRows(3), sessionInfoWrapper, dataContainer, footer)
 	middleWrapper := container.New(layout.NewMaxLayout(), container.NewMax(canvas.NewVerticalGradient(lightblue, darkblue), middle))
 
 	content := container.NewBorder(topWrapper, nil, nil, nil, middleWrapper)

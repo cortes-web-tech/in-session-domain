@@ -6,6 +6,7 @@
 # 0.0.42 
 # Client app opens file from local directory, when requested. Static link.
 # Connected app to local dev database, fetching data and printing to console.
+# Client GUI at a good state to begin adding functionality.
 
 # 0.0.41
 # Started working on Mac app.
