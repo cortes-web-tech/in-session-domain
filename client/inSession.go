@@ -1,11 +1,18 @@
 package main
 
+import "C"
+
 import (
 	"fmt"
 	"image/color"
 	"os"
 	"os/exec"
 	"time"
+
+	"database/sql"
+	"log"
+
+	_ "github.com/go-sql-driver/mysql"
 
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/canvas"
@@ -17,11 +24,12 @@ import (
 
 func openFileOnClick() error {
 	wd, _ := os.Getwd()
-	filepath := (wd + "/files/room/test_room_01/Jul-22-2023/inSession.key")
+	filepath := (wd + "/go/files/room/test_room_01/Jul-22-2023/inSession.key")
 	// fmt.Println(filepath)
 	cmd := exec.Command("open", filepath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
+	// cmd.Std
 	return cmd.Run()
 
 }
@@ -36,12 +44,52 @@ func main() {
 
 	fmt.Printf("Starting inSession..\n\n")
 
+	// Fetching Data from database
+	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	// 2. Prepare and execute the query
+	rows, err := db.Query("SELECT  * FROM subsessionData WHERE _session_id=1")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	// 3. Handle the results
+	var subsession_id int
+	var session_id int
+	var presenter string
+	var subsession_title string
+	var startTime string
+	var endTime string
+	var modName string
+	var date_added string
+	var user_id int
+	var user_name string
+
+	for rows.Next() {
+		err := rows.Scan(&subsession_id, &session_id, &presenter, &subsession_title, &startTime, &endTime, &modName, &date_added, &user_id, &user_name)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("Title: %s, Presenter: %s, Start Time: %s\n", subsession_title, presenter, startTime)
+	}
+
+	if err := rows.Err(); err != nil {
+		log.Fatal(err)
+	}
+
+	// App Code
 	closeapp := container.New(layout.NewGridLayout(4), layout.NewSpacer(), layout.NewSpacer(), layout.NewSpacer(), widget.NewButtonWithIcon("", theme.CancelIcon(), func() {
 		a.Quit()
+
 	}))
-	sTitle := canvas.NewText(" Session Title ", color.White)
-	sessionTime := canvas.NewText(" Time ", color.White)
-	moderator := canvas.NewText(" Moderator ", color.White)
+	sTitle := canvas.NewText(" Welcome to inSession ", color.White)
+	sessionTime := canvas.NewText(time.Now().Format(time.DateOnly), color.White)
+	moderator := canvas.NewText(" Spike Spiegel ", color.White)
 	sTitle.TextSize, sessionTime.TextSize, moderator.TextSize = 50, 30, 26
 	appTitle := container.NewCenter(canvas.NewText("inSession", lightblue))
 	titleContainer := container.NewCenter(sTitle)
@@ -51,16 +99,15 @@ func main() {
 		container.New(layout.NewVBoxLayout(), titleContainer, timeContainer, modContainer))
 	sessionInfoWrapper := container.New(layout.NewGridLayoutWithColumns(3), layout.NewSpacer(), sessionInfo, layout.NewSpacer())
 
-	presentationTitle, pTime := canvas.NewText("Presentation info", color.White), canvas.NewText("Presenter name", color.White)
+	presentationTitle, pTime := canvas.NewText("inSesion software demo", color.White), canvas.NewText("Alejandro Cortes", color.White)
 	presentationTitle.TextSize, pTime.TextSize = 20, 18
 
 	pInfoWrapper := container.New(layout.NewGridLayout(1), presentationTitle, pTime, widget.NewButtonWithIcon("", theme.FileApplicationIcon(), func() {
 		openFileOnClick()
 		win.Close()
-		// win.SetContent(canvas.NewRectangle(color.NRGBA{R: 0, G: 0, B: 0, A: 0}))
 	}))
 	dataTable := container.New(layout.NewGridLayout(3), layout.NewSpacer(), container.NewMax(canvas.NewRectangle(lightblue), container.NewCenter(pInfoWrapper), layout.NewSpacer()))
-	currentTime := container.NewCenter(canvas.NewText(time.Now().Format(time.RFC1123), blue))
+	currentTime := container.NewCenter(canvas.NewText(time.Now().Format(time.Kitchen), blue))
 
 	iconInfo := container.New(layout.NewGridLayout(4),
 		container.NewCenter(canvas.NewText("Refresh", color.White)),
