@@ -1,3 +1,5 @@
+// go: generate goversioninfo -icon = inSession app icon.png
+
 package main
 
 import "C"
@@ -23,14 +25,24 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
-func openFileOnClick() error {
-	wd, _ := os.Getwd()
-	filepath := (wd + "/go/files/room/test_room_01/Jul-22-2023/inSession.key")
-	// fmt.Println(filepath)
-	cmd := exec.Command("open", filepath)
+func openFileOnClick() {
+	applescriptCode := `tell application "Keynote"
+		activate
+		open "/Users/svperclvster/go/files/room/test_room_01/Jul-22-2023/inSession.key"	
+		
+		tell application "System Events"
+			keystroke "p" using {command down, option down}
+		end tell
+	end tell
+	`
+	cmd := exec.Command("osascript", "-e", applescriptCode)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	return cmd.Run()
+	err := cmd.Run()
+	if err != nil {
+		log.Fatal(err)
+	}
+
 }
 
 func createMainWindow(app fyne.App) fyne.Window {
@@ -55,6 +67,7 @@ func main() {
 	// win := a.NewWindow("inSession")
 	win := createMainWindow(a)
 	settingsWindow := createSettingsWindow(a)
+	win.SetIcon(theme.FyneLogo())
 
 	win.FixedSize()
 	blue := color.NRGBA{R: 27, G: 122, B: 221, A: 255}

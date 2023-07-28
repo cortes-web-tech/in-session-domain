@@ -1,4 +1,9 @@
-# 0.0.41
+
+# 0.0.44
+# Added Apple script to open Keynote file, and launch in presenter view immediately
+# Working on window handling, but Apple discontinued OpenGL and it's causing an error. Figuring out how to work around that.
+
+# 0.0.43
 # Stable version.
 # Styled filelist to display better across all pages.
 # Started working on client app
