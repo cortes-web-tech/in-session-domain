@@ -2,6 +2,7 @@
 # 0.0.44
 # Added Apple script to open Keynote file, and launch in presenter view immediately
 # Working on window handling, but Apple discontinued OpenGL and it's causing an error. Figuring out how to work around that.
+# Trying to install GLFW/Vulkan. dev env issues 😪
 
 # 0.0.43
 # Stable version.
