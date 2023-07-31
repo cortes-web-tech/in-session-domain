@@ -7,3 +7,4 @@
 - Linked presentation data from SQL DB to client app
 - Linked session data, displaying on GUI
 - Formatted times on GUI
+- Added day selector to GUI. Not connected to back end yet.

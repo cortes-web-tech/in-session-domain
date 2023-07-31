@@ -1,14 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import FooterLeft from './FooterLeft'
 import FooterRight from './FooterRight'
 import '../App.css'
 
+
 function Footer() {
+  const path = useLocation().pathname
   return (
     <div className='footer'>
       <div className='flex-content'>
-      <FooterLeft/>
+      {path == "/" ? <FooterLeft/> :""}
+      
       </div>
       <div className='flex-content'>
         Event / Sponsor ™️   
