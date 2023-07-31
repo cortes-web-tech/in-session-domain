@@ -1,3 +1,9 @@
+# 0.0.45
+# Switched to Wails instead of Fyne.
+# Fyne relies on OpenGL and it was causing too many issues with my M1 Mac 😂😭😭
+# Built new GUI scaffolding using wails.
+# Ready to connect to Go backend.
+
 
 # 0.0.44
 # Added Apple script to open Keynote file, and launch in presenter view immediately

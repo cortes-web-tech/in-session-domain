@@ -13,6 +13,7 @@
 - Tailwind CSS
 - Hosted on AWS EC2
 - Vite to reduce React bloatware
+- Wails Mac App
 - Customizable databases using MariaDB & MySQL
 
 ## [License](LICENSE)
@@ -30,6 +31,4 @@ This work is licensed under a
 
 ## Notes
 
-- This read me isn't where the main project file is stored. It's in [react-is](/react-is/).
-- This directory is more of a container for different iterations/resources of the project.
-- You can disregard the PHP files from the root directory for now.
+- _There are different readme's inside each of subfolders to better explain each component._

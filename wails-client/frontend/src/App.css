@@ -1,0 +1,35 @@
+#app {
+    text-align: center;
+}
+
+.clientWrapper{
+    height: 100vh;
+    color:azure;
+    display: flex;
+    flex-direction: column;
+}
+.contentWrapper {
+    flex-grow:1;
+    /* line-height: 82vh;
+    height: 82vh; */
+}
+
+.content{
+    text-align: center;
+}
+
+.header{
+    display: flex;
+}
+
+.flex-content{
+    flex: 1;
+}
+.footer {
+    display: flex;
+}
+
+.rightFooter{
+    display: flex;
+}
+
