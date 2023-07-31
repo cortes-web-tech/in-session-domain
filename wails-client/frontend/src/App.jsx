@@ -12,8 +12,9 @@ import RefreshFiles from './layout/RefreshFiles';
 function App() { 
 
     return (
+        <div className='app'>
         <div className="clientWrapper"> 
-        <div>
+        <div className='headerWrapper'>
             <Header/>
         </div>
             <div className='contentWrapper'>
@@ -29,6 +30,7 @@ function App() {
             <div className='footerWrapper'>
                 <Footer/>
             </div>
+        </div>
         </div>
     )
 }

@@ -2,7 +2,10 @@ module changeme
 
 go 1.18
 
-require github.com/wailsapp/wails/v2 v2.5.1
+require (
+	github.com/go-sql-driver/mysql v1.7.1
+	github.com/wailsapp/wails/v2 v2.5.1
+)
 
 require (
 	github.com/bep/debounce v1.2.1 // indirect
