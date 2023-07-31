@@ -6,20 +6,18 @@
     padding: 4vh 0;
     background-image: linear-gradient(rgba(58, 158, 255, 1), rgba(22, 87, 255, 1));
 }
-.clientWrapper{
+
+.clientWrapper {
     height: 92vh;
-    
     color:azure;
     display: flex;
     flex-direction: column;
-    
 }
+
 .contentWrapper {
     flex-grow:1;
     margin: 2em;
-    /* line-height: 82vh;
-    height: 82vh; */
-    background-image: linear-gradient(rgba(22, 87, 255, .3), rgba(58, 158, 255, .1));
+    background-image: linear-gradient(rgba(22, 87, 255, .3), rgba(58, 158, 255, .3));
     border-radius: 1.5em;
 }
 
@@ -29,6 +27,7 @@
 
 .header{
     display: flex;
+    padding: 0px;
 }
 
 .flex-content{
@@ -45,7 +44,7 @@
 .presentations{
     display: flex;
     justify-content: center;
-    margin: 100px 0;
+    margin: 80px 0;
 }
 .presentation{
     width: 400px;
@@ -57,13 +56,13 @@
 }
 
 .presentationButtons{
-    display: flex;
-    width:150px;
-    margin-inline: auto;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: auto;    
 }
 
 .presentationButtons button{
-    justify-content:space-around;
-    align-items: center;
-    flex:1;
+    width: 100px;
+    grid-area: auto;
+    background-color: floralwhite;
 }

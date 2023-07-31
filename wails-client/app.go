@@ -20,9 +20,18 @@ type App struct {
 type Presentation struct {
 	ctx       context.Context
 	Title     string
-	Time      string
+	StartTime string
+	EndTime   string
 	Presenter string
 	ID        int
+}
+
+type Session struct {
+	ctx       context.Context
+	Title     string
+	StartTime string
+	EndTime   string
+	Moderator string
 }
 
 // NewApp creates a new App application struct
@@ -32,6 +41,10 @@ func NewApp() *App {
 
 func NewPresentation() *Presentation {
 	return &Presentation{}
+}
+
+func NewSession() *Session {
+	return &Session{}
 }
 
 // startup is called when the app starts. The context is saved
@@ -69,7 +82,7 @@ func (a *App) OpenFiles() string {
 	return fmt.Sprint("Function WIP\n")
 }
 
-func (a *App) GetSessionData() []Presentation {
+func (a *App) GetPresentations() []Presentation {
 	// Fetching Data from database
 	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
 	if err != nil {
@@ -105,12 +118,57 @@ func (a *App) GetSessionData() []Presentation {
 		presentation.Presenter = presenter
 		presentation.Title = subsession_title
 		presentation.ID = subsession_id
-		presentation.Time = startTime
+		presentation.StartTime = startTime
+		presentation.EndTime = endTime
 		presentations = append(presentations, presentation)
 	}
 
 	if err := rows.Err(); err != nil {
 		log.Fatal(err)
 	}
+	db.Close()
 	return presentations
+}
+
+func (a *App) GetSession() Session {
+	var session Session
+	// Fetching Data from database
+	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	// 2. Prepare and execute the query
+	rows, err := db.Query("SELECT  * FROM sessionData WHERE session_id=1")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	// 3. Handle the results
+	var id int
+	var title string
+	var room string
+	var startTime string
+	var endTime string
+	var modName string
+	var date_added string
+
+	for rows.Next() {
+		err := rows.Scan(&id, &title, &room, &startTime, &endTime, &modName, &date_added)
+		if err != nil {
+			log.Fatal(err)
+		}
+		session.Title = title
+		session.StartTime = startTime
+		session.EndTime = endTime
+		session.Moderator = modName
+
+	}
+	if err := rows.Err(); err != nil {
+		log.Fatal(err)
+	}
+	db.Close()
+	return session
 }

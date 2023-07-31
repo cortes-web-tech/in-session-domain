@@ -6,14 +6,14 @@ function Header() {
   return (
     <div className='header'>
         <div className='flex-content'>
-            {path == "/" ? "" :<Link to="/">Home</Link>}
+            {path == "/" ? "" :<Link to="/"><h3>Home</h3></Link>}
             
         </div>
         <div className='flex-content'>
-            {Moment(Date.now()).format("MM/DD/YY h:mmA")}
+            <h3>{Moment(Date.now()).format("MM/DD/YY h:mmA")}</h3>
         </div>
         <div className='flex-content'>
-            Room TBD
+            <h3>Room TBD</h3>
         </div>
     </div>
   )

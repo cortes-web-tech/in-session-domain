@@ -16,6 +16,7 @@ func main() {
 	// Create an instance of the app structure
 	app := NewApp()
 	presentation := NewPresentation()
+	session := NewSession()
 	// Create application with options
 	err := wails.Run(&options.App{
 		Title:  "inSession",
@@ -31,6 +32,7 @@ func main() {
 		Bind: []interface{}{
 			app,
 			presentation,
+			session,
 		},
 		Mac: &mac.Options{
 			WebviewIsTransparent: true,

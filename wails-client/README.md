@@ -5,3 +5,5 @@
 - Built GUI scaffolding using wails
 - Added button function to open file
 - Linked presentation data from SQL DB to client app
+- Linked session data, displaying on GUI
+- Formatted times on GUI
