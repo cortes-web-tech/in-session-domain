@@ -22,6 +22,10 @@ export function OpenMyPC() {
   return window['go']['main']['App']['OpenMyPC']();
 }
 
+export function RoomList() {
+  return window['go']['main']['App']['RoomList']();
+}
+
 export function StartPresentation() {
   return window['go']['main']['App']['StartPresentation']();
 }

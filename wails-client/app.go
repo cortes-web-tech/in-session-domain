@@ -34,6 +34,12 @@ type Session struct {
 	Moderator string
 }
 
+type Room struct {
+	ctx  context.Context
+	Name string
+	ID   int
+}
+
 // NewApp creates a new App application struct
 func NewApp() *App {
 	return &App{}
@@ -45,6 +51,10 @@ func NewPresentation() *Presentation {
 
 func NewSession() *Session {
 	return &Session{}
+}
+
+func NewRoom() *Room {
+	return &Room{}
 }
 
 // startup is called when the app starts. The context is saved
@@ -205,12 +215,47 @@ func (a *App) GetSession() Session {
 	return session
 }
 
+func (a *App) RoomList() []Room {
+
+	// Fetching Data from database
+	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	// 2. Prepare and execute the query
+	rows, err := db.Query("SELECT  DISTINCT `room` FROM sessionData")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	// 3. Handle the results
+	rooms := []Room{}
+	var room Room
+
+	// var session_id int
+	var name string
+	for rows.Next() {
+		err := rows.Scan(&name)
+		if err != nil {
+			log.Fatal(err)
+		}
+		room.Name = name
+		// room.ID = session_id
+		rooms = append(rooms, room)
+
+	}
+	if err := rows.Err(); err != nil {
+		log.Fatal(err)
+	}
+	db.Close()
+	return rooms
+}
+
 func (a *App) GetDay() string {
-	bashScript := `
-	#!/bin/sh 
-	cd ~ 
-	pwd
-	`
+	bashScript := `	`
 	cmd := exec.Command("/bin/bash", "-e", bashScript)
 
 	cmd.Stdout = os.Stdout

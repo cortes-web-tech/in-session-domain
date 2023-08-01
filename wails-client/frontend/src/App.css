@@ -66,3 +66,15 @@
     grid-area: auto;
     background-color: floralwhite;
 }
+
+.room-nav{
+    display: flex;
+    flex-direction: column;
+    
+    margin-inline: auto;
+    width: 200px;
+}
+
+.room-nav option{
+    text-align: center;    
+}

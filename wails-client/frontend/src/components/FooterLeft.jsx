@@ -3,7 +3,7 @@ import Moment from 'moment'
 import { GetDay } from '../../wailsjs/go/main/App'
 function FooterLeft() {
   useEffect(()=>{
-    getDay()
+    // getDay()
   })
   const [day, setDay] = useState([])
   const updateDay = (result) =>setDay(result)

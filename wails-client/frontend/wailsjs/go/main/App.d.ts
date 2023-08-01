@@ -12,4 +12,6 @@ export function OpenFiles():Promise<void>;
 
 export function OpenMyPC():Promise<void>;
 
+export function RoomList():Promise<Array<main.Room>>;
+
 export function StartPresentation():Promise<void>;

@@ -9,3 +9,4 @@
 - Formatted times on GUI
 - Added day selector to GUI. Not connected to back end yet.
 - AppleScript hotfixes to assign right folder/slide on presentation
+- Added room selector GUI
