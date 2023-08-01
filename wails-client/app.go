@@ -61,7 +61,9 @@ func (a *App) StartPresentation() {
 	applescriptCode := `tell application "Keynote"
 		activate
 		open "/Users/svperclvster/go/files/room/test_room_01/Jul-22-2023/inSession.key"	
-		
+		tell front document
+        	set current slide to slide 1
+		end tell
 		tell application "System Events"
 			keystroke "p" using {command down, option down}
 		end tell
@@ -77,9 +79,39 @@ func (a *App) StartPresentation() {
 
 }
 
-func (a *App) OpenFiles() string {
+func (a *App) OpenFiles() {
+	appleScriptCode := `tell application "Finder"
+		activate
+		
+		open folder "Macintosh HD:Users:svperclvster:Documents:webdev:inSession:wails-client:files:room:test_room_01:Jul-22-2023"
+		set current view of Finder window 1 to icon view
+		set icon size of icon view options of Finder window 1 to 256
+		end tell`
+	cmd := exec.Command("osascript", "-e", appleScriptCode)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	err := cmd.Run()
+	if err != nil {
+		log.Fatal(err)
+	}
+}
 
-	return fmt.Sprint("Function WIP\n")
+func (a *App) OpenMyPC() {
+	openPCAppleScript := `tell application "Finder"
+		activate
+		
+		open folder "Macintosh HD:Users:svperclvster:Desktop"
+		set bounds of Finder window 1 to {0, 0, 1200, 1080}
+		set current view of Finder window 1 to icon view
+		set icon size of icon view options of Finder window 1 to 128
+		end tell`
+	cmd := exec.Command("osascript", "-e", openPCAppleScript)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	err := cmd.Run()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func (a *App) GetPresentations() []Presentation {
@@ -171,4 +203,22 @@ func (a *App) GetSession() Session {
 	}
 	db.Close()
 	return session
+}
+
+func (a *App) GetDay() string {
+	bashScript := `
+	#!/bin/sh 
+	cd ~ 
+	pwd
+	`
+	cmd := exec.Command("/bin/bash", "-e", bashScript)
+
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	err := cmd.Run()
+	if err != nil {
+		fmt.Println("Error executing the script:", err)
+	}
+	return cmd.String()
 }
