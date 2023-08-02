@@ -10,3 +10,4 @@
 - Added day selector to GUI. Not connected to back end yet.
 - AppleScript hotfixes to assign right folder/slide on presentation
 - Added room selector GUI, room selector fetching correct data from DB.
+- Added translucent background, added CSS grid template

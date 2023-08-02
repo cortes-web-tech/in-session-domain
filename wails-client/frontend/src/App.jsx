@@ -10,29 +10,29 @@ import HelpUser from './layout/HelpUser';
 import RefreshFiles from './layout/RefreshFiles';
 
 function App() { 
-
-    return (
-        <div className='app'>
-        <div className="clientWrapper"> 
+return (
+<div className='app'>
+    <div className='app h-screen'>
+    <div className='app-grid'>
         <div className='headerWrapper'>
             <Header/>
         </div>
-            <div className='contentWrapper'>
-                <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/MyPC" element={<MyPC/>}/>
-                    <Route path="/HowTo" element={<HowTo/>}/>
-                    <Route path="/HelpUser" element={<HelpUser/>}/>
-                    <Route path="/RefreshFiles" element={<RefreshFiles/>}/>
-                </Routes>
-            
-            </div>
-            <div className='footerWrapper'>
-                <Footer/>
-            </div>
+        <div className='contentWrapper'>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/MyPC" element={<MyPC/>}/>
+                <Route path="/HowTo" element={<HowTo/>}/>
+                <Route path="/HelpUser" element={<HelpUser/>}/>
+                <Route path="/RefreshFiles" element={<RefreshFiles/>}/>
+            </Routes>
         </div>
-        </div>
-    )
+        <div className='footerWrapper'>
+            <Footer/>
+        </div>    
+    </div>
+    </div>
+</div>    
+)
 }
 
 export default App
