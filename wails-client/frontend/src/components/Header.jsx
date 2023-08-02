@@ -1,16 +1,31 @@
 import {React, useState, useEffect} from 'react'
 import Moment from 'moment'
 import { Link, useLocation } from 'react-router-dom'
-import { RoomList } from '../../wailsjs/go/main/App'
+import { RoomList, GetSessions} from '../../wailsjs/go/main/App'
 function Header() {
 const path = useLocation().pathname
 const [rooms, setRooms] = useState([])
+const [sessions, setSessions] = useState([])
+const [room, setRoom] = useState('Sector 9 HQ')
 useEffect(()=>{
     getRooms()
+    // getSessions()
 }, [])
+console.log(sessions)
+
 const updateRooms = (result) => setRooms(result)
 function getRooms(){
     RoomList().then(updateRooms)
+}
+
+const handleChange = (e) => {
+    setRoom(e.target.value)
+    getSessions(e.target.value)
+}
+
+const updateSessions = (result) => setSessions(result)
+function getSessions(room){
+    GetSessions(room).then(updateSessions)
 }
   return (
     <div className='header'>
@@ -25,11 +40,12 @@ function getRooms(){
                 <div>
                 Room:
                 </div>
-            <select>
-                {rooms.map((room) =>(
-                    <option href="#">{room.Name}</option>                    
+            <select onChange={handleChange}>
+                {rooms.map((room, key) =>(
+                    <option href="#" key={room.ID} value={room.Name} >{room.Name}</option>                    
                 ))}                
             </select>
+            <submit></submit>
             </div>
         </div>
     </div>

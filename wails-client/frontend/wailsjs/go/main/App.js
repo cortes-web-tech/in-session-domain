@@ -14,6 +14,10 @@ export function GetSession() {
   return window['go']['main']['App']['GetSession']();
 }
 
+export function GetSessions(arg1) {
+  return window['go']['main']['App']['GetSessions'](arg1);
+}
+
 export function OpenFiles() {
   return window['go']['main']['App']['OpenFiles']();
 }

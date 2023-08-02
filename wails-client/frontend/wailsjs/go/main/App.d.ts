@@ -8,6 +8,8 @@ export function GetPresentations():Promise<Array<main.Presentation>>;
 
 export function GetSession():Promise<main.Session>;
 
+export function GetSessions(arg1:string):Promise<Array<main.Session>>;
+
 export function OpenFiles():Promise<void>;
 
 export function OpenMyPC():Promise<void>;

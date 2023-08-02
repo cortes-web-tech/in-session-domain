@@ -28,10 +28,12 @@ type Presentation struct {
 
 type Session struct {
 	ctx       context.Context
+	ID        int
 	Title     string
 	StartTime string
 	EndTime   string
 	Moderator string
+	Room      string
 }
 
 type Room struct {
@@ -172,6 +174,51 @@ func (a *App) GetPresentations() []Presentation {
 	return presentations
 }
 
+func (a *App) GetSessions(roomname string) []Session {
+	var session Session
+	sessions := []Session{}
+	// Fetching Data from database
+	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+	// 2. Prepare and execute the query
+	rows, err := db.Query("SELECT  * FROM sessionData WHERE room=?", roomname)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	// 3. Handle the results
+	var id int
+	var title string
+	var room string
+	var startTime string
+	var endTime string
+	var modName string
+	var date_added string
+	for rows.Next() {
+		err := rows.Scan(&id, &title, &room, &startTime, &endTime, &modName, &date_added)
+		if err != nil {
+			log.Fatal(err)
+		}
+		session.Title = title
+		session.StartTime = startTime
+		session.EndTime = endTime
+		session.Moderator = modName
+		session.ID = id
+		sessions = append(sessions, session)
+
+	}
+	if err := rows.Err(); err != nil {
+		log.Fatal(err)
+	}
+
+	db.Close()
+	return sessions
+}
+
 func (a *App) GetSession() Session {
 	var session Session
 	// Fetching Data from database
@@ -205,6 +252,7 @@ func (a *App) GetSession() Session {
 		session.Title = title
 		session.StartTime = startTime
 		session.EndTime = endTime
+		session.Room = room
 		session.Moderator = modName
 
 	}
@@ -237,15 +285,16 @@ func (a *App) RoomList() []Room {
 
 	// var session_id int
 	var name string
+	var room_id int = 0
 	for rows.Next() {
 		err := rows.Scan(&name)
 		if err != nil {
 			log.Fatal(err)
 		}
 		room.Name = name
-		// room.ID = session_id
+		room.ID = room_id
 		rooms = append(rooms, room)
-
+		room_id++
 	}
 	if err := rows.Err(); err != nil {
 		log.Fatal(err)
