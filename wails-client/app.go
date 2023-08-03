@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"database/sql"
-	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -302,18 +301,4 @@ func (a *App) RoomList() []Room {
 	}
 	db.Close()
 	return rooms
-}
-
-func (a *App) GetDay() string {
-	bashScript := `	`
-	cmd := exec.Command("/bin/bash", "-e", bashScript)
-
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-
-	err := cmd.Run()
-	if err != nil {
-		fmt.Println("Error executing the script:", err)
-	}
-	return cmd.String()
 }

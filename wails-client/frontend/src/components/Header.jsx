@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import Moment from 'moment'
 import { Link, useLocation } from 'react-router-dom'
-import { RoomList, GetSessions} from '../../wailsjs/go/main/App'
+import { RoomList} from '../../wailsjs/go/main/App'
 
 function Header({onDataFromChild}) {
 const path = useLocation().pathname
@@ -21,11 +21,6 @@ const handleChange = (e) => {
     setRoom(e.target.value)
     onDataFromChild(e.target.value)
     
-}
-
-const updateSessions = (result) => setSessions(result)
-function getSessions(room){
-    GetSessions(room).then(updateSessions)
 }
   return (
     <div className='header'>

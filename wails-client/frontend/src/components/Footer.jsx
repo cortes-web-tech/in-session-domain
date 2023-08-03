@@ -3,16 +3,13 @@ import {useLocation } from 'react-router-dom'
 import FooterLeft from './FooterLeft'
 import FooterRight from './FooterRight'
 import '../App.css'
-import { HeaderContext } from './context/HeaderContext'
+
+
 
 
 function Footer() {
   const path = useLocation().pathname
-  const room = useContext(HeaderContext)
-  const [sessions, setSessions] = useState();
-  useEffect(()=>{
-
-  }, [])
+  
   return (
     <div className='footer'>
       <div className='flex-content'>

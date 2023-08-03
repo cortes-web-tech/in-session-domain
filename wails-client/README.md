@@ -14,3 +14,5 @@
 - Room selection passes data up to App
 - App uses a context provider to pass the room down to the rest of the app 😎
 - Beginning to add session selection
+- Footer Nav is receiving correct session data when room is changed.
+- Beginning to add day selection functionality
