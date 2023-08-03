@@ -1,15 +1,13 @@
 import {React, useState, useEffect} from 'react'
 import { StartPresentation, GetPresentations, OpenFiles, GetSession } from '../../wailsjs/go/main/App'
 import Moment from 'moment'
-function Presentations() {
+function Presentations(props) {
   const [presentations, setPresentations] = useState([]);
-  
   useEffect(()=> {
     // setPresentations()
     getPresentations()
     // OpenFiles()
-  },[])
-  
+  },[])  
   const [resultText, setResultText] = useState()
   const updateText = (result) =>setResultText(result);
   const updatePresentations = (result) =>setPresentations(result)

@@ -24,11 +24,14 @@ function FooterLeft({onDataFromChild}) {
   
   }  
   const handleSessionChange = (e, day)=>{
+    console.log(day)
     if (0 <= day && day < sessions.length){
       setDay(day)
       setSession(sessions[day].ID)
       onDataFromChild(sessions[day].ID)      
-    }    
+    }else{
+      setSession(sessions[0].ID)
+    }
   }
   return (    
       <div className='leftFooter'>           

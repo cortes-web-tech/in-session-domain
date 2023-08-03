@@ -3,14 +3,18 @@ import {useLocation } from 'react-router-dom'
 import FooterLeft from './FooterLeft'
 import FooterRight from './FooterRight'
 import '../App.css'
-import { SessionContext } from './context/SessionContext';
-function Footer() {  
+function Footer({onDataFromChild}) {  
+  const [presentation, setPresentation] = useState()  
   const path = useLocation().pathname
-  const [presentation, setPresentation] = useState(1)  
+  useEffect(()=>{
+    // sendToParent(presentation)
+  },[])
+  // console.log(presentation)
+  onDataFromChild={presentation}
   return (
     <div className='footer'>      
       <div className='flex-content'>    
-      {path == "/" ?<FooterLeft onDataFromChild={setPresentation}/> : ""}
+      {path == "/" ?<FooterLeft onDataFromChild={setPresentation} /> : ""}
       </div>
       <div className='flex-content'>
         Event / Sponsor ™️   
