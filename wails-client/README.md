@@ -16,3 +16,4 @@
 - Beginning to add session selection
 - Footer Nav is receiving correct session data when room is changed.
 - Beginning to add day selection functionality
+- Added sorting so Sessions are returned in order by time. 👌🏼

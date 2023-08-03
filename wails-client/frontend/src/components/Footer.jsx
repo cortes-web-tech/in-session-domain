@@ -12,10 +12,8 @@ function Footer() {
   
   return (
     <div className='footer'>
-      <div className='flex-content'>
-    
+      <div className='flex-content'>    
       {path == "/" ? <FooterLeft/> :""}
-      
       </div>
       <div className='flex-content'>
         Event / Sponsor ™️   

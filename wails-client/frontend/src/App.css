@@ -58,6 +58,9 @@
     margin-inline: 2em;
 }
 
+.leftFooter{
+    display: flex;
+}
 .rightFooter{
     display: flex;
 }

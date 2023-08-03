@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"sort"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -125,6 +126,13 @@ func (a *App) OpenMyPC() {
 	}
 }
 
+// type ByTimestamp []Session
+
+// func (s ByTimestamp) Len() int      { return len(s) }
+// func (s ByTimestamp) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
+
+// func (s ByTimestamp) Less(i, j int) bool { return s[i].StartTime.Before(s[j].StartTime) }
+
 func (a *App) GetPresentations() []Presentation {
 	// Fetching Data from database
 	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
@@ -173,6 +181,12 @@ func (a *App) GetPresentations() []Presentation {
 	return presentations
 }
 
+type ByName []Session
+
+func (s ByName) Len() int           { return len(s) }
+func (s ByName) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+func (s ByName) Less(i, j int) bool { return s[i].StartTime < s[j].StartTime }
+
 func (a *App) GetSessions(roomname string) []Session {
 	var session Session
 	sessions := []Session{}
@@ -216,6 +230,9 @@ func (a *App) GetSessions(roomname string) []Session {
 	}
 
 	db.Close()
+
+	sort.Sort(ByName(sessions))
+
 	return sessions
 }
 
