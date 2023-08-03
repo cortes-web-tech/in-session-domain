@@ -20,3 +20,5 @@
 - Session selector changes dates on GUI, passing to presentation is next
 - Working on Context Provider to get data to Session/Presentation.
 - Selector showing on Session page while WIP
+- GUI WIP selector navigates through the sessions. Although kinda glitchy.
+- May need to add more data to the database to clear some more edge cases.

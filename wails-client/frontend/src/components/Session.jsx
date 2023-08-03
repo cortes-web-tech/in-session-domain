@@ -13,13 +13,12 @@ function Session() {
   useEffect(()=>{
     handleRoomChange(room)
     getSessions(room)
-    getSession()
+    
   }, [room])    
   const updateSession = (result) =>setSession(result)
-  function getSession(){
-    GetSession().then(updateSession)
+  function getSession(id){
+    GetSession(id).then(updateSession)
   }
-console.log(sessions)
   const updateSessions = (result) => setSessions(result)
   function getSessions(room){
     GetSessions(room).then(updateSessions)
@@ -30,13 +29,13 @@ console.log(sessions)
     getSessions(e)
   }
   const handleSessionChange = (e, index)=>{
-    console.log(selectedSession)
     if (0 <= index && index < sessions.length){
       setIndex(index)
       setSelectedSession(sessions[index].ID)       
     }else{
       setSelectedSession(sessions[0].ID)
     }
+    getSession(selectedSession)
   }
   return (
     <div>

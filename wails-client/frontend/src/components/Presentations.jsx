@@ -3,11 +3,13 @@ import { StartPresentation, GetPresentations, OpenFiles, GetSession } from '../.
 import Moment from 'moment'
 function Presentations(props) {
   const [presentations, setPresentations] = useState([]);
+  const [presentationId, setPresentationId] = useState(0)
   useEffect(()=> {
     // setPresentations()
-    getPresentations()
+    getPresentations(props.session)
     // OpenFiles()
-  },[])  
+  },[props.session])  
+  console.log(props.session)
   const [resultText, setResultText] = useState()
   const updateText = (result) =>setResultText(result);
   const updatePresentations = (result) =>setPresentations(result)
@@ -16,8 +18,8 @@ function Presentations(props) {
     OpenFiles().then(updateText)
   }
 
-  function getPresentations(){
-    GetPresentations().then(updatePresentations)
+  function getPresentations(props){
+    GetPresentations(props).then(updatePresentations)
   }
 
  

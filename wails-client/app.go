@@ -133,7 +133,7 @@ func (a *App) OpenMyPC() {
 
 // func (s ByTimestamp) Less(i, j int) bool { return s[i].StartTime.Before(s[j].StartTime) }
 
-func (a *App) GetPresentations() []Presentation {
+func (a *App) GetPresentations(presentation_id int) []Presentation {
 	// Fetching Data from database
 	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
 	if err != nil {
@@ -142,7 +142,7 @@ func (a *App) GetPresentations() []Presentation {
 	defer db.Close()
 
 	// 2. Prepare and execute the query
-	rows, err := db.Query("SELECT  * FROM subsessionData WHERE _session_id=1")
+	rows, err := db.Query("SELECT  * FROM subsessionData WHERE _session_id=?", presentation_id)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -236,7 +236,7 @@ func (a *App) GetSessions(roomname string) []Session {
 	return sessions
 }
 
-func (a *App) GetSession() Session {
+func (a *App) GetSession(session_id int) Session {
 	var session Session
 	// Fetching Data from database
 	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
@@ -246,7 +246,7 @@ func (a *App) GetSession() Session {
 	defer db.Close()
 
 	// 2. Prepare and execute the query
-	rows, err := db.Query("SELECT  * FROM sessionData WHERE session_id=1")
+	rows, err := db.Query("SELECT  * FROM sessionData WHERE session_id=?", session_id)
 	if err != nil {
 		log.Fatal(err)
 	}
