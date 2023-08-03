@@ -22,7 +22,7 @@ function Session() {
         <div className='session'>
         <h1>{session.Title}</h1>    
         <h2>{session.Moderator}</h2>
-        {/* <h2>{Moment(session.StartTime).format("MM/DD/YY h:mmA")}</h2>     */}
+        <h2>{Moment(session.StartTime).format("MM/DD/YY h:mmA")}</h2>    
         
         <h3>   {room}</h3>
         </div>

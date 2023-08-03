@@ -1,43 +1,42 @@
-import {React, useState, useEffect, useContext, useRef} from 'react'
+import {React, useState, useEffect, useContext} from 'react'
 import Moment from 'moment'
 import {  GetSessions } from '../../wailsjs/go/main/App'
 import { HeaderContext } from './context/HeaderContext'
+import { lazy } from 'react'
 
 function FooterLeft() {
   const selectRoom = useContext(HeaderContext)
   const [sessions, setSessions] = useState([]);
+  const [day, setDay] = useState(0)
   useEffect(()=>{
-    handleChange(selectRoom)
-    // sortByTimestamp()
-  },[selectRoom], [sessions])
+    handleRoomChange(selectRoom)
+  },[selectRoom])
 
   const updateSessions = (result) => setSessions(result)
   function getSessions(room){
     GetSessions(room).then(updateSessions)
   }
-  const handleChange = (e) => {
+  const handleRoomChange = (e) => {
     getSessions(e)
-    // sessions.sort((a,b) => a.StartTime - b.StartTime)
+  
   }
-
-  const sortByTimestamp = () =>{
-    const sortedData = [...sessions].sort((a,b) => a.StartTime - b.StartTime)
-    console.log(sortedData)
-    setSessions(sortedData)
+  
+  const handleSessionChange = (e, day)=>{
+    if (0 <= day && day < sessions.length){
+      setDay(day)
+    }    
   }
 
   return (    
       <div className='leftFooter'>     
-      <div className='flex-content'>
-          <button > previous </button>
+      <div className='flex-content'>      
+          <button onClick={(e)=>handleSessionChange(e, day-1)}> previous </button>
       </div>
-      <div className='flex-content'>    
-        {sessions.map((session, key)=>(
-        <div key={session.ID} className='bg-red-500'>{Moment(session.StartTime).format("MM/DD dddd ")}</div>
-        ))}
+      <div className='flex-content'>        
+        {sessions.length > 0 ? Moment(sessions[day].StartTime).format("dddd MM/DD hh:mm A") :"" }
       </div>
       <div className='flex-content'>
-        <button>next</button>
+        <button onClick={(e)=>handleSessionChange(e, day+1)}>next</button>
       </div>
       </div>
   )
