@@ -15,6 +15,7 @@ function Session() {
     getSessions(room)
     
   }, [room])    
+  console.log(sessions)
   const updateSession = (result) =>setSession(result)
   function getSession(id){
     GetSession(id).then(updateSession)
@@ -33,7 +34,7 @@ function Session() {
       setIndex(index)
       setSelectedSession(sessions[index].ID)       
     }else{
-      setSelectedSession(sessions[0].ID)
+      setIndex(0)
     }
     getSession(selectedSession)
   }

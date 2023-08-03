@@ -9,7 +9,7 @@ function Presentations(props) {
     getPresentations(props.session)
     // OpenFiles()
   },[props.session])  
-  console.log(props.session)
+  
   const [resultText, setResultText] = useState()
   const updateText = (result) =>setResultText(result);
   const updatePresentations = (result) =>setPresentations(result)

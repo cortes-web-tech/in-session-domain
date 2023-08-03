@@ -22,3 +22,4 @@
 - Selector showing on Session page while WIP
 - GUI WIP selector navigates through the sessions. Although kinda glitchy.
 - May need to add more data to the database to clear some more edge cases.
+- Hotfixed deleted a couple of redundant/unused columns on DB to better show data between sessions

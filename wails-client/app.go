@@ -41,6 +41,12 @@ type Room struct {
 	Name string
 	ID   int
 }
+type ByName []Session
+
+// Utility sort functions
+func (s ByName) Len() int           { return len(s) }
+func (s ByName) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+func (s ByName) Less(i, j int) bool { return s[i].StartTime < s[j].StartTime }
 
 // NewApp creates a new App application struct
 func NewApp() *App {
@@ -157,12 +163,11 @@ func (a *App) GetPresentations(presentation_id int) []Presentation {
 	var endTime string
 	var modName string
 	var date_added string
-	var user_id int
-	var user_name string
+
 	var presentation Presentation
 	presentations := []Presentation{}
 	for rows.Next() {
-		err := rows.Scan(&subsession_id, &session_id, &presenter, &subsession_title, &startTime, &endTime, &modName, &date_added, &user_id, &user_name)
+		err := rows.Scan(&subsession_id, &session_id, &presenter, &subsession_title, &startTime, &endTime, &modName, &date_added)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -180,12 +185,6 @@ func (a *App) GetPresentations(presentation_id int) []Presentation {
 	db.Close()
 	return presentations
 }
-
-type ByName []Session
-
-func (s ByName) Len() int           { return len(s) }
-func (s ByName) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s ByName) Less(i, j int) bool { return s[i].StartTime < s[j].StartTime }
 
 func (a *App) GetSessions(roomname string) []Session {
 	var session Session
