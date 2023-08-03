@@ -8,14 +8,17 @@ import MyPC from './layout/MyPC';
 import HowTo from './layout/HowTo';
 import HelpUser from './layout/HelpUser';
 import RefreshFiles from './layout/RefreshFiles';
+import { HeaderContext } from './components/context/HeaderContext';
 
 function App() { 
+const [room, setRoom] = useState('Nerv HQ')
 return (
 <div className='app'>
     <div className='app h-screen'>
     <div className='app-grid'>
-        <div className='headerWrapper'>
-            <Header/>
+        <HeaderContext.Provider value={room}>
+        <div className='headerWrapper'>            
+            <Header onDataFromChild={setRoom}/>            
         </div>
         <div className='contentWrapper'>
             <Routes>
@@ -29,6 +32,7 @@ return (
         <div className='footerWrapper'>
             <Footer/>
         </div>    
+        </HeaderContext.Provider>
     </div>
     </div>
 </div>    

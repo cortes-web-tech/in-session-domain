@@ -206,6 +206,7 @@ func (a *App) GetSessions(roomname string) []Session {
 		session.Title = title
 		session.StartTime = startTime
 		session.EndTime = endTime
+		session.Room = room
 		session.Moderator = modName
 		session.ID = id
 		sessions = append(sessions, session)

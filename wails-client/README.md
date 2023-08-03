@@ -11,3 +11,6 @@
 - AppleScript hotfixes to assign right folder/slide on presentation
 - Added room selector GUI, room selector fetching correct data from DB.
 - Added translucent background, added CSS grid template
+- Room selection passes data up to App
+- App uses a context provider to pass the room down to the rest of the app 😎
+- Beginning to add session selection

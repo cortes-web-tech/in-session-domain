@@ -7,7 +7,7 @@ function FooterLeft() {
   })
   const [day, setDay] = useState([])
   const updateDay = (result) =>setDay(result)
-  console.log(day)
+  // console.log(day)
   function getDay(){
     GetDay().then(updateDay)
   }

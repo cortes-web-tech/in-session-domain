@@ -3,8 +3,10 @@ import Session from '../components/Session'
 
 function Home() {
   return (
-    <div className='content'>
-      <Session/>
+    <div className='content'>    
+    
+      <Session/>      
+      
     </div>
   )
 }
