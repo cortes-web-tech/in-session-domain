@@ -9,29 +9,34 @@ import HowTo from './layout/HowTo';
 import HelpUser from './layout/HelpUser';
 import RefreshFiles from './layout/RefreshFiles';
 import { HeaderContext } from './components/context/HeaderContext';
-
+import { SessionContext } from './components/context/SessionContext';
 function App() { 
 const [room, setRoom] = useState('Nerv HQ')
+const [presentation, setPresentation] = useState(1)
 return (
 <div className='app'>
     <div className='app h-screen'>
     <div className='app-grid'>
         <HeaderContext.Provider value={room}>
+        <SessionContext.Provider value={presentation}>
         <div className='headerWrapper'>            
             <Header onDataFromChild={setRoom}/>            
         </div>
         <div className='contentWrapper'>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
+            
+            <Routes>            
+                <Route path="/" element={<Home/>}/>                
                 <Route path="/MyPC" element={<MyPC/>}/>
                 <Route path="/HowTo" element={<HowTo/>}/>
                 <Route path="/HelpUser" element={<HelpUser/>}/>
                 <Route path="/RefreshFiles" element={<RefreshFiles/>}/>
             </Routes>
+            
         </div>
         <div className='footerWrapper'>
-            <Footer/>
-        </div>    
+            <Footer onDataFromChild={setPresentation}/>
+        </div>   
+        </SessionContext.Provider>
         </HeaderContext.Provider>
     </div>
     </div>

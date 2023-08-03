@@ -18,3 +18,4 @@
 - Beginning to add day selection functionality
 - Added sorting so Sessions are returned in order by time. 👌🏼
 - Session selector changes dates on GUI, passing to presentation is next
+- Working on Context Provider to get data to Session/Presentation.

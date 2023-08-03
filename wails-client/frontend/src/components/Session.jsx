@@ -3,12 +3,12 @@ import Presentations from './Presentations'
 import { GetSession } from '../../wailsjs/go/main/App'
 import Moment from 'moment'
 import { useLocation } from 'react-router-dom'
-import { HeaderContext } from './context/HeaderContext'
-
+import { HeaderContext} from './context/HeaderContext'
+import { SessionContext } from './context/SessionContext'
 function Session() {
-  // const essionContext = useContext(SessionContext)
   const room = useContext(HeaderContext)
-
+  const selectSession = useContext(SessionContext)
+  console.log(selectSession)  
   const [session, setSession] = useState([])
   useEffect(()=>{
     getSession()
@@ -19,6 +19,7 @@ function Session() {
   }
   return (
     <div>
+      {selectSession}
         <div className='session'>
         <h1>{session.Title}</h1>    
         <h2>{session.Moderator}</h2>
