@@ -318,3 +318,31 @@ func (a *App) RoomList() []Room {
 	db.Close()
 	return rooms
 }
+
+// File sync function
+// Function is called when room is SET. (Initial set up, or rooom change)
+// Check exists(folder) for all sessions/presentations before starting to sync files.
+// Potentially implemented as a unit test.
+
+//	and then update all files in that room
+//
+// Chronological sync
+// Update session in order
+// Update prsentation
+
+// TODO
+
+// Figure out how often to call this function after initial set
+// (Hourly? every 15 minutes? When a presentation is missing files?) This could cause n^n error
+// potentially set up an event listener to listen to updates FROM server
+// log
+func (a *App) SyncFiles(roomname Room) {
+
+}
+
+// Function gets data for the RefreshFiles React component
+// Should return a list of all Files for a given room
+// File data should include name, path, lastModified, lastSynced,
+func (a *App) FileSyncStatus(roomname Room) {
+
+}
