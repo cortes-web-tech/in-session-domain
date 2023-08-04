@@ -1,3 +1,7 @@
+# 0.0.46
+# Deleted old mac app files (client/)
+# Stable version mac app (wails-client/)
+
 # 0.0.45
 # Switched to Wails instead of Fyne.
 # Fyne relies on OpenGL and it was causing too many issues with my M1 Mac 😂😭😭

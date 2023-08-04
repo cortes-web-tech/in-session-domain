@@ -1,5 +1,10 @@
 # Version History
 
+## 0.0.46
+
+- Deleted old mac app (./client)
+- Stable version
+
 ## 0.0.45
 
 - Built GUI scaffolding using wails
