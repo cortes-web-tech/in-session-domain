@@ -23,3 +23,8 @@
 - GUI WIP selector navigates through the sessions. Although kinda glitchy.
 - May need to add more data to the database to clear some more edge cases.
 - Hotfixed deleted a couple of redundant/unused columns on DB to better show data between sessions
+- Added a filter to chek when sessions don't have any presentations added to the database.
+- Identified a series of bugs in Presentations.
+  - Need to handle the session data change when the room is changed
+  - Need to add unit test to Session.jsx (data integrity)
+  - Need to add unit test Presentation.jsx (data integrity)

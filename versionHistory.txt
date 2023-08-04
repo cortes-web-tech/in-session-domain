@@ -3,6 +3,8 @@
 # Fyne relies on OpenGL and it was causing too many issues with my M1 Mac 😂😭😭
 # Built new GUI scaffolding using wails.
 # Ready to connect to Go backend.
+# Made steady progress and on the mac app (wails-client).
+# Deleted previous attempt of mac app (client)
 
 
 # 0.0.44

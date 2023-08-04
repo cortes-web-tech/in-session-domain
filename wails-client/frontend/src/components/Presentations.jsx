@@ -9,6 +9,7 @@ function Presentations(props) {
     getPresentations(props.session)
     // OpenFiles()
   },[props.session])  
+  console.log(props)
   
   const [resultText, setResultText] = useState()
   const updateText = (result) =>setResultText(result);
@@ -20,14 +21,13 @@ function Presentations(props) {
 
   function getPresentations(props){
     GetPresentations(props).then(updatePresentations)
-  }
-
- 
+  } 
 
   return (
     <div>
-      <div className='presentations'>
-        {presentations.map((presentation,key)=>(
+      <div className='presentations'>                
+        {presentations.length > 0 ?
+        presentations.map((presentation,key)=>(
           <div className='presentation' key={presentation.ID}>
             <h1>{presentation.Title}</h1>
             <h3>
@@ -40,7 +40,8 @@ function Presentations(props) {
             </div>
             {resultText}
           </div>
-        ))}
+        ))
+        : "No presentations have been added to this session yet."}
        
         </div>
         <div>                              
