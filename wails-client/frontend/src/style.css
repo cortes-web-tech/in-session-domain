@@ -9,7 +9,8 @@ html {
     
 }
 body {
-    background-image: linear-gradient(rgba(22,56,175, .9),rgba(58, 158,255, .9));
+    /* background-image: linear-gradient(rgba(22,56,175, .9),rgba(58, 158,255, .8)); */
+    background-image: linear-gradient(rgba(0,0,0, .1),rgba(0,0,0, .1));
     margin: 0;
     /* filter: blur(10px); */
     /* height: 100vh; */

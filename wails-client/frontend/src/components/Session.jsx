@@ -14,7 +14,7 @@ function Session() {
   // if (sessionContext == undefined){
   //   console.log(0)
   // }else{
-  //   console.log(sessionContext)
+  // console.log(sessionContext)
   // }
   useEffect(()=>{
     getSessions(room)
@@ -37,20 +37,20 @@ function Session() {
   function getSessions(room){
     GetSessions(room).then(updateSessions)
     // setSelectedSession(sessions[0].ID)
-    // setSelectedSession(sessions[0].ID)
+  
   }
 
   const handleRoomChange = (e) =>{
     getSessions(e)
+    setIndex(0)
     // setSelectedSession(sessions[index].ID)   
-    
   }
+
   const handleSessionChange = (e)=>{
     // n+1 problem potentially here :(
-    if (0 <= e && e < sessions.length){
-      // setIndex(sessionContext)
-      // setSelectedSession(sessionContext)
-      setSelectedSession(sessions[e].ID)       
+    if (0 <= e && e < sessions.length){      
+      setIndex(e)
+      setSelectedSession(sessions[e].ID)             
     }else{
       setSelectedSession(sessions[0].ID)       
     }

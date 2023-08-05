@@ -15,11 +15,16 @@
 - Added filter to footer navigation to show previous/back buttons correctly.
   - Need to pass this index up to session to change sessions correctly ✅
 - Footer Navigation is passing index up to Session component
-  - Need to add an event listener in Session component to display the right presentation based off index.
+  - Need to add an event listener in Session component to display the right presentation based off index. ✅
   - Need to adjust for undefined (set to 0)
 - Footer navigation is Presentation GUI, but
-  - Session GUI not changing
+  - Session GUI not changing ✅
   - has a undefined value bug when initially loading.
+- Footer navigation is changing sessions correctly.
+  - causes a bug if you change rooms and index > SessionList.length, for the room you're changing to
+  - Need to add/adjust indexHandler
+- roomChange() is setting presentation to a n-1 state
+- Temporarily lowered transparency to watch Baldur's Gate stream on Discord 😂
 
 ## 0.0.45
 
