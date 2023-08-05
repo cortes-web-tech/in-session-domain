@@ -17,6 +17,9 @@
 - Footer Navigation is passing index up to Session component
   - Need to add an event listener in Session component to display the right presentation based off index.
   - Need to adjust for undefined (set to 0)
+- Footer navigation is Presentation GUI, but
+  - Session GUI not changing
+  - has a undefined value bug when initially loading.
 
 ## 0.0.45
 

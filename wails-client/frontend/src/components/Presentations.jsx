@@ -6,19 +6,15 @@ function Presentations(props) {
   const [presentationId, setPresentationId] = useState(0)
   useEffect(()=> {
     // setPresentations()
-    getPresentations(props.session)
-    // OpenFiles()
+    getPresentations(props.session)    
   },[props.session])  
-  // console.log(props)
   
-  const [resultText, setResultText] = useState()
   const updateText = (result) =>setResultText(result);
-  const updatePresentations = (result) =>setPresentations(result)
-  
   function openFiles(){
     OpenFiles().then(updateText)
   }
-
+  
+  const updatePresentations = (result) =>setPresentations(result)
   function getPresentations(props){
     GetPresentations(props).then(updatePresentations)
   } 
@@ -37,8 +33,7 @@ function Presentations(props) {
             <div className='presentationButtons'>
               <button onClick={StartPresentation}>Start</button>
               <button onClick={openFiles}>Files</button>
-            </div>
-            {resultText}
+            </div>            
           </div>
         ))
         : "No presentations have been added to this session yet."}

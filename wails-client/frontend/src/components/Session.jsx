@@ -7,24 +7,21 @@ import { SessionContext } from './context/SessionContext'
 function Session() {
   const room = useContext(HeaderContext)
   const sessionContext = useContext(SessionContext)
-  console.log(sessionContext)
   const [selectedSession, setSelectedSession] = useState(0)
-  // sessionContext == undefined ? setSelectedSession(0) : setSelectedSession(1)
-  
   const [index, setIndex] = useState(0)
   const [session, setSession] = useState([])
   const [sessions, setSessions] = useState([])
+  // if (sessionContext == undefined){
+  //   console.log(0)
+  // }else{
+  //   console.log(sessionContext)
+  // }
   useEffect(()=>{
     getSessions(room)
     handleRoomChange(room)
-    getRoomSessionData(room)
-    // setSelectedSession(sessionContext) 
-    // if (sessionContext == undefined){
-    //   console.log("unedfined session. setting to 0.")
-    //   setSelectedSession(0)
-    // }
+    getRoomSessionData(room)    
     handleSessionChange(sessionContext)
-  }, [room])  
+  }, [room, sessionContext])  
   const setRoomSessionData = (result) =>setSession(result)
   function getRoomSessionData(room){
     SetRoom(room).then(setRoomSessionData)
@@ -48,23 +45,28 @@ function Session() {
     // setSelectedSession(sessions[index].ID)   
     
   }
-  const handleSessionChange = (e, index)=>{
+  const handleSessionChange = (e)=>{
     // n+1 problem potentially here :(
-    if (0 <= index && index < sessions.length){
-      setIndex(index)
-      // setSelectedSession(sessions[index].ID)       
+    if (0 <= e && e < sessions.length){
+      // setIndex(sessionContext)
+      // setSelectedSession(sessionContext)
+      setSelectedSession(sessions[e].ID)       
     }else{
-      setIndex(0)
+      setSelectedSession(sessions[0].ID)       
     }
     getSession(selectedSession)
   }    
   return (
     <div>
       
-        <div className='session'>        
-        <h1>{session.Title}</h1>    
-        <h2>{session.Moderator}</h2>
-        <h2>{Moment(session.StartTime).format("MM/DD/YY h:mmA")}</h2>    
+        <div className='session'>  
+        {sessions.length < 1 ? "Loading.." : 
+        <div>
+        <h1>{sessions[index].Title}</h1>    
+        <h2>{sessions[index].Moderator}</h2>
+        <h2>{Moment(sessions[index].StartTime).format("MM/DD/YY h:mmA")}</h2>     
+      </div>
+      }      
         
         <h3>   {room}</h3>
         </div>
