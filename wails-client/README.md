@@ -12,6 +12,8 @@
   - Session back/next bugs out sometimes.
     - In some cases (i think it's where sessionList.length < 2), sessionList isn't properly emptied/refresh
     - shows session from incorrect room T.T
+- Added filter to footer navigation to show previous/back buttons correctly.
+  - Need to pass this index up to session to change sessions correctly
 
 ## 0.0.45
 

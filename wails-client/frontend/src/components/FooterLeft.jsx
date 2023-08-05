@@ -8,7 +8,7 @@ function FooterLeft({onDataFromChild}) {
   const selectRoom = useContext(HeaderContext)
   const selectSession = useContext(SessionContext)
   const [sessions, setSessions] = useState([]);
-  const [day, setDay] = useState(0)
+  const [index, setIndex] = useState(0)
   const [session, setSession] = useState(0)
   useEffect(()=>{
     handleRoomChange(selectRoom)
@@ -23,12 +23,12 @@ function FooterLeft({onDataFromChild}) {
     getSessions(e)
   
   }  
-  const handleSessionChange = (e, day)=>{
-    console.log(day)
-    if (0 <= day && day < sessions.length){
-      setDay(day)
-      setSession(sessions[day].ID)
-      onDataFromChild(sessions[day].ID)      
+  const handleSessionChange = (e, index)=>{
+    console.log(index)
+    if (0 <= index && index < sessions.length){
+      setIndex(index)
+      setSession(sessions[index].ID)
+      onDataFromChild(sessions[index].ID)      
     }else{
       setSession(sessions[0].ID)
     }
@@ -36,13 +36,19 @@ function FooterLeft({onDataFromChild}) {
   return (    
       <div className='leftFooter'>           
       <div className='flex-content'>      
-          <button onClick={(e)=>handleSessionChange(e, day-1)}> previous </button>
+        { index > 0 ?
+        <button onClick={(e)=>handleSessionChange(e, index-1)}> previous </button> 
+        : "" }
+          
       </div>
       <div className='flex-content'>        
-        {sessions.length > 0 ? Moment(sessions[day].StartTime).format("dddd MM/DD hh:mm A") :"" }
+        {sessions.length > 0 ? Moment(sessions[index].StartTime).format("dddd MM/DD hh:mm A") :"" }
       </div>
       <div className='flex-content'>
-        <button onClick={(e)=>handleSessionChange(e, day+1)}>next</button>
+        {index < sessions.length - 1 ?
+        <button onClick={(e)=>handleSessionChange(e, index+1)}>next</button>
+        : "" }
+        
       </div>
       </div>
   )

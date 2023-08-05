@@ -17,7 +17,8 @@ return (
 <div className='app'>
     <div className='app h-screen'>
     <div className='app-grid'>
-        <HeaderContext.Provider value={room}>
+        <HeaderContext.Provider value={room}>        
+        {console.log(presentation)}    
         <SessionContext.Provider value={presentation}>
         <div className='headerWrapper'>            
             <Header onDataFromChild={setRoom}/>            
