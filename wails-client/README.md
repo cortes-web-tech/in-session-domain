@@ -5,6 +5,7 @@
 - Deleted old mac app (./client)
 - Stable version
 - Added some comments to app.go for the next two functions. SyncFiles() & FileSyncStatus().
+- GUI changes
 
 ## 0.0.45
 
