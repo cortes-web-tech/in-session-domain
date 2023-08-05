@@ -6,6 +6,12 @@
 - Stable version
 - Added some comments to app.go for the next two functions. SyncFiles() & FileSyncStatus().
 - GUI changes
+- Added a new function 'SetRoom()' to properly change Session GUI when room is changed
+- Identified a new bug after changing rooms
+  - Session isn't passing data correctly down to Presentation
+  - Session back/next bugs out sometimes.
+    - In some cases (i think it's where sessionList.length < 2), sessionList isn't properly emptied/refresh
+    - shows session from incorrect room T.T
 
 ## 0.0.45
 
@@ -32,6 +38,6 @@
 - Hotfixed deleted a couple of redundant/unused columns on DB to better show data between sessions
 - Added a filter to chek when sessions don't have any presentations added to the database.
 - Identified a series of bugs in Presentations.
-  - Need to handle the session data change when the room is changed
+  - Need to handle the session data change when the room is changed ✅
   - Need to add unit test to Session.jsx (data integrity)
   - Need to add unit test Presentation.jsx (data integrity)

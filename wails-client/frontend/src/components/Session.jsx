@@ -1,6 +1,6 @@
 import {React, useState, useEffect, useContext} from 'react'
 import Presentations from './Presentations'
-import { GetSession, GetSessions } from '../../wailsjs/go/main/App'
+import { GetSession, GetSessions, SetRoom } from '../../wailsjs/go/main/App'
 import Moment from 'moment'
 import { HeaderContext} from './context/HeaderContext'
 import { SessionContext } from './context/SessionContext'
@@ -12,9 +12,16 @@ function Session() {
   const [sessions, setSessions] = useState([])
   useEffect(()=>{
     handleRoomChange(room)
-    getSessions(room)
+    getRoomSessionData(room)
+    // getSessions(room)
     
-  }, [room])    
+  }, [room])      
+  const setRoomSessionData = (result) =>setSession(result)
+  function getRoomSessionData(room){
+    SetRoom(room).then(setRoomSessionData)
+    setIndex(0)
+  }
+
   const updateSession = (result) =>setSession(result)
   function getSession(id){
     GetSession(id).then(updateSession)

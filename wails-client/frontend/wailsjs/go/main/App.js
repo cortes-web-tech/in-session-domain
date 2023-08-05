@@ -30,6 +30,10 @@ export function RoomList() {
   return window['go']['main']['App']['RoomList']();
 }
 
+export function SetRoom(arg1) {
+  return window['go']['main']['App']['SetRoom'](arg1);
+}
+
 export function StartPresentation() {
   return window['go']['main']['App']['StartPresentation']();
 }

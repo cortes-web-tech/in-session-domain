@@ -346,3 +346,47 @@ func (a *App) SyncFiles(roomname Room) {
 func (a *App) FileSyncStatus(roomname Room) {
 
 }
+
+// Fetches session data when room is changed.
+func (a *App) SetRoom(roomname string) Session {
+	var session Session
+	// Fetching Data from database
+	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	// 2. Prepare and execute the query
+	rows, err := db.Query("SELECT  * FROM sessionData WHERE room=?", roomname)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	// 3. Handle the results
+	var id int
+	var title string
+	var room string
+	var startTime string
+	var endTime string
+	var modName string
+	var date_added string
+
+	for rows.Next() {
+		err := rows.Scan(&id, &title, &room, &startTime, &endTime, &modName, &date_added)
+		if err != nil {
+			log.Fatal(err)
+		}
+		session.Title = title
+		session.StartTime = startTime
+		session.EndTime = endTime
+		session.Room = room
+		session.Moderator = modName
+	}
+	if err := rows.Err(); err != nil {
+		log.Fatal(err)
+	}
+	db.Close()
+	return session
+}

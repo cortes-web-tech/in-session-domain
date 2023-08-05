@@ -16,6 +16,8 @@ export function OpenMyPC():Promise<void>;
 
 export function RoomList():Promise<Array<main.Room>>;
 
+export function SetRoom(arg1:string):Promise<main.Session>;
+
 export function StartPresentation():Promise<void>;
 
 export function SyncFiles(arg1:main.Room):Promise<void>;
