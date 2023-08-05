@@ -9,6 +9,8 @@ function Session() {
   const sessionContext = useContext(SessionContext)
   console.log(sessionContext)
   const [selectedSession, setSelectedSession] = useState(0)
+  // sessionContext == undefined ? setSelectedSession(0) : setSelectedSession(1)
+  
   const [index, setIndex] = useState(0)
   const [session, setSession] = useState([])
   const [sessions, setSessions] = useState([])
@@ -16,8 +18,13 @@ function Session() {
     getSessions(room)
     handleRoomChange(room)
     getRoomSessionData(room)
-    
-  }, [room])      
+    // setSelectedSession(sessionContext) 
+    // if (sessionContext == undefined){
+    //   console.log("unedfined session. setting to 0.")
+    //   setSelectedSession(0)
+    // }
+    handleSessionChange(sessionContext)
+  }, [room])  
   const setRoomSessionData = (result) =>setSession(result)
   function getRoomSessionData(room){
     SetRoom(room).then(setRoomSessionData)

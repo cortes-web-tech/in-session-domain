@@ -23,12 +23,11 @@ function FooterLeft({onDataFromChild}) {
     getSessions(e)
   
   }  
-  const handleSessionChange = (e, index)=>{
-    console.log(index)
+  const handleSessionChange = (e, index)=>{  
     if (0 <= index && index < sessions.length){
       setIndex(index)
       setSession(sessions[index].ID)
-      onDataFromChild(sessions[index].ID)      
+      onDataFromChild(index)      
     }else{
       setSession(sessions[0].ID)
     }

@@ -3,14 +3,11 @@ import {useLocation } from 'react-router-dom'
 import FooterLeft from './FooterLeft'
 import FooterRight from './FooterRight'
 import '../App.css'
-function Footer({onDataFromChild}) {  
+function Footer({onDataFromChild, passToParent}) {  
   const [presentation, setPresentation] = useState()  
-  const path = useLocation().pathname
-  useEffect(()=>{
-    // sendToParent(presentation)
-  },[])
-  // console.log(presentation)
-  onDataFromChild={presentation}
+  const path = useLocation().pathname      
+    onDataFromChild={presentation}
+    passToParent(presentation)    
   return (
     <div className='footer'>      
       <div className='flex-content'>    

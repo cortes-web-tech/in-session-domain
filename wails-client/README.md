@@ -13,7 +13,10 @@
     - In some cases (i think it's where sessionList.length < 2), sessionList isn't properly emptied/refresh
     - shows session from incorrect room T.T
 - Added filter to footer navigation to show previous/back buttons correctly.
-  - Need to pass this index up to session to change sessions correctly
+  - Need to pass this index up to session to change sessions correctly ✅
+- Footer Navigation is passing index up to Session component
+  - Need to add an event listener in Session component to display the right presentation based off index.
+  - Need to adjust for undefined (set to 0)
 
 ## 0.0.45
 

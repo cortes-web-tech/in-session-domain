@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import { Routes, Route} from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
@@ -10,15 +10,21 @@ import HelpUser from './layout/HelpUser';
 import RefreshFiles from './layout/RefreshFiles';
 import { HeaderContext } from './components/context/HeaderContext';
 import { SessionContext } from './components/context/SessionContext';
-function App() { 
+function App({passToParent}) { 
 const [room, setRoom] = useState('Nerv HQ')
-const [presentation, setPresentation] = useState(1)
+const [presentation, setPresentation] = useState(0)
+// onDataFromChild={presentation}
+useEffect(()=>{
+    // setPresentation(0)
+    passToParent={presentation}
+}, [passToParent])
+
+
 return (
 <div className='app'>
     <div className='app h-screen'>
     <div className='app-grid'>
-        <HeaderContext.Provider value={room}>        
-        {console.log(presentation)}    
+        <HeaderContext.Provider value={room}>            
         <SessionContext.Provider value={presentation}>
         <div className='headerWrapper'>            
             <Header onDataFromChild={setRoom}/>            
@@ -35,7 +41,7 @@ return (
             
         </div>
         <div className='footerWrapper'>
-            <Footer onDataFromChild={setPresentation}/>
+            <Footer passToParent={setPresentation}/>
         </div>   
         </SessionContext.Provider>
         </HeaderContext.Provider>
