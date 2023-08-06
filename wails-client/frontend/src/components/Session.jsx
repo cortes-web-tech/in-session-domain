@@ -4,6 +4,7 @@ import { GetSession, GetSessions, SetRoom, GetPresentations, StartPresentation }
 import Moment from 'moment'
 import { HeaderContext} from './context/HeaderContext'
 import { SessionContext } from './context/SessionContext'
+import { WindowReload} from '../../wailsjs/runtime'
 function Session() {
   const room = useContext(HeaderContext)
   const sessionContext = useContext(SessionContext)
@@ -13,7 +14,7 @@ function Session() {
   const [sessions, setSessions] = useState([])
   const [presentations, setPresentations] = useState([]);      
   
-  useEffect(()=>{
+  useEffect(()=>{  
     getSessions(room)
     handleRoomChange(room)
     getRoomSessionData(room)    
@@ -24,6 +25,7 @@ function Session() {
   function getRoomSessionData(room){
     SetRoom(room).then(setRoomSessionData)
     setIndex(0)    
+    WindowReload
     // setSelectedSession(sessions[index].ID)   
   }
   const updateSession = (result) =>setSession(result)
@@ -39,6 +41,7 @@ function Session() {
   const handleRoomChange = (e) =>{
     getSessions(e)
     setIndex(0)          
+    WindowReload
     // handleSessionChange(sessionContext)    
     // handleSessionChange(0)
     // setSelectedSession(sessions[index].ID)   
@@ -50,6 +53,7 @@ function Session() {
       setIndex(e)
       setSelectedSession(sessions[e].ID)             
     }else{
+      setIndex(0)
       setSelectedSession(sessions[0].ID)       
     }  
     getSession(selectedSession)

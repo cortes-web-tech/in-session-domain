@@ -27,6 +27,7 @@
 - Temporarily lowered transparency to watch Baldur's Gate stream on Discord 😂
 - Changing how Footer interacts with Session/Presentation to decrease prop drilling/state issues.
 - Footer navigation now correctly changes Presentation/Session
+- Added the WindowReload() built in function to clear a potential memory leak when switching sessions.
 
 ## 0.0.45
 
