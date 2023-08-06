@@ -31,6 +31,8 @@
 - Temporarily bypassing handleSessionChange() and getPresentations() in Session component to avoid a init state set bug
 - Built basic styling for RefreshFiles page, and added data on DB to fetch useful info.
   - May need to adjust DB structure later
+- Added RefreshFileList() to fetch data to the RefreshList Component
+  - Not passing to GUI yet.
 
 ## 0.0.45
 

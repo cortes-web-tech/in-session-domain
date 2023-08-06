@@ -43,6 +43,14 @@ type Room struct {
 }
 type ByName []Session
 
+type File struct {
+	ctx  context.Context
+	ID   int
+	Path string
+	Name string
+	Room string
+}
+
 // Utility sort functions
 func (s ByName) Len() int           { return len(s) }
 func (s ByName) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
@@ -389,4 +397,48 @@ func (a *App) SetRoom(roomname string) Session {
 	}
 	db.Close()
 	return session
+}
+
+// Function
+func (a *App) RefreshFileList(roomname string) []File {
+	files := []File{}
+	// Fetching Data from database
+	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	// 2. Prepare and execute the query
+	rows, err := db.Query("SELECT * FROM files WHERE room=?", roomname)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	// 3. Handle the results
+	var file File
+	var file_id int
+	var filepath string
+	var file_name string
+	var room string
+	var sub_id int
+
+	for rows.Next() {
+		err := rows.Scan(&file_id, &sub_id, &filepath, &file_name, &room)
+		if err != nil {
+			log.Fatal(err)
+		}
+		file.ID = file_id
+		file.Path = filepath
+		file.Name = file_name
+		file.Room = room
+		files = append(files, file)
+	}
+	if err := rows.Err(); err != nil {
+		log.Fatal(err)
+	}
+
+	db.Close()
+	return files
 }

@@ -26,6 +26,10 @@ export function OpenMyPC() {
   return window['go']['main']['App']['OpenMyPC']();
 }
 
+export function RefreshFileList(arg1) {
+  return window['go']['main']['App']['RefreshFileList'](arg1);
+}
+
 export function RoomList() {
   return window['go']['main']['App']['RoomList']();
 }

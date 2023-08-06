@@ -14,6 +14,8 @@ export function OpenFiles():Promise<void>;
 
 export function OpenMyPC():Promise<void>;
 
+export function RefreshFileList(arg1:string):Promise<Array<main.File>>;
+
 export function RoomList():Promise<Array<main.Room>>;
 
 export function SetRoom(arg1:string):Promise<main.Session>;
