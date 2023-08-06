@@ -32,7 +32,9 @@
 - Built basic styling for RefreshFiles page, and added data on DB to fetch useful info.
   - May need to adjust DB structure later
 - Added RefreshFileList() to fetch data to the RefreshList Component
-  - Not passing to GUI yet.
+- RefreshList Component is displaying file data for static linked room
+  - Need to handle for correct room
+  - Need to add lazy load
 
 ## 0.0.45
 

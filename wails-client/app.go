@@ -44,11 +44,13 @@ type Room struct {
 type ByName []Session
 
 type File struct {
-	ctx  context.Context
-	ID   int
-	Path string
-	Name string
-	Room string
+	ctx      context.Context
+	ID       int
+	Path     string
+	Name     string
+	Room     string
+	Modified string
+	Synced   string
 }
 
 // Utility sort functions
@@ -423,9 +425,11 @@ func (a *App) RefreshFileList(roomname string) []File {
 	var file_name string
 	var room string
 	var sub_id int
+	var modified string
+	var synced string
 
 	for rows.Next() {
-		err := rows.Scan(&file_id, &sub_id, &filepath, &file_name, &room)
+		err := rows.Scan(&file_id, &sub_id, &filepath, &file_name, &room, &modified, &synced)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -433,6 +437,8 @@ func (a *App) RefreshFileList(roomname string) []File {
 		file.Path = filepath
 		file.Name = file_name
 		file.Room = room
+		file.Modified = modified
+		file.Synced = synced
 		files = append(files, file)
 	}
 	if err := rows.Err(); err != nil {

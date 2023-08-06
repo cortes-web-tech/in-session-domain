@@ -108,6 +108,7 @@
     grid-column-start: 1;
     grid-row-end: 8;
     grid-column-end: 17;
+    
 }
 
 .freshFilesGrid{
@@ -119,12 +120,21 @@
     margin: auto 0;
     background-color: rgba(58, 158,255, .5);
     border-radius: 1em;
+    
 }
 
 .refreshFilesList{
-    text-align: center;
     margin: 0;
-    position:absolute;
-    top: 50%;
-    left: 40%;
+    position:absolute;        
+    left: 35%;
+    /* display: block; */
+    height: 35rem;
+    overflow-y: auto;
+    
+}
+
+.fileListItems{
+    /* display: block; */
+    border-bottom: 4px floralwhite dashed;
+    border-left: 4px floralwhite dashed;
 }
