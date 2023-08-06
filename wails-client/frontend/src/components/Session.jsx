@@ -1,6 +1,6 @@
 import {React, useState, useEffect, useContext} from 'react'
 import Presentations from './Presentations'
-import { GetSession, GetSessions, SetRoom } from '../../wailsjs/go/main/App'
+import { GetSession, GetSessions, SetRoom, GetPresentations } from '../../wailsjs/go/main/App'
 import Moment from 'moment'
 import { HeaderContext} from './context/HeaderContext'
 import { SessionContext } from './context/SessionContext'
@@ -11,16 +11,17 @@ function Session() {
   const [index, setIndex] = useState(0)
   const [session, setSession] = useState([])
   const [sessions, setSessions] = useState([])
-  // if (sessionContext == undefined){
-  //   console.log(0)
-  // }else{
-  // console.log(sessionContext)
-  // }
+  const [presentations, setPresentations] = useState([]);
+  
+  console.log(sessionContext)
+  
+  
   useEffect(()=>{
     getSessions(room)
     handleRoomChange(room)
     getRoomSessionData(room)    
-    handleSessionChange(sessionContext)
+    // handleSessionChange(sessionContext)
+    // getPresentations(sessions[index].ID)
   }, [room, sessionContext])  
   const setRoomSessionData = (result) =>setSession(result)
   function getRoomSessionData(room){
@@ -28,7 +29,7 @@ function Session() {
     setIndex(0)    
     // setSelectedSession(sessions[index].ID)   
   }
-
+  console.log(presentations)
   const updateSession = (result) =>setSession(result)
   function getSession(id){
     GetSession(id).then(updateSession)
@@ -43,6 +44,10 @@ function Session() {
   const handleRoomChange = (e) =>{
     getSessions(e)
     setIndex(0)
+      
+    // console.log(index)
+    // handleSessionChange(sessionContext)    
+    // handleSessionChange(0)
     // setSelectedSession(sessions[index].ID)   
   }
 
@@ -56,6 +61,11 @@ function Session() {
     }
     getSession(selectedSession)
   }    
+
+  const updatePresentations = (result) =>setPresentations(result)
+  function getPresentations(id){
+    GetPresentations(id).then(updatePresentations)
+  } 
   return (
     <div>
       
@@ -70,8 +80,9 @@ function Session() {
         
         <h3>   {room}</h3>
         </div>
-     
-        <Presentations session={selectedSession}/>
+        {sessions[index].ID}
+        
+        {/* <Presentations session={selectedSession}/> */}
     </div>
   )
 }

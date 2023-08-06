@@ -25,6 +25,7 @@
   - Need to add/adjust indexHandler
 - roomChange() is setting presentation to a n-1 state
 - Temporarily lowered transparency to watch Baldur's Gate stream on Discord 😂
+- Changing how Footer interacts with Session/Presentation to decrease prop drilling/state issues.
 
 ## 0.0.45
 
