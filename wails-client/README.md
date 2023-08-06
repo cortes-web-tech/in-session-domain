@@ -24,10 +24,13 @@
   - causes a bug if you change rooms and index > SessionList.length, for the room you're changing to
   - Need to add/adjust indexHandler
 - roomChange() is setting presentation to a n-1 state
-- Temporarily lowered transparency to watch Baldur's Gate stream on Discord 😂
+- Temporarily lowered transparency to watch Baldur's Gate stream on Discord 😂 (re-enabled opacity)
 - Changing how Footer interacts with Session/Presentation to decrease prop drilling/state issues.
 - Footer navigation now correctly changes Presentation/Session
 - Added the WindowReload() built in function to clear a potential memory leak when switching sessions.
+- Temporarily bypassing handleSessionChange() and getPresentations() in Session component to avoid a init state set bug
+- Built basic styling for RefreshFiles page, and added data on DB to fetch useful info.
+  - May need to adjust DB structure later
 
 ## 0.0.45
 

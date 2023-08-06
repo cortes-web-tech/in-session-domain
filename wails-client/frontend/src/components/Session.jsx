@@ -18,8 +18,8 @@ function Session() {
     getSessions(room)
     handleRoomChange(room)
     getRoomSessionData(room)    
-    handleSessionChange(sessionContext)
-    getPresentations(sessions[index].ID)
+    // handleSessionChange(sessionContext)
+    // getPresentations(sessions[index].ID)
   }, [room, sessionContext])  
   const setRoomSessionData = (result) =>setSession(result)
   function getRoomSessionData(room){
