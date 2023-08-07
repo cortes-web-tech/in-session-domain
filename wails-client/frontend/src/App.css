@@ -118,7 +118,7 @@
     width: 95%;
     height: 90%;
     margin: auto 0;
-    background-color: rgba(58, 158,255, .5);
+    /* background-color: rgba(58, 158,255, .2); */
     border-radius: 1em;
     
 }
@@ -131,10 +131,11 @@
     height: 35rem;
     overflow-y: auto;
     
+    
 }
 
 .fileListItems{
-    /* display: block; */
-    border-bottom: 4px floralwhite dashed;
-    border-left: 4px floralwhite dashed;
+    border-radius: 1em;
+    background-color:  rgba(58, 158,255, .5);
+
 }

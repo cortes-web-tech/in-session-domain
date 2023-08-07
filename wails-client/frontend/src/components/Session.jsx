@@ -12,15 +12,19 @@ function Session() {
   const [index, setIndex] = useState(0)
   const [session, setSession] = useState([])
   const [sessions, setSessions] = useState([])
-  const [presentations, setPresentations] = useState([]);      
-  
+  const [presentations, setPresentations] = useState([]);
+  if(sessionContext == undefined){
+    // setSelectedSession(1)
+    
+  }  
+  console.log(sessionContext)
   useEffect(()=>{  
     getSessions(room)
     handleRoomChange(room)
-    getRoomSessionData(room)    
+    getRoomSessionData(room)        
     // handleSessionChange(sessionContext)
     // getPresentations(sessions[index].ID)
-  }, [room, sessionContext])  
+  }, [room, sessionContext])    
   const setRoomSessionData = (result) =>setSession(result)
   function getRoomSessionData(room){
     SetRoom(room).then(setRoomSessionData)
@@ -56,7 +60,7 @@ function Session() {
       setIndex(0)
       setSelectedSession(sessions[0].ID)       
     }  
-    getSession(selectedSession)
+    // getSession(selectedSession)
   }    
 
   const updatePresentations = (result) =>setPresentations(result)
@@ -67,19 +71,23 @@ function Session() {
     <div>
       
         <div className='session'>  
-        {sessions.length < 1 ? "Loading.." : 
+        {sessions.length > 0 ?  
         <div>
         <h1>{sessions[index].Title}</h1>    
         <h2>{sessions[index].Moderator}</h2>
         <h2>{Moment(sessions[index].StartTime).format("MM/DD/YY h:mmA")}</h2>     
       </div>
+      :
+        "Loading.."              
       }      
         
-        <h3>{room}</h3>
-        </div>      
-        {presentations.length > 0 ?        
-        <Presentations session={sessions[index].ID}/>
-      : "No presentations have been added to this session yet."}                
+      <h3>{room}</h3>
+      </div>      
+      {presentations > 0 ?                                
+      "No presentations have been added to this session yet.":
+      <Presentations session={sessions[index].ID}/>
+      // ""            
+      }
     </div>
   )
 }

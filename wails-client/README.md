@@ -33,8 +33,11 @@
   - May need to adjust DB structure later
 - Added RefreshFileList() to fetch data to the RefreshList Component
 - RefreshList Component is displaying file data for static linked room
-  - Need to handle for correct room
-  - Need to add lazy load
+  - Need to handle for correct room ✅
+  - Need to add lazy load ✅
+- RefreshFiles displaying file list on GUI for room.
+  - Changing room works from home page, but not in RefreshFilesComponent
+- Need to handle state management better.
 
 ## 0.0.45
 
