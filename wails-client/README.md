@@ -38,6 +38,7 @@
 - RefreshFiles displaying file list on GUI for room.
   - Changing room works from home page, but not in RefreshFilesComponent
 - Need to handle state management better.
+  - Fixed initial Session render bug, but now Presentation isn't getting data correctly.
 
 ## 0.0.45
 

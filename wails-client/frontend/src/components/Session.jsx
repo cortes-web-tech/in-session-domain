@@ -12,19 +12,15 @@ function Session() {
   const [index, setIndex] = useState(0)
   const [session, setSession] = useState([])
   const [sessions, setSessions] = useState([])
-  const [presentations, setPresentations] = useState([]);
-  if(sessionContext == undefined){
-    // setSelectedSession(1)
-    
-  }  
-  console.log(sessionContext)
+  const [presentations, setPresentations] = useState([]);  
   useEffect(()=>{  
     getSessions(room)
     handleRoomChange(room)
     getRoomSessionData(room)        
-    // handleSessionChange(sessionContext)
-    // getPresentations(sessions[index].ID)
+    handleSessionChange()
+    // getPresentations()
   }, [room, sessionContext])    
+  
   const setRoomSessionData = (result) =>setSession(result)
   function getRoomSessionData(room){
     SetRoom(room).then(setRoomSessionData)
@@ -51,16 +47,25 @@ function Session() {
     // setSelectedSession(sessions[index].ID)   
   }
 
-  const handleSessionChange = (e)=>{
+  const handleSessionChange = (e) => {
     // n+1 problem potentially here :(
-    if (0 <= e && e < sessions.length){      
-      setIndex(e)
-      setSelectedSession(sessions[e].ID)             
-    }else{
-      setIndex(0)
-      setSelectedSession(sessions[0].ID)       
-    }  
-    // getSession(selectedSession)
+      // Getting close to fixing it though!! Lfg!!!
+      if(sessionContext == undefined){
+        console.log()
+      }else{              
+        if (0 <= sessionContext && sessionContext < sessions.length) {      
+          setIndex(sessionContext)
+          setSelectedSession(sessions[sessionContext].ID)             
+          // console.log(index)
+          getPresentations(sessions[sessionContext].ID)
+          console.log(presentations)
+        }
+        // Need to better when we switch to session where target.index < source.index
+        // }else{
+        //   setIndex(0)
+        //   setSelectedSession(sessions[0].ID)       
+        // }  
+      }  
   }    
 
   const updatePresentations = (result) =>setPresentations(result)
@@ -83,7 +88,7 @@ function Session() {
         
       <h3>{room}</h3>
       </div>      
-      {presentations > 0 ?                                
+      {index > -1 ?                                
       "No presentations have been added to this session yet.":
       <Presentations session={sessions[index].ID}/>
       // ""            
