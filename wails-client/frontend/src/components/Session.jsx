@@ -18,7 +18,7 @@ function Session() {
     handleRoomChange(room)
     getRoomSessionData(room)        
     handleSessionChange()
-    // getPresentations()
+    getPresentations()
   }, [room, sessionContext])    
   
   const setRoomSessionData = (result) =>setSession(result)
@@ -47,7 +47,7 @@ function Session() {
     // setSelectedSession(sessions[index].ID)   
   }
 
-  const handleSessionChange = (e) => {
+  function handleSessionChange()  {
     // n+1 problem potentially here :(
       // Getting close to fixing it though!! Lfg!!!
       if(sessionContext == undefined){
@@ -57,8 +57,8 @@ function Session() {
           setIndex(sessionContext)
           setSelectedSession(sessions[sessionContext].ID)             
           // console.log(index)
-          getPresentations(sessions[sessionContext].ID)
-          console.log(presentations)
+          // getPresentations(sessions[sessionContext].ID)
+          
         }
         // Need to better when we switch to session where target.index < source.index
         // }else{
@@ -69,7 +69,7 @@ function Session() {
   }    
 
   const updatePresentations = (result) =>setPresentations(result)
-  function getPresentations(id){
+  function getPresentations(id){    
     GetPresentations(id).then(updatePresentations)
   } 
   return (
@@ -88,9 +88,9 @@ function Session() {
         
       <h3>{room}</h3>
       </div>      
-      {index > -1 ?                                
+      {selectedSession == undefined ?                                
       "No presentations have been added to this session yet.":
-      <Presentations session={sessions[index].ID}/>
+      <Presentations session={selectedSession}/>
       // ""            
       }
     </div>
