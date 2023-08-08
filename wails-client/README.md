@@ -10,19 +10,19 @@
 - Identified a new bug after changing rooms
   - Session isn't passing data correctly down to Presentation
   - Session back/next bugs out sometimes.
-    - In some cases (i think it's where sessionList.length < 2), sessionList isn't properly emptied/refresh
-    - shows session from incorrect room T.T
+    - In some cases (i think it's where sessionList.length < 2), sessionList isn't properly emptied/refresh ✅
+    - shows session from incorrect room T.T ✅
 - Added filter to footer navigation to show previous/back buttons correctly.
   - Need to pass this index up to session to change sessions correctly ✅
 - Footer Navigation is passing index up to Session component
   - Need to add an event listener in Session component to display the right presentation based off index. ✅
-  - Need to adjust for undefined (set to 0)
+  - Need to adjust for undefined (set to 0) ✅
 - Footer navigation is Presentation GUI, but
   - Session GUI not changing ✅
   - has a undefined value bug when initially loading.
 - Footer navigation is changing sessions correctly.
   - causes a bug if you change rooms and index > SessionList.length, for the room you're changing to
-  - Need to add/adjust indexHandler
+  - Need to add/adjust indexHandler ✅
 - roomChange() is setting presentation to a n-1 state
 - Temporarily lowered transparency to watch Baldur's Gate stream on Discord 😂 (re-enabled opacity)
 - Changing how Footer interacts with Session/Presentation to decrease prop drilling/state issues.
@@ -39,7 +39,8 @@
   - Changing room works from home page, but not in RefreshFilesComponent
 - Need to handle state management better.
   - Fixed initial Session render bug, but now Presentation isn't getting data correctly. ✅
-  - Presenttaion is getting data correctly after toggling Sessions. Not rendering on initial data load.
+- Fixed a series of state bugs within the Session component
+- Code cleanup.
 
 ## 0.0.45
 

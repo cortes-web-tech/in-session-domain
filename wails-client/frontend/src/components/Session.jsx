@@ -7,74 +7,60 @@ import { SessionContext } from './context/SessionContext'
 import { WindowReload} from '../../wailsjs/runtime'
 function Session() {
   const room = useContext(HeaderContext)
-  const sessionContext = useContext(SessionContext)
-  const [selectedSession, setSelectedSession] = useState(0)
+  const sessionContext = useContext(SessionContext)  
   const [index, setIndex] = useState(0)
   const [session, setSession] = useState([])
   const [sessions, setSessions] = useState([])
-  const [presentations, setPresentations] = useState([]);  
+  
   useEffect(()=>{  
     getSessions(room)
     handleRoomChange(room)
-    getRoomSessionData(room)        
     handleSessionChange()
-    getPresentations()
+    getRoomSessionData(room)                
+    presentationHandler(sessions)        
+    if(sessionContext !=undefined){            
+      setIndex(sessionContext)  
+    }
   }, [room, sessionContext])    
-  
+
   const setRoomSessionData = (result) =>setSession(result)
   function getRoomSessionData(room){
     SetRoom(room).then(setRoomSessionData)
-    setIndex(0)    
-    WindowReload
-    // setSelectedSession(sessions[index].ID)   
+    setIndex(0)      
   }
-  const updateSession = (result) =>setSession(result)
-  function getSession(id){
-    GetSession(id).then(updateSession)
-  }
+  
   const updateSessions = (result) => setSessions(result)
   function getSessions(room){
     GetSessions(room).then(updateSessions)
-    // setSelectedSession(sessions[0].ID)
   }
 
   const handleRoomChange = (e) =>{
     getSessions(e)
-    setIndex(0)          
-    WindowReload
-    // handleSessionChange(sessionContext)    
-    // handleSessionChange(0)
-    // setSelectedSession(sessions[index].ID)   
+    setIndex(0)                  
   }
 
   function handleSessionChange()  {
     // n+1 problem potentially here :(
       // Getting close to fixing it though!! Lfg!!!
-      if(sessionContext == undefined){
-        console.log()
-      }else{              
-        if (0 <= sessionContext && sessionContext < sessions.length) {      
+      if(sessionContext != undefined){
+        if (0 <= sessionContext && sessionContext < sessions.length) {                
           setIndex(sessionContext)
-          setSelectedSession(sessions[sessionContext].ID)             
-          // console.log(index)
-          // getPresentations(sessions[sessionContext].ID)
-          
         }
-        // Need to better when we switch to session where target.index < source.index
-        // }else{
-        //   setIndex(0)
-        //   setSelectedSession(sessions[0].ID)       
-        // }  
-      }  
+      }else{
+        setIndex(0)
+      }                
   }    
 
-  const updatePresentations = (result) =>setPresentations(result)
-  function getPresentations(id){    
-    GetPresentations(id).then(updatePresentations)
-  } 
+  function presentationHandler(){
+      if(sessions.length >0 ){
+        if(sessionContext == undefined){        
+        return sessions[index].ID        
+      }      
+    }
+  }  
+  
   return (
     <div>
-      
         <div className='session'>  
         {sessions.length > 0 ?  
         <div>
@@ -83,15 +69,14 @@ function Session() {
         <h2>{Moment(sessions[index].StartTime).format("MM/DD/YY h:mmA")}</h2>     
       </div>
       :
-        "Loading.."              
-      }      
-        
+        ""              
+      }        
       <h3>{room}</h3>
-      </div>      
-      {selectedSession == undefined ?                                
-      "No presentations have been added to this session yet.":
-      <Presentations session={selectedSession}/>
-      // ""            
+      </div>    
+      {sessions.length > 0 ?                                
+      <Presentations session={sessions[index].ID}/>
+      :      
+      ""            
       }
     </div>
   )
