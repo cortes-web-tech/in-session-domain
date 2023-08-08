@@ -49,6 +49,7 @@
 .header{
     display: flex;
     padding: 0px;
+    --wails-draggable:drag;
 }
 
 .flex-content{
@@ -113,20 +114,19 @@
 
 .freshFilesGrid{
     display: grid;
-    justify-self: center;
-    vertical-align: middle;
-    width: 95%;
-    height: 90%;
-    margin: auto 0;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 8;
+    grid-column-end: 17;
     /* background-color: rgba(58, 158,255, .2); */
-    border-radius: 1em;
+    /* border-radius: 1em; */
     
 }
 
 .refreshFilesList{
     margin: 0;
     position:absolute;        
-    left: 35%;
+    /* left: 35%; */
     /* display: block; */
     height: 35rem;
     overflow-y: auto;

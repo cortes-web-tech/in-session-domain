@@ -16,9 +16,16 @@ const [presentation, setPresentation] = useState(0)
 // onDataFromChild={presentation}
 useEffect(()=>{
     // setPresentation(0)
-    passToParent={presentation}
-}, [passToParent])
+    // passToParent={presentation}
+    indexHandler()
+}, [passToParent, presentation])
 
+function indexHandler(){
+    if(presentation!= undefined){
+        // setPresentation(0)
+    }
+    
+}
 
 return (
 <div className='app'>

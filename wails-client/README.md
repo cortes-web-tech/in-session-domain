@@ -4,6 +4,13 @@
 
 - App Window change (removed Native app border, added go's built in functions to handle window)
 - Stable app version
+- Moved --wails-draggable to Header
+- Disabled selectable to prevent highlighting/selecting text on app
+- Working on RefreshFiles.jsx
+  - Changing room in Header changes GUI correctly.
+  - Changing layout to be more CSS grid friendly
+  - Changed FooterRight to hide nav option to here when already on this page
+  - Need to fetch presentation data and display it here
 
 ## 0.0.46
 
