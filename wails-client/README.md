@@ -1,5 +1,10 @@
 # Version History
 
+## 0.0.47
+
+- App Window change (removed Native app border, added go's built in functions to handle window)
+- Stable app version
+
 ## 0.0.46
 
 - Deleted old mac app (./client)

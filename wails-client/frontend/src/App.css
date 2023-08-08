@@ -139,3 +139,45 @@
     background-color:  rgba(58, 158,255, .5);
 
 }
+/* mr-[8px] p-[2px] w-[14px] h-[14px] bg-red-800 hover:bg-red-500  flex-1 items-center justify-center rounded-full transition-all */
+.closeButton{
+    margin-left: 10px;
+    background-color: #922B21;
+    padding: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border-style: none;    
+}
+
+.closeButton:hover{
+    background-color: #E74C3C;
+}
+
+.minimizeButton{
+    margin-left: 10px;
+    background-color: #D4AC0D;
+    padding: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border-style: none;    
+}
+
+.minimizeButton:hover{
+    background-color: #F7DC6F;
+}
+
+.maximizeButton{
+    margin-left: 10px;
+    background-color: #355E3B;
+    padding: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border-style: none;    
+}
+
+.maximizeButton:hover{
+    background-color: #50C878;
+}
