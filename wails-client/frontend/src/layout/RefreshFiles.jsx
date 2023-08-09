@@ -30,16 +30,7 @@ return (
       ))
       :
       ""  
-    }
-      {/* {filelist == undefined ? "files loading":
-      filelist.map((file,key)=>(
-        <div key={file.ID} className='fileListItems'>
-         <h1>{file.Name}</h1> 
-         <h3>Modified: {Moment(file.Modified).format("MM/DD/YY h:mmA")}</h3>
-         <h3>Synced: {Moment(file.Synced).format("MM/DD/YY h:mmA")}</h3>
-       </div>
-     ))
-      }       */}
+    }    
     </div>
   
 )

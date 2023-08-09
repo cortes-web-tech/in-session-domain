@@ -402,7 +402,7 @@ func (a *App) SetRoom(roomname string) Session {
 }
 
 // Function
-func (a *App) RefreshFileList(roomname string) []File {
+func (a *App) RefreshFileList(id int) []File {
 	files := []File{}
 	// Fetching Data from database
 	db, err := sql.Open("mysql", "admin:localdev@tcp(localhost:3306)/inSession")
@@ -412,7 +412,7 @@ func (a *App) RefreshFileList(roomname string) []File {
 	defer db.Close()
 
 	// 2. Prepare and execute the query
-	rows, err := db.Query("SELECT * FROM files WHERE room=?", roomname)
+	rows, err := db.Query("SELECT * FROM files WHERE subsession_id=?", id)
 	if err != nil {
 		log.Fatal(err)
 	}
