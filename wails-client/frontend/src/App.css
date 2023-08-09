@@ -103,35 +103,33 @@
     text-align: center;    
 }
 
-.refreshFilesWrapper{
-    display: grid;
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-row-end: 8;
-    grid-column-end: 17;
-    
-}
-
-.freshFilesGrid{
-    display: grid;
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-row-end: 8;
-    grid-column-end: 17;
-    /* background-color: rgba(58, 158,255, .2); */
-    /* border-radius: 1em; */
-    
-}
-
 .refreshFilesList{
-    margin: 0;
-    position:absolute;        
-    /* left: 35%; */
-    /* display: block; */
-    height: 35rem;
+    display: grid;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 8;
+    grid-column-end: 17;
+    height: 35rem;            
+}
+
+.refreshFilesWrapper{
     overflow-y: auto;
-    
-    
+}
+
+.fileListSession{    
+    display: grid;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 8;
+    grid-column-end: 9;
+}
+
+.fileListPresentation{
+    display: grid;
+    grid-row-start: 1;
+    grid-column-start: 9;
+    grid-row-end: 8;
+    grid-column-end: 17;
 }
 
 .fileListItems{

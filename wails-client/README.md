@@ -10,7 +10,9 @@
   - Changing room in Header changes GUI correctly.
   - Changing layout to be more CSS grid friendly
   - Changed FooterRight to hide nav option to here when already on this page
-  - Need to fetch presentation data and display it here
+  - Need to fetch presentation data and display it here ✅
+- Refresh Files fetching/displaying Sessions/Presentations
+  - Need to adjust Filelist API for app
 
 ## 0.0.46
 
