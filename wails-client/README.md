@@ -14,7 +14,8 @@
 - Refresh Files fetching/displaying Sessions/Presentations
   - Need to adjust Filelist API for app ✅
 - Passing filelist data to RefreshFiles
-  - Need to fix CSS grid
+  - Need to fix CSS grid ✅
+- Refresh Files now correctly displaying. File Sync algorithm not implemented yet.
 
 ## 0.0.46
 

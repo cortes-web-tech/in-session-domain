@@ -7,25 +7,36 @@ function PresentationList(props) {
   useEffect(()=> {
     getPresentations(props.session)
   },[props.session])
+
   const updatePresentations = (result) =>setPresentations(result)
   function getPresentations(props){
     GetPresentations(props).then(updatePresentations)
   }
   return(
     <div>
-      <div className='presentations'>
+      <div>
         {presentations.length > 0 ?
         presentations.map((presentation,key)=>(
-          <div className='' key={presentation.ID}>
-            <h2>{presentation.Title}</h2>
-            <h3>
-            {Moment(presentation.StartTime).format("h:mmA") + " - " + Moment(presentation.EndTime).format("h:mmA")}
-            </h3>
-            <h2>{presentation.Presenter}</h2>
-            <FileList id={presentation.ID}/>
+          <div className='refreshPresentations' key={presentation.ID}>
+            <div className='presentationList'>
+            <h2>Presentation:
+              <br/>
+              {presentation.Title}</h2>
+            <h3>Presenter: {presentation.Presenter}</h3>
+            <h4>
+            Start time: {Moment(presentation.StartTime).format("h:mmA")}
+            <br/>
+            End time: {Moment(presentation.EndTime).format("h:mmA")}</h4>
+            
+            
+            
+            </div >
+            <div className='fileList'>
+            <FileList  id={presentation.ID}/>
+            </div>
           </div>
         ))
-        : "No presentations have been added to this session yet."}
+        : <h4>No presentations have been added to this session yet.</h4>}
         </div>
         <div>
       </div>

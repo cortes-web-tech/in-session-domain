@@ -11,15 +11,18 @@ function FileList(props) {
     RefreshFileList(props.id).then(updateFileList)
     }
   return (
-    <div>
+    <div className='fileListWrapper'>
     {filelist == undefined ? "files loading":
+      filelist.length > 0 ?
       filelist.map((file,key)=>(
         <div key={file.ID} className='fileListItems'>
-         <h1>{file.Name}</h1> 
-         <h3>Modified: {Moment(file.Modified).format("MM/DD/YY h:mmA")}</h3>
-         <h3>Synced: {Moment(file.Synced).format("MM/DD/YY h:mmA")}</h3>
+         <h2>{file.Name}</h2> 
+         <h3>Modified: {Moment(file.Modified).format("MM/DD/YY h:mmA")}
+        <br/>
+         Synced: {Moment(file.Synced).format("MM/DD/YY h:mmA")}</h3>
        </div>
-     ))
+     )):
+     <div>No files have been uploaded <br/>for this presentation.</div>
       }          
     </div>
   )

@@ -20,8 +20,14 @@ return (
       sessions.map((session, key)=>(
         <div key={session.ID} className='refreshFilesList'>
           <div className='fileListSession'>
-            <h1>{session.Title} <br/>
-            {Moment(session.StartTime).format("MM/DD/YY h:mmA")} - {Moment(session.EndTime).format("MM/DD/YY h:mmA")}</h1>            
+            <h1>
+              Session: {session.Title}
+            </h1>
+              <h3>
+              {Moment(session.StartTime).format("MM/DD/YY h:mmA")}               
+              {" - "}               
+              {Moment(session.EndTime).format("hh:mmA")}
+            </h3>
           </div>
           <div className='fileListPresentation'>
             <PresentationList session={session.ID} />

@@ -44,8 +44,6 @@
     text-align: center;
 }
 
-
-
 .header{
     display: flex;
     padding: 0px;
@@ -66,10 +64,7 @@
 .rightFooter{
     display: flex;
 }
-.presentations{
-    display: flex;
-    justify-content: center;
-}
+
 .presentation{
     width: 400px;
     height: 300px;
@@ -103,40 +98,62 @@
     text-align: center;    
 }
 
-.refreshFilesList{
-    display: grid;
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-row-end: 8;
-    grid-column-end: 17;
-    height: 35rem;            
-}
-
 .refreshFilesWrapper{
-    overflow-y: auto;
+    overflow-y: auto;        
 }
 
-.fileListSession{    
-    display: grid;
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-row-end: 8;
-    grid-column-end: 9;
+.refreshFilesList{    
+    background-image: linear-gradient(rgba(58, 158,255, .4), rgba(22,57, 255, .6));
+    width: 80%;
+    margin: 1em auto;
+    border-radius: 1em;
 }
 
-.fileListPresentation{
-    display: grid;
-    grid-row-start: 1;
-    grid-column-start: 9;
-    grid-row-end: 8;
-    grid-column-end: 17;
+
+.fileListPresentation{ 
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    padding: 0.5em 0;
+}
+.refreshPresentations{    
+    display: flex;
+    background-color: rgba(58, 158,255, .4);
+    width: 95%;
+    height: 95;
+    margin: 1em auto;
+    border-radius: 1em;
+}
+
+.presentations{
+    display: flex;
+    justify-content: center;
+}
+
+.presentationList{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    
+}
+
+.fileList{
+    display: flex;
+    flex: 1;
+    justify-content: center;
 }
 
 .fileListItems{
     border-radius: 1em;
-    background-color:  rgba(58, 158,255, .5);
-
+    background-color:  rgba(22,57, 255, .4);
+    padding: 1em;
+    margin: 1em;
+    /* columns: 2; */
 }
+
+.fileListWrapper{
+    margin: auto 0;
+}
+
 /* mr-[8px] p-[2px] w-[14px] h-[14px] bg-red-800 hover:bg-red-500  flex-1 items-center justify-center rounded-full transition-all */
 .closeButton{
     margin-left: 10px;
