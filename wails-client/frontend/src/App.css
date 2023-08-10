@@ -64,7 +64,8 @@
 .presentation{
     width: 400px;
     height: 300px;
-    background-image: linear-gradient( rgba(22,57, 255, .7), rgba(200,200,200, .3));
+    background-color: rgba(22,57, 255, .2);
+    box-shadow: inset 0 0 10px rgba(58, 158,255, .8);
     margin-inline: 1em;
     border-radius: 1em;
     padding: 0.5em;
@@ -118,6 +119,7 @@
 .refreshFilesList{    
     background-image: linear-gradient(rgba(58, 158,255, .4), rgba(22,57, 255, .6));    
     border-radius: 1em;
+    box-shadow: inset 0 0 10px rgba(58, 158,255, .8);
 }
 
 .fileListPresentation{ 
@@ -126,8 +128,7 @@
     padding: 0.5em 0;
 }
 .refreshPresentations{    
-    display: flex;
-    background-color: rgba(58, 158,255, .4);
+    display: flex;    
     width: 95%;
     height: 95;
     margin: 1em auto;
@@ -154,7 +155,8 @@
 
 .fileListItems{
     border-radius: 1em;
-    background-color:  rgba(22,57, 255, .4);
+    background-color: rgba(22,57, 255, .2);
+    box-shadow: inset 0 0 10px rgba(58, 158,255, .8);
     padding: 1em;
     margin: 1em;
 }
@@ -203,4 +205,115 @@
 
 .maximizeButton:hover{
     background-color: #50C878;
+}
+
+.chatboxWrapper{
+    width:90%;
+    height: 90%;
+    margin: auto auto;
+    background-color: rgba(22,57, 255, .2);
+    display: grid;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 17;
+    grid-row-end: 10;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbox{
+    display: grid;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 17;
+    grid-row-end: 7;
+    box-shadow: inset 0 0 10px rgba(58, 158,255, .8);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.userChat{
+    display: grid;
+    height: 150px;
+    grid-row-start: 7;
+    grid-column-start: 1;
+    grid-column-end: 17;
+    grid-row-end: 2;
+    box-shadow: inset 0 0 10px rgba(58, 158,255, .8);
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.userChatName{
+    display: grid;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-end: 2;
+}
+.userChatInput{
+   display: grid;
+    grid-row-start: 1;
+    grid-column-start: 4;
+    grid-column-end: 16;
+    grid-row-end: 2;   
+}
+
+.sendHelpText{
+    display: grid;
+    grid-row-start: 1;
+    grid-column-start: 16;
+    grid-column-end: 17;
+    grid-row-end: 2;    
+}
+
+.chatboxText{
+    text-align: start;
+    margin: auto auto;
+    height: 95%;
+    width: 90%;
+    overflow-y: auto;
+}
+
+.chatboxText::-webkit-scrollbar{
+    width: 1em;
+    
+}
+.chatboxText::-webkit-scrollbar-track{    
+    background-color: rgba(58, 158,255, .5);
+    border-radius: 2em;
+    
+}
+
+.chatboxText::-webkit-scrollbar-thumb{
+    background-image: linear-gradient(rgba(22, 57,255, .6), rgba(22,57, 255, .8));
+    border-radius: 2em;   
+    height: 50px;
+}
+
+.sendHelpButton{
+    margin: auto  auto auto;
+    background-color: rgba(0,0,0,0);
+    background-image: linear-gradient( 90deg, rgba(22,57, 255, .2),  rgba(22,57, 255, .8));
+    height: 50%;
+    color: white;
+    border-style: none;
+    
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.sendHelpButton:hover{
+    background-image: linear-gradient( 90deg, rgba(58, 158,255, .4),  rgba(58, 158,255, 1));
+}
+
+.chatIdentifier{
+    margin: auto 0 0 0;
+}
+
+.helpUserText{
+    margin: auto auto 0 0;
 }
