@@ -19,7 +19,7 @@ return (
       {sessions.length > 0 ?
       sessions.map((session, key)=>(
         <div key={session.ID} className='refreshFilesList'>
-          <div className='fileListSession'>
+          <div>
             <h1>
               Session: {session.Title}
             </h1>

@@ -1,6 +1,5 @@
 #app {
-    text-align: center;
-    
+    text-align: center;    
 }
 
 .app{
@@ -8,29 +7,26 @@
 }
 
 .app-grid{    
-        display: grid;       
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      
-        gap: 0px;
-        height: 100%;    
+    display: grid;       
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;      
+    gap: 0px;
+    height: 100%;    
 }
 .headerWrapper{
     display: grid;
     grid-row-start: 1;
     grid-column-start: 1;
-
     grid-row-end: 2;
     grid-column-end: 17;
 }
 
 .contentWrapper {
     display: grid;
-   grid-row-start: 2;
-  grid-column-start: 1;
-
-  grid-column-end: 17;
-  grid-row-end: 9;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 17;
+    grid-row-end: 9;
     
 }
 
@@ -99,16 +95,30 @@
 }
 
 .refreshFilesWrapper{
-    overflow-y: auto;        
+    overflow: auto;    
+    width:90%;
+    margin: 0em auto;
+}
+
+.refreshFilesWrapper::-webkit-scrollbar{
+    width: 1em;    
+}
+
+.refreshFilesWrapper::-webkit-scrollbar-track{
+    
+    background-color: rgba(58, 158,255, .5);
+    border-radius: 2em;
+}
+
+.refreshFilesWrapper::-webkit-scrollbar-thumb{
+    background-image: linear-gradient(rgba(22, 57,255, .2), rgba(22,57, 255, .8));
+    border-radius: 2em;
 }
 
 .refreshFilesList{    
-    background-image: linear-gradient(rgba(58, 158,255, .4), rgba(22,57, 255, .6));
-    width: 80%;
-    margin: 1em auto;
+    background-image: linear-gradient(rgba(58, 158,255, .4), rgba(22,57, 255, .6));    
     border-radius: 1em;
 }
-
 
 .fileListPresentation{ 
     border-bottom-left-radius: 1em;
@@ -147,14 +157,12 @@
     background-color:  rgba(22,57, 255, .4);
     padding: 1em;
     margin: 1em;
-    /* columns: 2; */
 }
 
 .fileListWrapper{
     margin: auto 0;
 }
 
-/* mr-[8px] p-[2px] w-[14px] h-[14px] bg-red-800 hover:bg-red-500  flex-1 items-center justify-center rounded-full transition-all */
 .closeButton{
     margin-left: 10px;
     background-color: #922B21;

@@ -16,6 +16,7 @@
 - Passing filelist data to RefreshFiles
   - Need to fix CSS grid ✅
 - Refresh Files now correctly displaying. File Sync algorithm not implemented yet.
+  - Added custom scroll bar to Refresh Files
 
 ## 0.0.46
 
