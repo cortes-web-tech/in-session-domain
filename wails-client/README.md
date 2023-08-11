@@ -18,6 +18,7 @@
 - Refresh Files now correctly displaying. File Sync algorithm not implemented yet.
   - Added custom scroll bar to Refresh Files
 - Added chat box to HelpUser GUI. Functionality not implemented yet.
+- Session CSS hotfix
 
 ## 0.0.46
 

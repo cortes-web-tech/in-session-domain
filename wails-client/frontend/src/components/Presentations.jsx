@@ -25,7 +25,7 @@ function Presentations(props) {
         {presentations.length > 0 ?
         presentations.map((presentation,key)=>(
           <div className='presentation' key={presentation.ID}>
-            <h1>{presentation.Title}</h1>
+            <h2>{presentation.Title}</h2>
             <h3>
             {Moment(presentation.StartTime).format("h:mmA") + " - " + Moment(presentation.EndTime).format("h:mmA")}
             </h3>
