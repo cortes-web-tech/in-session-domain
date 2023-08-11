@@ -22,7 +22,7 @@ function FileList(props) {
          Synced: {Moment(file.Synced).format("MM/DD/YY h:mmA")}</h3>
        </div>
      )):
-     <div>No files have been uploaded <br/>for this presentation.</div>
+     <div className='noFilesUploaded'>No files have been uploaded <br/>for this presentation.</div>
       }          
     </div>
   )
