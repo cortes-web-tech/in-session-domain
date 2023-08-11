@@ -5,6 +5,8 @@ import Moment from 'moment'
 import { HeaderContext} from './context/HeaderContext'
 import { SessionContext } from './context/SessionContext'
 import { WindowReload} from '../../wailsjs/runtime'
+import qrcode from '../assets/images/qrcode.png'
+// import 
 function Session() {
   const room = useContext(HeaderContext)
   const sessionContext = useContext(SessionContext)  
@@ -60,24 +62,33 @@ function Session() {
   }  
   
   return (
-    <div>
-        <div className='session'>  
+    <div>       
+      <div className='sessionWrapper'>  
+          <div className='qrCode'>
+            <img src={qrcode}/>
+          </div>
+          
         {sessions.length > 0 ?  
-        <div>
-        <h1>{sessions[index].Title}</h1>    
-        <h2>{sessions[index].Moderator}<br/>
-        {Moment(sessions[index].StartTime).format("MM/DD/YY h:mmA")}<br/>
-        {room}</h2>
-      </div>
-      :
+        <div className='session'>
+          <h1>{sessions[index].Title}</h1>    
+          <h2>{sessions[index].Moderator}<br/>
+          {Moment(sessions[index].StartTime).format("MM/DD/YY h:mmA")}<br/>
+          {room}</h2>
+        </div>
+        
+        :
         ""              
-      }        
+        }        
+        <div className='qrCode'>                
+          </div>
       </div>    
+      
       {sessions.length > 0 ?                                
       <Presentations session={sessions[index].ID}/>
       :      
       ""            
       }
+      
     </div>
   )
 }

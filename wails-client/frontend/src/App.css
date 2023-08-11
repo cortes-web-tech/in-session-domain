@@ -108,7 +108,22 @@
     text-decoration: none;
     color: #eee;
 }
+.sessionWrapper{
+    display: flex;
+}
 
+.qrCode{
+    flex:1
+    
+}
+
+.qrCode img{
+    width:150px;    
+    opacity: 90%;
+}
+.session{
+    flex:1;
+}
 
 .presentation{
     width: 300px;
