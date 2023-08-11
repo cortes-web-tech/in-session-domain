@@ -65,13 +65,13 @@ function Session() {
         {sessions.length > 0 ?  
         <div>
         <h1>{sessions[index].Title}</h1>    
-        <h2>{sessions[index].Moderator}</h2>
-        <h2>{Moment(sessions[index].StartTime).format("MM/DD/YY h:mmA")}</h2>     
+        <h2>{sessions[index].Moderator}<br/>
+        {Moment(sessions[index].StartTime).format("MM/DD/YY h:mmA")}<br/>
+        {room}</h2>
       </div>
       :
         ""              
       }        
-      <h3>{room}</h3>
       </div>    
       {sessions.length > 0 ?                                
       <Presentations session={sessions[index].ID}/>

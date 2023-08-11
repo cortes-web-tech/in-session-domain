@@ -28,6 +28,7 @@ return (
               {" - "}               
               {Moment(session.EndTime).format("hh:mmA")}
             </h3>
+            <h4>{session.Moderator}</h4>
           </div>
           <div className='fileListPresentation'>
             <PresentationList session={session.ID} />

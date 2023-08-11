@@ -13,19 +13,8 @@ import { SessionContext } from './components/context/SessionContext';
 function App({passToParent}) { 
 const [room, setRoom] = useState('Nerv HQ')
 const [presentation, setPresentation] = useState(0)
-// onDataFromChild={presentation}
 useEffect(()=>{
-    // setPresentation(0)
-    // passToParent={presentation}
-    indexHandler()
-}, [passToParent, presentation])
-
-function indexHandler(){
-    if(presentation!= undefined){
-        // setPresentation(0)
-    }
-    
-}
+}, [room])
 
 return (
 <div className='app'>

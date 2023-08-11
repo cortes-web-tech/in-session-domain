@@ -19,7 +19,7 @@
   - Added custom scroll bar to Refresh Files
 - Added chat box to HelpUser GUI. Functionality not implemented yet.
 - Session CSS hotfix
-- UI updates
+- UI updates + hotfixes
 
 ## 0.0.46
 

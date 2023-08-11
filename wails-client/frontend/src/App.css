@@ -34,7 +34,7 @@
     grid-row-start: 9;
     grid-column-start: 1;
     grid-column-end: 17;
-    grid-row-end: 10;
+    grid-row-end: 10;    
 }
 .content{
     text-align: center;
@@ -49,6 +49,10 @@
 .flex-content{
     flex: 1;
 }
+
+.footerContentWrapper{
+    margin-top: 4%;
+}
 .footer {
     display: flex;
     margin-inline: 2em;
@@ -59,28 +63,56 @@
 }
 .rightFooter{
     display: flex;
+    
 }
 
 .presentation{
     width: 300px;
-    /* height: 300px; */
+    height: 280px;
     background-color: rgba(22,57, 255, .2);
     box-shadow: inset 0 0 10px rgba(58, 158,255, .8);
     margin-inline: 1em;
     border-radius: 1em;
     padding: 0.5em;
+    display: flex;
+    flex-direction: column;
 }
 
+.refreshPresentationInfo{
+    margin: auto 0;
+    
+}
+
+.presentationInfo{
+    margin: auto 0;
+    flex-grow: 1;
+}
+
+
 .presentationButtons{
-    display: grid;
+    /* display: grid; */
+    flex:1;
     justify-content: center;
-    grid-template-rows: auto;    
+    grid-template-rows: auto;
+    
 }
 
 .presentationButtons button{
-    width: 100px;
+    font-size: 16px;   
+    width: 70px;
+    border-radius: .5em;
+    padding: .5em;
     grid-area: auto;
-    background-color: floralwhite;
+    color: #eee;
+    margin: .5em;
+    border-style: none;
+    background-color: rgba(58,157, 255, .8);
+    box-shadow: inset 0 0 10px rgba(22, 58,255, .8);
+}
+
+.presentationButtons button:hover{
+    background-color: rgba(22, 58,255, .8);
+    box-shadow: inset 0 0 10px rgba(58,157, 255, .8);
 }
 
 .room-nav{
@@ -130,7 +162,7 @@
 .refreshPresentations{    
     display: flex;    
     width: 95%;
-    height: 95;
+    height: 95%;
     margin: 1em auto;
     border-radius: 1em;
     box-shadow: inset 0 0 10px rgba(58, 158,255, .8);
@@ -149,6 +181,8 @@
     flex-direction: column;
     
 }
+
+
 
 .fileList{
     display: flex;
@@ -221,7 +255,7 @@
 
 .chatboxWrapper{
     width:90%;
-    height: 90%;
+    height: 80%;
     margin: auto auto;
     background-color: rgba(22,57, 255, .2);
     display: grid;

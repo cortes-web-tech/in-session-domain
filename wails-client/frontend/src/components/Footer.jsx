@@ -9,16 +9,17 @@ function Footer({onDataFromChild, passToParent}) {
     onDataFromChild={presentation}
     passToParent(presentation)    
   return (
+    <div className='footerContentWrapper'>
     <div className='footer'>      
       <div className='flex-content'>    
       {path == "/" ?<FooterLeft onDataFromChild={setPresentation} /> : ""}
       </div>
-      <div className='flex-content'>
-        Event / Sponsor ™️   
-      </div>
+      {path == "/HelpUser" ? <div className='flex-content'></div> :<div className='flex-content'>Event / Sponsor ™️   
+      </div>}
       <div className='flex-content'>
       <FooterRight/>
       </div>
+    </div>
     </div>
   )
 }

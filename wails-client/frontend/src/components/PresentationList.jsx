@@ -19,15 +19,16 @@ function PresentationList(props) {
         presentations.map((presentation,key)=>(
           <div className='refreshPresentations' key={presentation.ID}>
             <div className='presentationList'>
+              <div className='refreshPresentationInfo'>
             <h2>Presentation:
               <br/>
-              {presentation.Title}</h2>
-            <h3>Presenter: {presentation.Presenter}</h3>
+              {presentation.Title}
+            <br/>Presenter: {presentation.Presenter}</h2>
             <h4>
             Start time: {Moment(presentation.StartTime).format("h:mmA")}
             <br/>
             End time: {Moment(presentation.EndTime).format("h:mmA")}</h4>
-            
+            </div>
             
             
             </div >
