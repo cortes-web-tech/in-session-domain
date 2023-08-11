@@ -2,6 +2,7 @@
 # Series of signifcant changes were made on the client app.
 # Details found wails-client/README.md
 # Removed deprecated front end (views/)
+# Removed deprecated web app (react-in-session)
 
 # 0.0.46
 # Deleted old mac app files (client/)
