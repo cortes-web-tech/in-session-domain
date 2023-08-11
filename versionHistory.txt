@@ -1,6 +1,7 @@
 # 0.0.47
 # Series of signifcant changes were made on the client app.
 # Details found wails-client/README.md
+# Removed deprecated front end (views/)
 
 # 0.0.46
 # Deleted old mac app files (client/)
