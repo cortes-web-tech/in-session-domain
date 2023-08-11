@@ -11,10 +11,12 @@ function FooterRight() {
       <div></div>
       :
       <div className='rightFooter'>
-        <button onClick={OpenMyPC}>Desktop</button>
-        {path == "/RefreshFiles" ? <div className='flex-content'></div> :<Link className='flex-content' to="/RefreshFiles">Refresh Files</Link>}
-        {path == "/HelpUser" ? <div className='flex-content'></div> :<Link className='flex-content' to="/HelpUser">Help</Link>}
-        {path == "/HowTo" ? <div className='flex-content'></div> :<Link className='flex-content' to="/HowTo">How To</Link>}      
+        <div className='desktopButton'>
+          <button onClick={OpenMyPC}>Desktop</button>
+        </div>
+        {path == "/RefreshFiles" ? <div className='flex-content'></div> :<div className='desktopButton'><button><Link  to="/RefreshFiles">Refresh </Link></button></div>}
+        {path == "/HelpUser" ? <div className='flex-content'></div> :<div className='desktopButton'><button><Link to="/HelpUser">Help</Link></button></div>}
+        {path == "/HowTo" ? <div className='flex-content'></div> :<div className='desktopButton'><button><Link to="/HowTo">How To</Link></button></div>}      
       </div>
       }      
     </div>

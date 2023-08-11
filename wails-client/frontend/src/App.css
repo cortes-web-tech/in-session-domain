@@ -61,10 +61,54 @@
 .leftFooter{
     display: flex;
 }
+
+.navButton button{
+    font-size: 16px;   
+    width: 70px;
+    border-radius: .5em;
+    padding: .5em;
+    grid-area: auto;
+    color: #eee;
+    margin: .5em;
+    border-style: none;
+    background-color: rgba(58,157, 255, .8);
+    box-shadow: inset 0 0 10px rgba(22, 58,255, .8);
+}
+
+.navButton button:hover{
+    background-color: rgba(22, 58,255, .8);
+    box-shadow: inset 0 0 10px rgba(58,157, 255, .8);
+}
 .rightFooter{
-    display: flex;
+    display: flex;    
+}
+
+.desktopButton{
+    flex: 1;
+}
+.desktopButton button{
+    font-size: 16px;   
+    width: 80px;
+    border-radius: .5em;
+    padding: .5em;
+    grid-area: auto;
+    color: #eee;
+    border-style: none;
+    background-color: rgba(58,157, 255, .8);
+    box-shadow: inset 0 0 10px rgba(22, 58,255, .8);
     
 }
+
+.desktopButton button:hover{
+    background-color: rgba(22, 58,255, .8);
+    box-shadow: inset 0 0 10px rgba(58,157, 255, .8);
+}
+
+.desktopButton a{
+    text-decoration: none;
+    color: #eee;
+}
+
 
 .presentation{
     width: 300px;

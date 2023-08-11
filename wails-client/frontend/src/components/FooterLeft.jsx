@@ -36,7 +36,9 @@ function FooterLeft({onDataFromChild}) {
       <div className='leftFooter'>           
       <div className='flex-content'>      
         { index > 0 ?
-        <button onClick={(e)=>handleSessionChange(e, index-1)}> previous </button> 
+        <div className='navButton'>
+          <button  onClick={(e)=>handleSessionChange(e, index-1)}> previous </button> 
+        </div>
         : "" }
           
       </div>
@@ -45,7 +47,9 @@ function FooterLeft({onDataFromChild}) {
       </div>
       <div className='flex-content'>
         {index < sessions.length - 1 ?
-        <button onClick={(e)=>handleSessionChange(e, index+1)}>next</button>
+        <div className='navButton'>
+          <button  onClick={(e)=>handleSessionChange(e, index+1)}>next</button>
+        </div>
         : "" }
         
       </div>
