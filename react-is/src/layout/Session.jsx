@@ -10,7 +10,6 @@ const [subsessions, setSubsessions] = useState([]);
 useEffect(() => {
     getSession(session_id);
   }, []);
-console.log(subsessions)
   function getSession(id) {
     axios
       .post("http://localhost:80/api/getSession.php", { session_id: id })

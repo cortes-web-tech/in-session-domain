@@ -5,6 +5,7 @@ import Presenting from "../components/Presenting";
 
 function User(props) {
 const location = useLocation();
+const presenterName = location.state.name;
 const user_id = location.state.user_id;
 const [user, setUser] = useState([])
 useEffect(() => {
@@ -12,7 +13,7 @@ useEffect(() => {
 }, []);
 function getUser(id) {
   axios
-  .post("http://localhost/api/user.php/", { user_id: id })
+  .post("http://localhost/api/user.php/", { user_id: user_id })
   .then((response) => {
     setUser(response.data[0]);
   }).catch((err) => console.log(err));
@@ -36,7 +37,7 @@ return <div>
       </div>
     </div>
     <div className="flex justify-center">
-    <Presenting state={{user_id}}/>    
+    <Presenting state={{presenter: presenterName, user_id: user_id}}/>    
     </div>
 </div>
 </div>;

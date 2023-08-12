@@ -3,6 +3,8 @@
 # Details found wails-client/README.md
 # Removed deprecated front end (views/)
 # Removed deprecated web app (react-in-session)
+# Hot fixed some API connections from that were discontinued from previous server iteration
+# Starting to re-deploy to AWS.
 
 # 0.0.46
 # Deleted old mac app files (client/)

@@ -1,17 +1,25 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Filelist from "./Filelist";
+import { useLocation } from "react-router-dom";
 // 1) presentingIn
 // 2) Add <Filelist state=subsession_id>
 function Presenting(props) {
+  const location = useLocation();
   const [subsessions, setSubsessions] = useState([]);
+  const id = location.state.user_id
+  const name = location.state.name
   useEffect(()=>{
-    presentingIn(props.state.user_id)
-    }, [])
+    presentingIn(id)
+    }, [])  
+
+
   function presentingIn(id) {
     axios
-      .post("http://localhost/api/presentingIn.php", { user_id: id })
-      .then((response) => setSubsessions(response.data))
+      .post("http://localhost/api/presentingIn.php", { user_id: name })
+      .then((response) => {        
+        setSubsessions(response.data)
+      })
       .catch((err) => console.log(err));
   }
   return (

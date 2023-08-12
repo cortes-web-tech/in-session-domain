@@ -6,9 +6,8 @@ const [users, setUsers] = useState ([])
   useEffect(()=>{
     getUsers()
   }, [])
-
   async function getUsers(){
-    axios.get("http://localhost:80/api/users.php").then(function (response) {
+    axios.get("http://localhost/api/users.php").then(function (response) {
       if (response.data.error) {
         console.log("Error while getting data.");
       } else {
@@ -27,9 +26,7 @@ const [users, setUsers] = useState ([])
             return <div>Moderator</div>
         case "3":
             return <div>Admin</div>
-    }
-        
-
+    }        
   }
 
   return (
@@ -45,7 +42,7 @@ const [users, setUsers] = useState ([])
             
         {users.map((user, key) => (
             <tr key={user.user_id} className="border-t-4  border-blue-500">
-                <td className="border-r-4 border-blue-500 pr-2"><Link to="/User" state={{ user_id: user.user_id }} className="text-blue-400 underline underline-offset-2 hover:text-blue-500">
+                <td className="border-r-4 border-blue-500 pr-2"><Link to="/User" state={{ name: user.fullName, user_id: user.user_id }} className="text-blue-400 underline underline-offset-2 hover:text-blue-500">
                       {user.fullName}
                     </Link></td>
                 <td className="pl-2">{user.email}</td>

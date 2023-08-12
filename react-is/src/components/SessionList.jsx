@@ -6,10 +6,10 @@ function SessionList() {
 const [sessions, setSessions] = useState([]);
   useEffect(() => {
     getSessions();
-  }, []);
+  }, []);  
 
   function getSessions() {
-    axios.get("http://localhost:80/api/getSessions.php").then(function (response) {
+    axios.get("http://localhost/api/getSessions.php").then(function (response) {
       if (response.data.error) {
         console.log("Error while getting data.");
       } else {
