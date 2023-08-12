@@ -83,7 +83,7 @@ function Dashboard() {
   }
 
   return <div className="flex justify-center ">
-  <div className="min-w-fit">  
+  <div className="min-w-fit mx-8">  
     <h1>Dashboard</h1>
     <div >
     <table className="px-20 bg-blue-800 rounded-md">
@@ -111,13 +111,15 @@ function Dashboard() {
         </tbody>
       </table>
       </div>
-    <DataVisualization data={{
-      sessions: sessionCount,
-      subsessions: subsessionCount,
-      rooms: roomCount,
-      users: userCount,
-      files: fileCount
-      }}/>
+      <div className="mt-2 ml-2 mr-2 mb-2">
+      <DataVisualization data={{
+        sessions: sessionCount,
+        subsessions: subsessionCount,
+        rooms: roomCount,
+        users: userCount,
+        files: fileCount
+        }}/>
+      </div>
   </div>
   
 </div>;

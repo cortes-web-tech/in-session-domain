@@ -1,0 +1,26 @@
+.completed{
+    /* width:200px; */
+    background-color: grey;
+    color: rgb(63, 27, 27);
+    margin: 0 auto;
+}
+
+.progress{
+    /* height:50px; */    
+    width:200px;
+    background-color: rgb(20, 207, 20);
+    opacity: 0;
+    animation: render-progress;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;  
+}
+
+
+@keyframes render-progress {
+    0% {opacity: 0}
+    100% {opacity: 1}
+  }
+
+  .visualizationWrapper{
+    margin: auto auto;
+  }

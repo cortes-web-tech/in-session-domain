@@ -2,6 +2,10 @@
 
 - _A previous iteration of this app was built using `bash npm create react app`. This new version was built using `bash npm create vite@latest` to reduce bloateware. For simplicity's sake, the version history will continue off from the previous number rather than begin at 0.0.1_
 
+## 0.0.47
+
+- _Added session and presentation percentage completeness._
+
 ## 0.0.41
 
 - _Stable version._
