@@ -7,6 +7,7 @@
 # Starting to re-deploy to AWS.
 # app hot fix after changing database for webapp purposes
 # Presenting state hot fix
+# (webapp) able to add sessions again
 
 # 0.0.46
 # Deleted old mac app files (client/)
