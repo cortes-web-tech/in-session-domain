@@ -5,6 +5,8 @@
 # Removed deprecated web app (react-in-session)
 # Hot fixed some API connections from that were discontinued from previous server iteration
 # Starting to re-deploy to AWS.
+# app hot fix after changing database for webapp purposes
+# Presenting state hot fix
 
 # 0.0.46
 # Deleted old mac app files (client/)

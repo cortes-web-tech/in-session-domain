@@ -12,7 +12,7 @@ function Presenting(props) {
   useEffect(()=>{
     presentingIn(id)
     }, [])  
-
+    
 
   function presentingIn(id) {
     axios
@@ -22,29 +22,39 @@ function Presenting(props) {
       })
       .catch((err) => console.log(err));
   }
-  return (
-    <div className="">
-      <h2>Presenting</h2>
-      <table>
-        <tbody>
-            <tr>
-                <td>Subsession title</td>
-                <td>Start time</td>
-                <td>End time</td>
-                <td>Moderator</td>              
-            </tr>
-        {subsessions.map((subsession, key)=> (
-          <tr key={subsession.subsession_id} className="align-top border-t-4 border-blue-500">
-            <td className="border-r-4 border-blue-500">{subsession.subsession_title}
-            <br/> <Filelist state={{ id: subsession.subsession_id }} />
-            </td>
-            <td className="pl-2">{subsession.startTime}</td>
-            <td>{subsession.endTime}</td>
-            <td>{subsession.modName}</td>
-          </tr>
-        ))}
-        </tbody>
-      </table>
+return (
+<div>
+  {subsessions.length > 0 ?
+  <div>
+  <h2>Presenting</h2>
+  <table>
+    <tbody>
+        <tr>
+          <td>Subsession title</td>
+          <td>Start time</td>
+          <td>End time</td>
+          <td>Moderator</td>              
+        </tr>
+    {subsessions.map((subsession, key)=> (
+      <tr key={subsession.subsession_id} className="align-top border-t-4 border-blue-500">
+        <td className="border-r-4 border-blue-500">{subsession.subsession_title}
+        <br/> <Filelist state={{ id: subsession.subsession_id }} />
+        </td>
+        <td className="pl-2">{subsession.startTime}</td>
+        <td>{subsession.endTime}</td>
+        <td>{subsession.modName}</td>
+      </tr>
+    ))}
+    </tbody>
+  </table>
+  </div>
+  :
+  <div>
+    <h2>No presentations assigned to this user.</h2>
+    <small>checkMod() WIP™️</small>
+  </div>
+}
+    
     </div>
   )
 }

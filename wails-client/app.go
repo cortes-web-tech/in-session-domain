@@ -427,9 +427,10 @@ func (a *App) RefreshFileList(id int) []File {
 	var sub_id int
 	var modified string
 	var synced string
+	var presentation_id int
 
 	for rows.Next() {
-		err := rows.Scan(&file_id, &sub_id, &filepath, &file_name, &room, &modified, &synced)
+		err := rows.Scan(&file_id, &sub_id, &filepath, &file_name, &room, &modified, &synced, &presentation_id)
 		if err != nil {
 			log.Fatal(err)
 		}
