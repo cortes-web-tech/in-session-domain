@@ -3,26 +3,55 @@ import { useState, useEffect } from "react";
 import Moment from "moment";
 import axios from "axios";
 import Filelist from "../components/Filelist";
+import CreatePresentation from "../components/CreatePresentation";
 function Session() {
 const location = useLocation();
 const session_id = location.state.session_id;
 const [subsessions, setSubsessions] = useState([]);
+const [addingPresentation, setAddingPresentation] = useState(false)
 useEffect(() => {
     getSession(session_id);
-  }, []);
+    // presentations()
+  }, [subsessions]);
+  // presentations()
+  
+  function presentations(e){
+    if(subsessions.length == 0){
+      setAddingPresentation(true)
+    }
+  }
+
   function getSession(id) {
     axios
       .post("http://localhost:80/api/getSession.php", { session_id: id })
-      .then((response) => setSubsessions(response.data))
+      .then((response) => {
+        setSubsessions(response.data)
+        
+      }
+      )
       .catch((err) => console.log(err));
   }
+
+  const togglePresentation = (e) =>{
+  setAddingPresentation(!addingPresentation)
+}
 return <div>
+  {addingPresentation ?
+  <div>
+    <CreatePresentation onDataFromChild={setAddingPresentation}/>
+    <button className='bg-blue-500' onClick={(e)=>togglePresentation()}>View session</button>
+  </div>
+:
+
+<div>
+{subsessions.length > 0 ?
+<div>
 <h1>Session</h1>
 <div className="bg-blue-800 flex justify-center rounded-md">  
 <table>
   <tbody >
     <tr >
-      <td>Subsession Title</td>
+      <td>Presentation Title</td>
       <td>Presenter</td>
       <td>Start Time</td>
       <td>End Time</td>
@@ -48,6 +77,19 @@ return <div>
   </tbody>
 </table>
 </div>
+<button className='bg-blue-500' onClick={(e)=>togglePresentation()}>add presentation</button>
+
+</div>
+:
+<div>
+  <h3>This session doesn't have any presentations. You can add manually below.</h3>
+<button className='bg-blue-500' onClick={(e)=>togglePresentation()}>add presentation</button>
+</div>
+}
+
+</div>
+}
+
 </div>;
 }
 export default Session

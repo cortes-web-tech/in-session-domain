@@ -6,7 +6,7 @@ function SessionList() {
 const [sessions, setSessions] = useState([]);
   useEffect(() => {
     getSessions();
-  }, []);  
+  }, [sessions]);  
 
   function getSessions() {
     axios.get("http://localhost/api/getSessions.php").then(function (response) {
