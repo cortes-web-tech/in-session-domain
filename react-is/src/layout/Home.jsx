@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import inSessionApp from '../images/inSessionApp.png'
+import inSessionRefreshFiles from '../images/app_RefreshFiles.png'
 function Home() {
   return <div className="pageLayout">
     <div className="content">  
@@ -15,6 +17,11 @@ function Home() {
         AWS EC2 Hosting
       </p>      
       <p>To view a demo, please continue to the <Link to="/Dashboard" className="text-blue-400 underline underline-offset-2 hover:text-blue-500">Dashboard</Link></p>
+      <h2>Below is a demo of the mac app.</h2>
+      <div className="flex justify-center space-x-2">
+      <img style={{height:400}}  src={inSessionApp}/>
+      <img style={{height:400}}  src={inSessionRefreshFiles}/>
+      </div>
     </div>
     
   </div>;

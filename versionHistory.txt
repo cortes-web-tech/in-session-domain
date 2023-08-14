@@ -9,6 +9,7 @@
 # Presenting state hot fix
 # (webapp) able to add sessions again
 # (webapp) can add presentations to sessions again.
+# Added demo images to home page
 
 # 0.0.46
 # Deleted old mac app files (client/)
