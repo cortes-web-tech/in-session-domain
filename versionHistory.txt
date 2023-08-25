@@ -10,6 +10,7 @@
 # (webapp) able to add sessions again
 # (webapp) can add presentations to sessions again.
 # Added demo images to home page
+# Researching chat client using the go implemetnation of websockets 
 
 # 0.0.46
 # Deleted old mac app files (client/)
